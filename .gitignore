@@ -1,0 +1,8 @@
+node_modules/*
+dist/*
+coverage/*
+flow-typed/*
+*.log
+yarn.lock
+package-lock.json
+.DS_Store

@@ -1,0 +1,39 @@
+{
+  "env": {
+    "development": {
+      "plugins": ["dynamic-import-node"]
+    }
+  },
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["./", "./src"]
+      }
+    ],
+    [
+      "babel-plugin-styled-components",
+      {
+        "ssr": true
+      }
+    ],
+    "add-module-exports",
+    "loadable-components/babel",
+    "react-hot-loader/babel"
+  ],
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "browsers": "last 2 versions",
+          "node": "current"
+        },
+        "useBuiltIns": "usage"
+      }
+    ],
+    ["@babel/preset-stage-0", { "decoratorsLegacy": true }],
+    "@babel/preset-react",
+    "@babel/preset-flow"
+  ]
+}

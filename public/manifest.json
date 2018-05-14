@@ -1,0 +1,26 @@
+{
+  "lang": "ja",
+  "display": "standalone",
+  "short_name": "RSSRS",
+  "name": "react-ssr-starter",
+  "icons": [
+    {
+      "src": "/static/images/touch/launcher-icon.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "/static/images/touch/launcher-icon-2x.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "/static/images/touch/launcher-icon-4x.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "/",
+  "theme_color": "#f68084",
+  "background_color": "#f68084"
+}

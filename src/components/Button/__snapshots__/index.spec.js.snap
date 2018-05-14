@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> render snapshots 1`] = `
+<Button__ButtonUI>
+  Button
+</Button__ButtonUI>
+`;

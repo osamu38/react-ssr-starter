@@ -1,0 +1,3 @@
+{
+  "watch": ["src/server.js", "src/routes.js", "src/utils/renderHtml.js"]
+}

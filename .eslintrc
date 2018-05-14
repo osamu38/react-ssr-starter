@@ -1,0 +1,44 @@
+{
+  "extends": [
+    "airbnb",
+    "prettier",
+    "prettier/react",
+    "plugin:react/recommended"
+  ],
+  "rules": {
+    "no-new": 0,
+    "global-require": 0,
+    "class-methods-use-this": 0,
+    "import/no-extraneous-dependencies": 0,
+    "react/no-danger": 0,
+    "react/jsx-filename-extension": 0,
+    "react/no-array-index-key": 0,
+    "react/require-default-props": 0
+  },
+  "plugins": ["react", "prettier", "flowtype"],
+  "parser": "babel-eslint",
+  "env": {
+    "es6": true,
+    "node": true,
+    "browser": true,
+    "jest": true
+  },
+  "settings": {
+    "import/resolver": {
+      "babel-module": {
+        "extensions": [".js"]
+      }
+    }
+  },
+  "parserOptions": {
+    "ecmaVersion": 9,
+    "sourceType": "module"
+  },
+  "globals": {
+    "shallow": true,
+    "render": true,
+    "mount": true,
+    "toJson": true,
+    "importScripts": true
+  }
+}
