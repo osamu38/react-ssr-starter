@@ -8,7 +8,7 @@ class Meta {
     this.meta = {
       viewport:
         'width=device-width,initial-scale=1.0,minimum-scale=1.0,shrink-to-fit=no,viewport-fit=cover',
-      description: 'Easy to start ssr with react',
+      description: 'All have been introduced React environment',
       'theme-color': colors.accent,
       'format-detection': 'telephone=no',
       'apple-mobile-web-app-capable': 'yes',
@@ -18,7 +18,7 @@ class Meta {
       'fb:app_id': '',
       'og:title': 'react-ssr-starter',
       'og:type': '',
-      'og:description': 'Easy to start ssr with react',
+      'og:description': 'All have been introduced React environment',
       'og:url': '',
       'og:image': '',
       'og:site_name': '',
@@ -26,7 +26,7 @@ class Meta {
       'twitter:card': '',
       'twitter:site': '',
       'twitter:title': 'react-ssr-starter',
-      'twitter:description': 'Easy to start ssr with react',
+      'twitter:description': 'All have been introduced React environment',
       'twitter:image': '',
     };
   }
