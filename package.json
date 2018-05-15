@@ -42,7 +42,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "body-parser": "^1.18.2",
+    "body-parser": "^1.18.3",
     "compression": "^1.7.2",
     "cookie-parser": "^1.4.3",
     "express": "^4.16.3",
@@ -70,12 +70,12 @@
     "styled-components": "^3.2.6"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.46",
-    "@babel/preset-env": "^7.0.0-beta.46",
-    "@babel/preset-flow": "^7.0.0-beta.46",
-    "@babel/preset-react": "^7.0.0-beta.46",
-    "@babel/preset-stage-0": "^7.0.0-beta.46",
-    "@babel/register": "^7.0.0-beta.46",
+    "@babel/core": "^7.0.0-beta.47",
+    "@babel/preset-env": "^7.0.0-beta.47",
+    "@babel/preset-flow": "^7.0.0-beta.47",
+    "@babel/preset-react": "^7.0.0-beta.47",
+    "@babel/preset-stage-0": "^7.0.0-beta.47",
+    "@babel/register": "^7.0.0-beta.47",
     "@storybook/addon-links": "^3.4.4",
     "@storybook/react": "^3.4.4",
     "babel-core": "^7.0.0-bridge.0",
