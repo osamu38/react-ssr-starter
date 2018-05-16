@@ -26,7 +26,7 @@ Features
 ## Install
 
 ```
-$ git clone git@github.com:osamu38/react-ssr-starter.git
+$ git clone https://github.com/osamu38/react-ssr-starter.git
 $ cd react-ssr-starter
 $ npm i
 ```
