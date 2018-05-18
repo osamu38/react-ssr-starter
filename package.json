@@ -19,7 +19,6 @@
     "build:client:analyze": "NODE_ENV=production webpack --progress --env.analyze --config ./tools/webpack/webpack.client.babel.js",
     "build:server": "NODE_ENV=production webpack --progress --env --config ./tools/webpack/webpack.server.babel.js",
     "build:server:analyze": "NODE_ENV=production webpack --progress --env.analyze --config ./tools/webpack/webpack.server.babel.js",
-    "precommit": "lint-staged",
     "postinstall": "flow-typed install --overwrite",
     "lint": "eslint . --fix",
     "lint:css": "stylelint './src/**/*.js'",
@@ -104,10 +103,8 @@
     "flow-bin": "^0.72.0",
     "flow-typed": "^2.4.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
-    "husky": "^0.14.3",
     "jest": "^23.0.0-beta.2",
     "json-loader": "^0.5.7",
-    "lint-staged": "^7.1.0",
     "nodemon": "^1.17.4",
     "prettier": "^1.12.1",
     "raf": "^3.4.0",
@@ -125,11 +122,5 @@
     "webpack-node-externals": "^1.7.2",
     "workbox-sw": "^3.2.0",
     "workbox-webpack-plugin": "^3.2.0"
-  },
-  "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "git add"
-    ]
   }
 }
