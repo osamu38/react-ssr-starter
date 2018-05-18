@@ -28,7 +28,7 @@ class Cookie {
     return this.cookie.load(this.tokenKey);
   }
   deleteToken() {
-    this.cookie.remove(this.tokenKey);
+    this.cookie.remove(this.tokenKey, this.options);
   }
 }
 
