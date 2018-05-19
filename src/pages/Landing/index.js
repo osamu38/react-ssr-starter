@@ -1,25 +1,6 @@
 /* @flow */
 
-import * as React from 'react';
-import Helmet from 'react-helmet';
-import { LoginForm, Title } from 'components';
+import loadable from 'loadable-components';
+import { compose, pure } from 'recompose';
 
-type Props = {
-  userActions: {
-    login: Function,
-  },
-};
-
-export default function Landing(props: Props) {
-  const {
-    userActions: { login },
-  } = props;
-
-  return (
-    <>
-      <Helmet title="Landing" />
-      <Title>Landing Page</Title>
-      <LoginForm login={login} />
-    </>
-  );
-}
+export default compose(pure)(loadable(() => import('pages/Landing/Landing')));

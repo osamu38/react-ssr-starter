@@ -20,6 +20,7 @@ const vendor = [
   'react-router-config',
   'react-router-dom',
   'react-router-redux',
+  'recompose',
   'redux',
   'redux-thunk',
   'styled-components',

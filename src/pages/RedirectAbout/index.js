@@ -1,8 +1,10 @@
 /* @flow */
 
-import * as React from 'react';
-import Helmet from 'react-helmet';
+import loadable from 'loadable-components';
+import { compose, pure, setStatic } from 'recompose';
+import url from 'config/url';
 
-export default function RedirectAbout() {
-  return <Helmet title="RedirectAbout" />;
-}
+export default compose(
+  setStatic('getRedirectUrl', () => url.endpoint.about),
+  pure
+)(loadable(() => import('pages/RedirectAbout/RedirectAbout')));

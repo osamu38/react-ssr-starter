@@ -1,9 +1,13 @@
 /* @flow */
 
-import loadable from 'loadable-components';
 import url from 'config/url';
 import Auth from 'components/Auth';
-import { fetchUser, fetchUsers } from 'actions/user';
+import Landing from 'pages/Landing';
+import Home from 'pages/Home';
+import UserDetail from 'pages/UserDetail';
+import About from 'pages/About';
+import RedirectAbout from 'pages/RedirectAbout';
+import NotFound from 'pages/NotFound';
 
 function addExact(routes): Array<Object> {
   return routes.map(
@@ -25,32 +29,29 @@ export default [
       {
         path: url.endpoint.landing,
         isLoggedIn: false,
-        component: loadable(() => import('pages/Landing')),
+        component: Landing,
       },
       {
         path: url.endpoint.home,
         isLoggedIn: true,
-        component: loadable(() => import('pages/Home')),
-        loadData: dispatch => dispatch(fetchUsers()),
+        component: Home,
       },
       {
         path: url.endpoint.userDetail,
         isLoggedIn: true,
-        component: loadable(() => import('pages/UserDetail')),
-        loadData: (dispatch, state, params) => dispatch(fetchUser(params.id)),
+        component: UserDetail,
       },
       {
         path: url.endpoint.about,
-        component: loadable(() => import('pages/About')),
+        component: About,
       },
       {
         path: url.endpoint.redirectAbout,
-        component: loadable(() => import('pages/RedirectAbout')),
-        getRedirectUrl: () => url.endpoint.about,
+        component: RedirectAbout,
       },
       {
         path: url.endpoint.notFound,
-        component: loadable(() => import('pages/NotFound')),
+        component: NotFound,
       },
     ]),
   },

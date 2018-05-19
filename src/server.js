@@ -49,26 +49,21 @@ function getDocument(initialState, content, loadableState) {
 }
 function getLoadBranchData(branch, store): Array<Promise<any>> {
   return branch
-    .filter(({ route }) => route.loadData)
+    .filter(({ route }) => route.component.loadData)
     .map(({ route, match }) =>
-      route.loadData(store.dispatch, store.getState(), match.params)
+      route.component.loadData(store.dispatch, store.getState(), match.params)
     );
 }
 function getRedirectUrls(branch, store): Array<string> {
   return branch
-    .filter(
-      ({ route }) => route.getRedirectUrl || route.component.getRedirectUrl
-    )
-    .map(({ route, match }) => {
-      const getRedirectUrl =
-        route.getRedirectUrl || route.component.getRedirectUrl;
-
-      return getRedirectUrl(
+    .filter(({ route }) => route.component.getRedirectUrl)
+    .map(({ route, match }) =>
+      route.component.getRedirectUrl(
         store.getState(),
         branch[branch.length - 1].route,
         match.params
-      );
-    })
+      )
+    )
     .filter(location => location);
 }
 

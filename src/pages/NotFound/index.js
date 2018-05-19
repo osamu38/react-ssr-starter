@@ -1,14 +1,6 @@
 /* @flow */
 
-import * as React from 'react';
-import Helmet from 'react-helmet';
-import { Title } from 'components';
+import loadable from 'loadable-components';
+import { compose, pure } from 'recompose';
 
-export default function NotFound() {
-  return (
-    <>
-      <Helmet title="NotFound" />
-      <Title>NotFound</Title>
-    </>
-  );
-}
+export default compose(pure)(loadable(() => import('pages/NotFound/NotFound')));

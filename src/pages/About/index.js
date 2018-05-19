@@ -1,16 +1,6 @@
 /* @flow */
 
-import * as React from 'react';
-import Helmet from 'react-helmet';
-import { Title, SubTitle, StackList } from 'components';
+import loadable from 'loadable-components';
+import { compose, pure } from 'recompose';
 
-export default function About() {
-  return (
-    <>
-      <Helmet title="About" />
-      <Title>About Page</Title>
-      <SubTitle>Use Stack List</SubTitle>
-      <StackList />
-    </>
-  );
-}
+export default compose(pure)(loadable(() => import('pages/About/About')));

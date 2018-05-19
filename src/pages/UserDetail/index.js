@@ -1,51 +1,29 @@
 /* @flow */
 
-import * as React from 'react';
-import Helmet from 'react-helmet';
-import { Title, User } from 'components';
+import loadable from 'loadable-components';
+import { compose, lifecycle, pure, setStatic } from 'recompose';
+import { fetchUser as fetchUserFromSever } from 'actions/user';
 
-type Props = {
-  match: {
-    params: {
-      id: string,
+export default compose(
+  setStatic('loadData', (dispatch, state, params) =>
+    dispatch(fetchUserFromSever(params.id))
+  ),
+  lifecycle({
+    componentDidMount() {
+      const {
+        match: {
+          params: { id },
+        },
+        user: {
+          user: { id: userId },
+        },
+        userActions: { fetchUser },
+      } = this.props;
+
+      if (userId !== parseInt(id, 10)) {
+        fetchUser(id);
+      }
     },
-  },
-  user: {
-    user: { id: ?number },
-  },
-  userActions: {
-    login: Function,
-    fetchUser: Function,
-  },
-};
-
-export default class UserDetail extends React.Component<Props> {
-  componentDidMount() {
-    const {
-      match: {
-        params: { id },
-      },
-      user: {
-        user: { id: userId },
-      },
-      userActions: { fetchUser },
-    } = this.props;
-
-    if (userId !== parseInt(id, 10)) {
-      fetchUser(id);
-    }
-  }
-  render() {
-    const {
-      user: { user },
-    } = this.props;
-
-    return (
-      <>
-        <Helmet title="User Detail" />
-        <Title>User Detail Page</Title>
-        <User user={user} />
-      </>
-    );
-  }
-}
+  }),
+  pure
+)(loadable(() => import('pages/UserDetail/UserDetail')));
