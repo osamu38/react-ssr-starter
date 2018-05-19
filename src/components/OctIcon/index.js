@@ -5,7 +5,7 @@ import * as React from 'react';
 export default function OctIcon() {
   return (
     <a
-      href="https://github.com/osamu38/react-ssr-stater"
+      href="https://github.com/osamu38/react-ssr-starter"
       target="_blank"
       rel="noopener noreferrer"
     >
