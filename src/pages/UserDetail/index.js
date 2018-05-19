@@ -2,11 +2,11 @@
 
 import loadable from 'loadable-components';
 import { compose, lifecycle, pure, setStatic } from 'recompose';
-import { fetchUser as fetchUserFromSever } from 'actions/user';
+import { fetchUser as fetchUserFromServer } from 'actions/user';
 
 export default compose(
   setStatic('loadData', (dispatch, state, params) =>
-    dispatch(fetchUserFromSever(params.id))
+    dispatch(fetchUserFromServer(params.id))
   ),
   lifecycle({
     componentDidMount() {
