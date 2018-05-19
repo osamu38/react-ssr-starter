@@ -34,7 +34,7 @@ type Props = {
 export default function Error(props: Props) {
   const { hideError, children } = props;
 
-  return children ? (
+  return (
     <ErrorUI
       onAnimationEnd={() => {
         hideError();
@@ -42,5 +42,5 @@ export default function Error(props: Props) {
     >
       {children}
     </ErrorUI>
-  ) : null;
+  );
 }
