@@ -3,22 +3,12 @@
 import * as React from 'react';
 import { Route as SwitchRoute, Switch } from 'react-router-dom';
 import { matchRoutes } from 'react-router-config';
+import { compose, lifecycle, setStatic, pure } from 'recompose';
 import url from 'config/url';
 import routes from 'routes';
 
 type Props = {
   routes: Array<any>,
-  history: {
-    location: {
-      pathname: string,
-    },
-    push: Function,
-  },
-  user: {
-    status: {
-      isLoggedIn: boolean,
-    },
-  },
 };
 type State = {
   user: {
@@ -30,11 +20,52 @@ type State = {
 type Route = {
   isLoggedIn: boolean,
 };
+const guestRedirectUrl = url.endpoint.landing;
+const userRedirectUrl = url.endpoint.home;
 
-export default class Auth extends React.Component<Props> {
-  static guestRedirectUrl = url.endpoint.landing;
-  static userRedirectUrl = url.endpoint.home;
-  static getRedirectUrl(state: State, route: Route) {
+function getRoutes() {
+  const authRoutes = routes[0].routes;
+  const guestRoutes = authRoutes
+    .filter(
+      route =>
+        route.isLoggedIn !== undefined &&
+        !route.isLoggedIn &&
+        route.path !== url.endpoint.notFound
+    )
+    .map(route => route.path);
+  const userRoutes = authRoutes
+    .filter(route => route.isLoggedIn && route.path !== url.endpoint.notFound)
+    .map(route => route.path);
+
+  return {
+    guestRoutes,
+    userRoutes,
+  };
+}
+
+export function Auth(props: Props) {
+  return (
+    <Switch>
+      {props.routes.map((route, i) => (
+        <SwitchRoute
+          key={i}
+          exact={!!route.exact}
+          path={route.path}
+          isLoggedIn={route.isLoggedIn}
+          render={renderProps => (
+            <route.component
+              {...props}
+              {...renderProps}
+              routes={route.routes}
+            />
+          )}
+        />
+      ))}
+    </Switch>
+  );
+}
+export default compose(
+  setStatic('getRedirectUrl', (state: State, route: Route) => {
     const {
       user: {
         status: { isLoggedIn },
@@ -49,78 +80,43 @@ export default class Auth extends React.Component<Props> {
       if (isLoggedInPage) {
         return null;
       }
-      return Auth.userRedirectUrl;
+      return userRedirectUrl;
     }
     if (isLoggedInPage) {
-      return Auth.guestRedirectUrl;
+      return guestRedirectUrl;
     }
     return null;
-  }
-  constructor() {
-    const authRoutes = routes[0].routes;
+  }),
+  lifecycle({
+    componentDidUpdate() {
+      const {
+        user: {
+          status: { isLoggedIn },
+        },
+        history: {
+          location: { pathname },
+          push,
+        },
+      } = this.props;
+      const branch = matchRoutes(routes, pathname);
+      const routePath = branch[branch.length - 1].route.path;
+      const { guestRoutes, userRoutes } = getRoutes();
 
-    super();
-    this.guestRoutes = authRoutes
-      .filter(
-        route =>
-          route.isLoggedIn !== undefined &&
-          !route.isLoggedIn &&
-          route.path !== url.endpoint.notFound
-      )
-      .map(route => route.path);
-    this.userRoutes = authRoutes
-      .filter(route => route.isLoggedIn && route.path !== url.endpoint.notFound)
-      .map(route => route.path);
-  }
-  componentDidUpdate() {
-    const {
-      user: {
-        status: { isLoggedIn },
-      },
-      history: {
-        location: { pathname },
-        push,
-      },
-    } = this.props;
-    const branch = matchRoutes(routes, pathname);
-    const routePath = branch[branch.length - 1].route.path;
-
-    if (
-      !isLoggedIn &&
-      routePath !== Auth.guestRedirectUrl &&
-      this.userRoutes.includes(routePath)
-    ) {
-      push(Auth.guestRedirectUrl);
-    }
-    if (
-      isLoggedIn &&
-      routePath !== Auth.userRedirectUrl &&
-      this.guestRoutes.includes(routePath)
-    ) {
-      push(Auth.userRedirectUrl);
-    }
-  }
-  guestRoutes: Array<string>;
-  userRoutes: Array<string>;
-  render() {
-    return (
-      <Switch>
-        {this.props.routes.map((route, i) => (
-          <SwitchRoute
-            key={i}
-            exact={!!route.exact}
-            path={route.path}
-            isLoggedIn={route.isLoggedIn}
-            render={props => (
-              <route.component
-                {...this.props}
-                {...props}
-                routes={route.routes}
-              />
-            )}
-          />
-        ))}
-      </Switch>
-    );
-  }
-}
+      if (
+        !isLoggedIn &&
+        routePath !== guestRedirectUrl &&
+        userRoutes.includes(routePath)
+      ) {
+        push(guestRedirectUrl);
+      }
+      if (
+        isLoggedIn &&
+        routePath !== userRedirectUrl &&
+        guestRoutes.includes(routePath)
+      ) {
+        push(userRedirectUrl);
+      }
+    },
+  }),
+  pure
+)(Auth);

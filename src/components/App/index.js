@@ -1,16 +1,31 @@
 /* @flow */
 
+import * as React from 'react';
 import { hot } from 'react-hot-loader';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import { routerActions } from 'react-router-redux';
-import { compose, lifecycle } from 'recompose';
+import Helmet from 'react-helmet';
+import { compose, lifecycle, pure } from 'recompose';
+import { Container, Footer, Header, Main, Error } from 'components';
 import * as userActions from 'actions/user';
 import * as uiActions from 'actions/ui';
-import App from 'components/App/App';
+import meta from 'utils/meta';
+import link from 'utils/link';
+import routes from 'routes';
+import 'styles';
 import type { Dispatch } from 'types';
 
+type Props = {
+  user: Object,
+  ui: Object,
+  uiActions: Object,
+  history: Object,
+  location: {
+    pathname: string,
+  },
+};
 type PrevProps = {
   history: {
     action: string,
@@ -20,6 +35,38 @@ type PrevProps = {
   },
 };
 
+export function App(props: Props) {
+  const {
+    location: { pathname },
+    user: {
+      status: { isLoggedIn },
+    },
+    ui: { isOpenMenu, error },
+    uiActions: { openMenu, closeMenu, hideError },
+  } = props;
+  const auth = routes[0];
+  const metaData = meta.get(pathname);
+  const linkData = link.get(pathname);
+
+  return (
+    <Container {...props}>
+      <Helmet meta={metaData} link={linkData} />
+      {error && <Error hideError={hideError}>{error}</Error>}
+      <Header
+        isLoggedIn={isLoggedIn}
+        isOpenMenu={isOpenMenu}
+        openMenu={openMenu}
+        closeMenu={closeMenu}
+      />
+      <Main>
+        <Route
+          render={() => <auth.component {...props} routes={auth.routes} />}
+        />
+      </Main>
+      <Footer />
+    </Container>
+  );
+}
 function mapStateToProps(state) {
   return state;
 }
@@ -30,6 +77,7 @@ function mapDispatchToProps() {
     uiActions: bindActionCreators(uiActions, dispatch),
   });
 }
+
 export default compose(
   withRouter,
   connect(mapStateToProps, mapDispatchToProps),
@@ -52,5 +100,6 @@ export default compose(
         closeMenu();
       }
     },
-  })
+  }),
+  pure
 )(App);
