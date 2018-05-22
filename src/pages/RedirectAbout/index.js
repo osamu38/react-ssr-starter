@@ -7,4 +7,4 @@ import url from 'config/url';
 export default compose(
   setStatic('getRedirectUrl', () => url.endpoint.about),
   pure
-)(loadable(() => import('pages/RedirectAbout/RedirectAbout')));
+)(loadable(() => import('pages/RedirectAbout/component')));

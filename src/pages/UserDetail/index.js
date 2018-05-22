@@ -26,4 +26,4 @@ export default compose(
     },
   }),
   pure
-)(loadable(() => import('pages/UserDetail/UserDetail')));
+)(loadable(() => import('pages/UserDetail/component')));

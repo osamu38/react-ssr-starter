@@ -21,4 +21,4 @@ export default compose(
     },
   }),
   pure
-)(loadable(() => import('pages/Home/Home')));
+)(loadable(() => import('pages/Home/component')));
