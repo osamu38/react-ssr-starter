@@ -23,26 +23,6 @@ type Route = {
 const guestRedirectUrl = url.endpoint.landing;
 const userRedirectUrl = url.endpoint.home;
 
-function getRoutes() {
-  const authRoutes = routes[0].routes;
-  const guestRoutes = authRoutes
-    .filter(
-      route =>
-        route.isLoggedIn !== undefined &&
-        !route.isLoggedIn &&
-        route.path !== url.endpoint.notFound
-    )
-    .map(route => route.path);
-  const userRoutes = authRoutes
-    .filter(route => route.isLoggedIn && route.path !== url.endpoint.notFound)
-    .map(route => route.path);
-
-  return {
-    guestRoutes,
-    userRoutes,
-  };
-}
-
 export function Auth(props: Props) {
   return (
     <Switch>
@@ -100,7 +80,20 @@ export default compose(
       } = this.props;
       const branch = matchRoutes(routes, pathname);
       const routePath = branch[branch.length - 1].route.path;
-      const { guestRoutes, userRoutes } = getRoutes();
+      const authRoutes = routes[0].routes;
+      const guestRoutes = authRoutes
+        .filter(
+          route =>
+            route.isLoggedIn !== undefined &&
+            !route.isLoggedIn &&
+            route.path !== url.endpoint.notFound
+        )
+        .map(route => route.path);
+      const userRoutes = authRoutes
+        .filter(
+          route => route.isLoggedIn && route.path !== url.endpoint.notFound
+        )
+        .map(route => route.path);
 
       if (
         !isLoggedIn &&
