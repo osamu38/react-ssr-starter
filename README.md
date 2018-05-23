@@ -9,6 +9,7 @@ Features
 - [react-router](https://reacttraining.com/react-router/)
 - [react-helmet](https://github.com/nfl/react-helmet)
 - [react-hot-loader](http://gaearon.github.io/react-hot-loader/)
+- [recompose](https://github.com/acdlite/recompose)
 - [redux](https://rackt.github.io/redux/)
 - [styled-components](https://www.styled-components.com/)
 - [loadable-components](https://github.com/smooth-code/loadable-components)
@@ -67,13 +68,91 @@ Go to `http://localhost:2525/`.
 
 ## Adding pages
 
+Basically page component is implemented using SFC and recompose.
+
+`src/pages/Home/component.js`
+
+```jsx
+/* @flow */
+
+import * as React from 'react';
+import Helmet from 'react-helmet';
+import { Button, Title, SubTitle, UserList } from 'components';
+
+type Props = {
+  user: {
+    userList: Array<Object>,
+  },
+  userActions: {
+    logout: Function,
+  },
+};
+
+export default function Home(props: Props) {
+  const {
+    user: { userList },
+    userActions: { logout },
+  } = props;
+
+  return (
+    <>
+      <Helmet title="Home" />
+      <Title>Home Page</Title>
+      <SubTitle>User List</SubTitle>
+      <UserList userList={userList} />
+      <Button
+        onClick={() => {
+          logout();
+        }}
+        isCenter
+      >
+        Logout
+      </Button>
+    </>
+  );
+}
+```
+
+`src/pages/Home/index.js`
+
+```javascript
+/* @flow */
+
+import loadable from 'loadable-components';
+import { compose, lifecycle, pure, setStatic } from 'recompose';
+import { fetchUsers as fetchUsersFromServer } from 'actions/user';
+
+export default compose(
+  setStatic('loadData', dispatch => dispatch(fetchUsersFromServer())),
+  lifecycle({
+    componentDidMount() {
+      const {
+        user: {
+          status: { isFetchedUserList },
+        },
+        userActions: { fetchUsers },
+      } = this.props;
+
+      if (!isFetchedUserList) {
+        fetchUsers();
+      }
+    },
+  }),
+  pure
+)(loadable(() => import('pages/Home/component')));
+```
+
 Add your pages in `src/routes.js`.
 
 ```javascript
+import Home from 'pages/Home';
+
+...
   {
-    path: url.endpoint.about,
-    component: loadable(() => import('pages/About')),
-  }
+    path: url.endpoint.home,
+    isLoggedIn: true,
+    component: Home,
+  },
 ```
 
 ## Adding components
