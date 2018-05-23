@@ -23,6 +23,7 @@ import routes from 'routes';
 import configureStore from 'utils/configureStore';
 import loginFromServer from 'utils/loginFromServer';
 import getHtmlString from 'utils/getHtmlString';
+import cookie from 'utils/cookie';
 import App from 'components/App';
 import { isDevelopment, isProduction } from 'servers/env';
 import { joinPath } from 'servers/path';
@@ -128,10 +129,12 @@ app.post('/api/login', (req: $Request, res: $Response) => {
 });
 
 app.get('*', async (req: $Request, res: $Response) => {
+  cookie.connect(req, res);
+
   const history = createHistory();
   const store = configureStore(history);
 
-  loginFromServer(req, res, store.dispatch);
+  loginFromServer(store.dispatch);
 
   const branch = matchRoutes(routes, req.url);
   const loadBranchData = getLoadBranchData(branch, store);
