@@ -51,7 +51,7 @@ export function App(props: Props) {
   return (
     <Container {...props}>
       <Helmet meta={metaData} link={linkData} />
-      {error && <Error hideError={hideError}>{error}</Error>}
+      {error ? <Error hideError={hideError}>{error}</Error> : null}
       <Header
         isLoggedIn={isLoggedIn}
         isOpenMenu={isOpenMenu}
