@@ -31,7 +31,6 @@ export function Auth(props: Props) {
           key={i}
           exact={!!route.exact}
           path={route.path}
-          isLoggedIn={route.isLoggedIn}
           render={renderProps => (
             <route.component
               {...props}
