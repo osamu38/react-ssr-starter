@@ -160,5 +160,5 @@ import Home from 'pages/Home';
 Add your components in `src/components/index.js`.
 
 ```javascript
-  Button: loadable(() => import('components/Button')),
+export const Button = loadable(() => import('components/Button'));
 ```
