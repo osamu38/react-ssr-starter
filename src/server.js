@@ -129,11 +129,15 @@ app.post('/api/login', (req: $Request, res: $Response) => {
 });
 
 app.get('*', async (req: $Request, res: $Response) => {
-  cookie.connect(req, res);
+  cookie.connect(
+    req,
+    res
+  );
 
   const history = createHistory();
   const store = configureStore(history);
 
+  // $FlowFixMe
   loginFromServer(store.dispatch);
 
   const branch = matchRoutes(routes, req.url);

@@ -16,5 +16,7 @@ type Props = {
 };
 
 export default function Title(props: Props) {
-  return <TitleUI>{props.children}</TitleUI>;
+  const { children } = props;
+
+  return <TitleUI>{children}</TitleUI>;
 }

@@ -1,17 +1,7 @@
-const nodeEnv = process.env.NODE_ENV || '';
-const env = nodeEnv || 'development';
-const isDevelopment = env === 'development';
-const isStaging = env === 'staging';
-const isProduction = env === 'production';
-const isServer = typeof document === 'undefined';
-const isClient = !isServer;
-
-export default {
-  nodeEnv,
-  env,
-  isDevelopment,
-  isStaging,
-  isProduction,
-  isServer,
-  isClient,
-};
+export const nodeEnv = process.env.NODE_ENV || '';
+export const env = nodeEnv || 'development';
+export const isDevelopment = env === 'development';
+export const isStaging = env === 'staging';
+export const isProduction = env === 'production';
+export const isServer = typeof document === 'undefined';
+export const isClient = !isServer;

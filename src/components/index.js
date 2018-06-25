@@ -1,22 +1,20 @@
 import loadable from 'loadable-components';
 
-export default {
-  Button: loadable(() => import('components/Button')),
-  Container: loadable(() => import('components/Container')),
-  Error: loadable(() => import('components/Error')),
-  Footer: loadable(() => import('components/Footer')),
-  Header: loadable(() => import('components/Header')),
-  Input: loadable(() => import('components/Input')),
-  Label: loadable(() => import('components/Label')),
-  LoginForm: loadable(() => import('components/LoginForm')),
-  Logo: loadable(() => import('components/Logo')),
-  Main: loadable(() => import('components/Main')),
-  Menu: loadable(() => import('components/Menu')),
-  MenuIcon: loadable(() => import('components/MenuIcon')),
-  OctIcon: loadable(() => import('components/OctIcon')),
-  StackList: loadable(() => import('components/StackList')),
-  SubTitle: loadable(() => import('components/SubTitle')),
-  Title: loadable(() => import('components/Title')),
-  User: loadable(() => import('components/User')),
-  UserList: loadable(() => import('components/UserList')),
-};
+export const Button = loadable(() => import('components/Button'));
+export const Container = loadable(() => import('components/Container'));
+export const Error = loadable(() => import('components/Error'));
+export const Footer = loadable(() => import('components/Footer'));
+export const Header = loadable(() => import('components/Header'));
+export const Input = loadable(() => import('components/Input'));
+export const Label = loadable(() => import('components/Label'));
+export const LoginForm = loadable(() => import('components/LoginForm'));
+export const Logo = loadable(() => import('components/Logo'));
+export const Main = loadable(() => import('components/Main'));
+export const Menu = loadable(() => import('components/Menu'));
+export const MenuIcon = loadable(() => import('components/MenuIcon'));
+export const OctIcon = loadable(() => import('components/OctIcon'));
+export const StackList = loadable(() => import('components/StackList'));
+export const SubTitle = loadable(() => import('components/SubTitle'));
+export const Title = loadable(() => import('components/Title'));
+export const User = loadable(() => import('components/User'));
+export const UserList = loadable(() => import('components/UserList'));

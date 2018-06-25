@@ -24,9 +24,11 @@ const guestRedirectUrl = url.endpoint.landing;
 const userRedirectUrl = url.endpoint.home;
 
 export function Auth(props: Props) {
+  const { routes: propsRoutes } = props;
+
   return (
     <Switch>
-      {props.routes.map((route, i) => (
+      {propsRoutes.map((route, i) => (
         <SwitchRoute
           key={i}
           exact={!!route.exact}

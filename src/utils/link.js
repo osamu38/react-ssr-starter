@@ -12,7 +12,9 @@ class Link {
       'apple-touch-icon-precomposed': '',
     };
   }
+
   link: Object;
+
   get(pathname: string) {
     if (pathname !== url.endpoint.landing) {
       this.merge({
@@ -21,12 +23,14 @@ class Link {
     }
     return this.parse(this.link);
   }
+
   merge(config: Object = {}) {
     this.link = {
       ...this.link,
       ...config,
     };
   }
+
   parse(config: Object): Array<{ rel: string, href: string }> {
     return Object.keys(config).map((key: string) => ({
       rel: key,

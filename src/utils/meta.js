@@ -30,7 +30,9 @@ class Meta {
       'twitter:image': '',
     };
   }
+
   meta: Object;
+
   get(pathname: string) {
     if (pathname === url.endpoint.about) {
       this.merge({
@@ -41,12 +43,14 @@ class Meta {
     }
     return this.parse(this.meta);
   }
+
   merge(config: Object = {}) {
     this.meta = {
       ...this.meta,
       ...config,
     };
   }
+
   parse(config: Object) {
     const defaultParsedMeta = [
       { charset: 'utf-8' },
