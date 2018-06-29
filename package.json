@@ -107,7 +107,7 @@
     "jest": "^23.2.0",
     "json-loader": "^0.5.7",
     "nodemon": "^1.17.5",
-    "prettier": "^1.13.6",
+    "prettier": "^1.13.7",
     "raf": "^3.4.0",
     "stylelint": "^8.4.0",
     "stylelint-config-prettier": "^3.3.0",
