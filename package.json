@@ -109,7 +109,7 @@
     "nodemon": "^1.17.5",
     "prettier": "^1.13.7",
     "raf": "^3.4.0",
-    "stylelint": "^8.4.0",
+    "stylelint": "^9.3.0",
     "stylelint-config-prettier": "^3.3.0",
     "stylelint-config-standard": "^18.2.0",
     "stylelint-config-styled-components": "^0.1.1",
