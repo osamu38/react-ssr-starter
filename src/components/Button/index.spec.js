@@ -11,7 +11,11 @@ describe('<Button />', () => {
   it('render snapshots', () => {
     const wrapper = shallow(<Button>Button</Button>);
 
-    expect(toJson(wrapper)).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchInlineSnapshot(`
+<Button__ButtonUI>
+  Button
+</Button__ButtonUI>
+`);
   });
   it('call onclick', () => {
     const mock = jest.fn();
