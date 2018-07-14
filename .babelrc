@@ -1,14 +1,19 @@
 {
   "env": {
     "development": {
-      "plugins": ["dynamic-import-node"]
+      "plugins": [
+        "dynamic-import-node"
+      ]
     }
   },
   "plugins": [
     [
       "module-resolver",
       {
-        "root": ["./", "./src"]
+        "root": [
+          "./",
+          "./src"
+        ]
       }
     ],
     [
