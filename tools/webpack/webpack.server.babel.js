@@ -25,6 +25,7 @@ export default webpackEnv => {
   const isAnalyze = webpackEnv.analyze;
 
   return {
+    mode: env,
     name: 'server',
     target: 'node',
     devtool: isDevelopment

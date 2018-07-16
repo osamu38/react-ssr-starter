@@ -30,10 +30,6 @@ function getPlugins(isAnalyze) {
   let plugins = [
     new webpack.EnvironmentPlugin({ NODE_ENV: `${env}` }),
     new webpack.NoEmitOnErrorsPlugin(),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      minChunks: Infinity,
-    }),
   ];
 
   if (isDevelopment) {
@@ -60,12 +56,6 @@ function getPlugins(isAnalyze) {
           },
         ]),
         new webpack.IgnorePlugin(/redux-logger/),
-        new webpack.optimize.UglifyJsPlugin({
-          compressor: {
-            warnings: false,
-            screw_ie8: true,
-          },
-        }),
         new workboxPlugin.GenerateSW({
           swDest: joinPath('dist/public/static/javascripts/sw.js'),
           clientsClaim: true,
@@ -90,6 +80,7 @@ export default webpackEnv => {
   const isAnalyze = webpackEnv.analyze;
 
   return {
+    mode: env,
     name: 'client',
     target: 'web',
     cache: isDevelopment,
@@ -114,6 +105,12 @@ export default webpackEnv => {
       publicPath: '/static/javascripts/',
     },
     plugins: getPlugins(isAnalyze),
+    optimization: {
+      splitChunks: {
+        name: 'vendor',
+        chunks: 'initial',
+      },
+    },
     module: {
       rules: [
         {
