@@ -18,12 +18,22 @@ import 'styles';
 import type { Dispatch } from 'types';
 
 type Props = {
-  user: Object,
-  ui: Object,
-  uiActions: Object,
-  history: Object,
   location: {
     pathname: string,
+  },
+  user: {
+    status: {
+      isLoggedIn: boolean,
+    },
+  },
+  ui: {
+    isOpenMenu: boolean,
+    error: string,
+  },
+  uiActions: {
+    openMenu: Function,
+    closeMenu: Function,
+    hideError: Function,
   },
 };
 type PrevProps = {
@@ -32,6 +42,9 @@ type PrevProps = {
   },
   location: {
     pathname: string,
+  },
+  ui: {
+    isOpenMenu: boolean,
   },
 };
 
@@ -80,13 +93,17 @@ function mapDispatchToProps() {
 
 export default compose(
   withRouter,
-  connect(mapStateToProps, mapDispatchToProps),
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  ),
   hot(module),
   lifecycle({
     componentDidUpdate(prevProps: PrevProps) {
       const {
         history: { action },
         location: { pathname: prevPathname },
+        ui: { isOpenMenu },
       } = prevProps;
       const {
         location: { pathname: nextPathname },
@@ -97,7 +114,9 @@ export default compose(
 
       if (isNotPop && isChengedPathname) {
         window.scrollTo(0, 0);
-        closeMenu();
+        if (isOpenMenu) {
+          closeMenu();
+        }
       }
     },
   }),
