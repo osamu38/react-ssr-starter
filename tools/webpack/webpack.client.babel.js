@@ -55,6 +55,7 @@ function getPlugins(isAnalyze) {
             to: joinPath('dist/public'),
           },
         ]),
+        new webpack.IgnorePlugin(/core-js/),
         new webpack.IgnorePlugin(/redux-logger/),
         new workboxPlugin.GenerateSW({
           swDest: joinPath('dist/public/static/javascripts/sw.js'),

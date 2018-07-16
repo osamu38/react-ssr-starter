@@ -8,6 +8,7 @@
   "license": "MIT",
   "author": "osamu38",
   "main": "index.js",
+  "sideEffects": false,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/osamu38/react-ssr-starter.git"
@@ -88,7 +89,6 @@
     "babel-plugin-styled-components": "^1.5.1",
     "clean-webpack-plugin": "^0.1.19",
     "copy-webpack-plugin": "^4.5.2",
-    "core-js": "^2.5.7",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-to-json": "^3.3.4",
