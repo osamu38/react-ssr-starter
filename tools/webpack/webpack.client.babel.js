@@ -7,25 +7,6 @@ import workboxPlugin from 'workbox-webpack-plugin';
 import { env, isDevelopment, isProduction } from 'servers/env';
 import { joinPath } from 'servers/path';
 
-const vendor = [
-  'axios',
-  'history/createBrowserHistory',
-  'loadable-components',
-  'react',
-  'react-cookie',
-  'react-dom',
-  'react-helmet',
-  'react-hot-loader',
-  'react-redux',
-  'react-router-config',
-  'react-router-dom',
-  'react-router-redux',
-  'recompose',
-  'redux',
-  'redux-thunk',
-  'styled-components',
-];
-
 function getPlugins(isAnalyze) {
   let plugins = [
     new webpack.EnvironmentPlugin({ NODE_ENV: `${env}` }),
@@ -97,7 +78,6 @@ export default webpackEnv => {
           : []),
         './src/client.js',
       ],
-      vendor,
     },
     output: {
       path: joinPath(isProduction ? 'dist' : '', 'public/static/javascripts'),

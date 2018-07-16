@@ -5,7 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { loadComponents } from 'loadable-components';
-import { ConnectedRouter } from 'react-router-redux';
+import { ConnectedRouter } from 'connected-react-router';
 import createHistory from 'history/createBrowserHistory';
 import configureStore from 'utils/configureStore';
 import App from 'components/App';

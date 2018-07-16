@@ -2,7 +2,7 @@
 
 import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import { routerMiddleware } from 'react-router-redux';
+import { connectRouter, routerMiddleware } from 'connected-react-router';
 import rootReducer from 'reducers';
 import { isDevelopment, isClient } from 'servers/env';
 import type { BrowserHistory } from 'history/createBrowserHistory';
@@ -20,7 +20,11 @@ export default (
       ...(isDevelopment && isClient ? [require('redux-logger').default] : []),
     ]
   );
-  const store = createStore(rootReducer, initialState, middlewares);
+  const store = createStore(
+    connectRouter(history)(rootReducer),
+    initialState,
+    middlewares
+  );
 
   if (module.hot) {
     module.hot.accept('../reducers', () => {

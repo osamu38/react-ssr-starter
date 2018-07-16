@@ -5,7 +5,7 @@ import { hot } from 'react-hot-loader';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Route, withRouter } from 'react-router-dom';
-import { routerActions } from 'react-router-redux';
+import { routerActions } from 'connected-react-router';
 import Helmet from 'react-helmet';
 import { compose, lifecycle, pure } from 'recompose';
 import { Container, Footer, Header, Main, Error } from 'components';
