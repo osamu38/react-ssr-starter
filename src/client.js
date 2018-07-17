@@ -14,18 +14,19 @@ import { isProduction } from 'servers/env';
 const initialState = window.__INITIAL_STATE__;
 const history = createHistory();
 const store = configureStore(history, initialState);
-const root = document.getElementById('root');
+const root: ?Element = document.getElementById('root');
 
 loadComponents().then(() => {
-  ReactDOM[isProduction ? 'hydrate' : 'render'](
-    <Provider store={store}>
-      <ConnectedRouter history={history}>
-        <App />
-      </ConnectedRouter>
-    </Provider>,
-    // $FlowFixMe
-    root
-  );
+  if (root) {
+    ReactDOM[isProduction ? 'hydrate' : 'render'](
+      <Provider store={store}>
+        <ConnectedRouter history={history}>
+          <App />
+        </ConnectedRouter>
+      </Provider>,
+      root
+    );
+  }
 });
 
 window.addEventListener('load', () => {
