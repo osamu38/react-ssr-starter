@@ -15,11 +15,8 @@ type Route = {
   component: any,
   exact?: boolean,
 };
-type ReturnRoute = Route & {
-  exact?: boolean,
-};
 
-function addExact(routes: Route[]): ReturnRoute[] {
+function addExact(routes: Route[]): Route[] {
   return routes.map(
     route =>
       route.path !== endpoint.notFound

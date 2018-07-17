@@ -3,10 +3,13 @@
 import loadable from 'loadable-components';
 import { compose, lifecycle, pure, setStatic } from 'recompose';
 import { fetchUser as fetchUserFromServer } from 'actions/user';
+import type { Dispatch, ReduxState } from 'types';
 
 export default compose(
-  setStatic('loadData', (dispatch, state, params) =>
-    dispatch(fetchUserFromServer(params.id))
+  setStatic(
+    'loadData',
+    (dispatch: Dispatch, state: ReduxState, params: Object) =>
+      dispatch(fetchUserFromServer(params.id))
   ),
   lifecycle({
     componentDidMount() {
