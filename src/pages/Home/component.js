@@ -5,7 +5,7 @@ import Helmet from 'react-helmet';
 import { Button, Title, SubTitle, UserList } from 'components';
 import type { PageProps } from 'types';
 
-export default function Home(props: PageProps) {
+export default function HomePage(props: PageProps) {
   const {
     user: { userList },
     userActions: { logout },

@@ -6,33 +6,25 @@ import { matchRoutes } from 'react-router-config';
 import { compose, lifecycle, setStatic, pure } from 'recompose';
 import { endpoint } from 'config/url';
 import routes from 'routes';
-import type { ReduxState } from 'types';
+import type { ReduxState, PageProps } from 'types';
 
-type Props = {
-  routes: any[],
-};
 type Route = {
   isLoggedIn: boolean,
 };
+const authRoutes = routes[0].routes;
 const guestRedirectUrl = endpoint.landing;
 const userRedirectUrl = endpoint.home;
 
-export function Auth(props: Props) {
-  const { routes: propsRoutes } = props;
-
+export function Auth(props: PageProps) {
   return (
     <Switch>
-      {propsRoutes.map((route, i) => (
+      {authRoutes.map((route, i) => (
         <SwitchRoute
           key={i}
           exact={!!route.exact}
           path={route.path}
           render={renderProps => (
-            <route.component
-              {...props}
-              {...renderProps}
-              routes={route.routes}
-            />
+            <route.component {...props} {...renderProps} />
           )}
         />
       ))}
@@ -75,7 +67,6 @@ export default compose(
       } = this.props;
       const branch = matchRoutes(routes, pathname);
       const routePath = branch[branch.length - 1].route.path;
-      const authRoutes = routes[0].routes;
       const guestRoutes = authRoutes
         .filter(
           route =>

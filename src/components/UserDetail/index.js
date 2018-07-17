@@ -1,16 +1,15 @@
 /* @flow */
-/* eslint-disable no-undef, no-restricted-globals */
 
 import * as React from 'react';
 import styled from 'styled-components';
 import { colors } from 'styles/variables';
 import type { User } from 'types/user';
 
-const UserUI = styled.div`
+const UserDetailUI = styled.div`
   padding: 12px;
   border: 1px ${colors.superLightGray} solid;
 `;
-const UserInner = styled.div`
+const UserDetailInner = styled.div`
   margin-top: 12px;
   padding: 12px;
   border: 1px ${colors.superLightGray} solid;
@@ -40,13 +39,13 @@ export default function UserDetail(props: Props) {
   } = props;
 
   return (
-    <UserUI>
+    <UserDetailUI>
       <p>id: {id}</p>
       <p>username: {username}</p>
       <p>phone: {phone}</p>
       <p>email: {email}</p>
       <p>website: {website}</p>
-      <UserInner>
+      <UserDetailInner>
         <p>address</p>
         <p>city: {city}</p>
         <p>street: {street}</p>
@@ -54,13 +53,13 @@ export default function UserDetail(props: Props) {
         <p>zipcode: {zipcode}</p>
         <p>lat: {lat}</p>
         <p>lng: {lng}</p>
-      </UserInner>
-      <UserInner>
+      </UserDetailInner>
+      <UserDetailInner>
         <p>company</p>
         <p>bs: {bs}</p>
         <p>catchPhrase: {catchPhrase}</p>
         <p>name: {name}</p>
-      </UserInner>
-    </UserUI>
+      </UserDetailInner>
+    </UserDetailUI>
   );
 }

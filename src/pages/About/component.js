@@ -4,7 +4,7 @@ import * as React from 'react';
 import Helmet from 'react-helmet';
 import { Title, SubTitle, StackList } from 'components';
 
-export default function About() {
+export default function AboutPage() {
   return (
     <>
       <Helmet title="About" />

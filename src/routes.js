@@ -9,9 +9,17 @@ import About from 'pages/About';
 import RedirectAbout from 'pages/RedirectAbout';
 import NotFound from 'pages/NotFound';
 
-function addExact(
-  routes
-): { path: string, isLoggedIn?: boolean, component: any }[] {
+type Route = {
+  path: string,
+  isLoggedIn?: boolean,
+  component: any,
+  exact?: boolean,
+};
+type ReturnRoute = Route & {
+  exact?: boolean,
+};
+
+function addExact(routes: Route[]): ReturnRoute[] {
   return routes.map(
     route =>
       route.path !== endpoint.notFound

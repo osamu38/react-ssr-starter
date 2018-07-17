@@ -5,7 +5,7 @@ import Helmet from 'react-helmet';
 import { LoginForm, Title } from 'components';
 import type { PageProps } from 'types';
 
-export default function Landing(props: PageProps) {
+export default function LandingPage(props: PageProps) {
   const {
     userActions: { login },
   } = props;

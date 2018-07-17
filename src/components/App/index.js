@@ -41,15 +41,13 @@ export function App(props: PageProps) {
         closeMenu={closeMenu}
       />
       <Main>
-        <Route
-          render={() => <auth.component {...props} routes={auth.routes} />}
-        />
+        <Route render={() => <auth.component {...props} />} />
       </Main>
       <Footer />
     </Container>
   );
 }
-function mapStateToProps(state) {
+function mapStateToProps<S>(state: S): S {
   return state;
 }
 function mapDispatchToProps() {

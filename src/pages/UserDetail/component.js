@@ -2,10 +2,10 @@
 
 import * as React from 'react';
 import Helmet from 'react-helmet';
-import { Title, User } from 'components';
+import { Title, UserDetail } from 'components';
 import type { PageProps } from 'types';
 
-export default function UserDetail(props: PageProps) {
+export default function UserDetailPage(props: PageProps) {
   const {
     user: { user },
   } = props;
@@ -14,7 +14,7 @@ export default function UserDetail(props: PageProps) {
     <>
       <Helmet title="User Detail" />
       <Title>User Detail Page</Title>
-      <User user={user} />
+      <UserDetail user={user} />
     </>
   );
 }
