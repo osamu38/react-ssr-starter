@@ -27,10 +27,10 @@ import cookie from 'utils/cookie';
 import App from 'components/App';
 import { isDevelopment, isProduction } from 'servers/env';
 import { joinPath } from 'servers/path';
-import url from 'config/url';
+import { port as defaultPort } from 'config/url';
 import type { $Request, $Response } from 'express';
 
-const port = process.env.PORT || url.port;
+const port = process.env.PORT || defaultPort;
 const app = express();
 
 function getDocument(initialState, content, loadableState) {

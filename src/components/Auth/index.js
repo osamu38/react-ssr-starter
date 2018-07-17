@@ -4,7 +4,7 @@ import * as React from 'react';
 import { Route as SwitchRoute, Switch } from 'react-router-dom';
 import { matchRoutes } from 'react-router-config';
 import { compose, lifecycle, setStatic, pure } from 'recompose';
-import url from 'config/url';
+import { endpoint } from 'config/url';
 import routes from 'routes';
 
 type Props = {
@@ -20,8 +20,8 @@ type State = {
 type Route = {
   isLoggedIn: boolean,
 };
-const guestRedirectUrl = url.endpoint.landing;
-const userRedirectUrl = url.endpoint.home;
+const guestRedirectUrl = endpoint.landing;
+const userRedirectUrl = endpoint.home;
 
 export function Auth(props: Props) {
   const { routes: propsRoutes } = props;
@@ -87,13 +87,11 @@ export default compose(
           route =>
             route.isLoggedIn !== undefined &&
             !route.isLoggedIn &&
-            route.path !== url.endpoint.notFound
+            route.path !== endpoint.notFound
         )
         .map(route => route.path);
       const userRoutes = authRoutes
-        .filter(
-          route => route.isLoggedIn && route.path !== url.endpoint.notFound
-        )
+        .filter(route => route.isLoggedIn && route.path !== endpoint.notFound)
         .map(route => route.path);
 
       if (

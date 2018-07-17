@@ -1,12 +1,12 @@
 /* @flow */
 
-import url from 'config/url';
+import { origin, endpoint } from 'config/url';
 
 class Link {
   constructor() {
     this.link = {
       manifest: '/manifest.json',
-      canonical: url.host,
+      canonical: origin,
       'shortcut icon': '/favicon.ico',
       'apple-touch-icon': '',
       'apple-touch-icon-precomposed': '',
@@ -16,9 +16,9 @@ class Link {
   link: Object;
 
   get(pathname: string) {
-    if (pathname !== url.endpoint.landing) {
+    if (pathname !== endpoint.landing) {
       this.merge({
-        canonical: url.host + pathname,
+        canonical: origin + pathname,
       });
     }
     return this.parse(this.link);

@@ -4,7 +4,7 @@ import * as React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { sizes, colors } from 'styles/variables';
-import url from 'config/url';
+import { endpoint } from 'config/url';
 
 const MenuUI = styled.div`
   position: absolute;
@@ -31,15 +31,15 @@ const MenuLink = styled(NavLink)`
 `;
 const MenuLinkList = [
   {
-    to: url.endpoint.landing,
+    to: endpoint.landing,
     text: 'To Landing Page（Only not logged in user）',
   },
   {
-    to: url.endpoint.home,
+    to: endpoint.home,
     text: 'To Home Page（Only logged in user）',
   },
   {
-    to: url.endpoint.about,
+    to: endpoint.about,
     text: 'To About Page',
   },
   {

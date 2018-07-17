@@ -2,9 +2,9 @@
 
 import loadable from 'loadable-components';
 import { compose, pure, setStatic } from 'recompose';
-import url from 'config/url';
+import { endpoint } from 'config/url';
 
 export default compose(
-  setStatic('getRedirectUrl', () => url.endpoint.about),
+  setStatic('getRedirectUrl', () => endpoint.about),
   pure
 )(loadable(() => import('pages/RedirectAbout/component')));

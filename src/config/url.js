@@ -2,15 +2,15 @@
 
 import { isDevelopment } from 'servers/env';
 
-export default {
-  port: 2525,
-  host: isDevelopment ? 'http://localhost:2525' : 'http://localhost:2525',
-  endpoint: {
-    landing: '/',
-    home: '/home',
-    userDetail: '/users/:id',
-    about: '/about',
-    redirectAbout: '/redirect-about',
-    notFound: '*',
-  },
+export const port = 2525;
+export const origin = isDevelopment
+  ? `http://localhost:${port}`
+  : `http://localhost:${port}`;
+export const endpoint = {
+  landing: '/',
+  home: '/home',
+  userDetail: '/users/:id',
+  about: '/about',
+  redirectAbout: '/redirect-about',
+  notFound: '*',
 };

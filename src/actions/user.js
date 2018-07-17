@@ -2,9 +2,9 @@
 
 import axios from 'axios';
 import cookie from 'utils/cookie';
-import url from 'config/url';
-import type { Dispatch } from 'types';
+import { origin } from 'config/url';
 import { showError } from 'actions/ui';
+import type { Dispatch } from 'types';
 
 export function loggedIn() {
   return (dispatch: Dispatch) => {
@@ -20,7 +20,7 @@ export function logout() {
 export function login(email: string, password: string) {
   return (dispatch: Dispatch) => {
     axios
-      .post(`${url.host}/api/login`, {
+      .post(`${origin}/api/login`, {
         email,
         password,
       })

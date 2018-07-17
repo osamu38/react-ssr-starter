@@ -1,7 +1,7 @@
 /* @flow */
 
 import { colors } from 'styles/variables';
-import url from 'config/url';
+import { endpoint } from 'config/url';
 
 class Meta {
   constructor() {
@@ -34,7 +34,7 @@ class Meta {
   meta: Object;
 
   get(pathname: string) {
-    if (pathname === url.endpoint.about) {
+    if (pathname === endpoint.about) {
       this.merge({
         description: 'This is about page',
         'og:description': 'This is about page',

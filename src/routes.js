@@ -1,6 +1,6 @@
 /* @flow */
 
-import url from 'config/url';
+import { endpoint } from 'config/url';
 import Auth from 'components/Auth';
 import Landing from 'pages/Landing';
 import Home from 'pages/Home';
@@ -12,7 +12,7 @@ import NotFound from 'pages/NotFound';
 function addExact(routes): Array<Object> {
   return routes.map(
     route =>
-      route.path !== url.endpoint.notFound
+      route.path !== endpoint.notFound
         ? {
             ...route,
             exact: true,
@@ -27,30 +27,30 @@ export default [
     component: Auth,
     routes: addExact([
       {
-        path: url.endpoint.landing,
+        path: endpoint.landing,
         isLoggedIn: false,
         component: Landing,
       },
       {
-        path: url.endpoint.home,
+        path: endpoint.home,
         isLoggedIn: true,
         component: Home,
       },
       {
-        path: url.endpoint.userDetail,
+        path: endpoint.userDetail,
         isLoggedIn: true,
         component: UserDetail,
       },
       {
-        path: url.endpoint.about,
+        path: endpoint.about,
         component: About,
       },
       {
-        path: url.endpoint.redirectAbout,
+        path: endpoint.redirectAbout,
         component: RedirectAbout,
       },
       {
-        path: url.endpoint.notFound,
+        path: endpoint.notFound,
         component: NotFound,
       },
     ]),
