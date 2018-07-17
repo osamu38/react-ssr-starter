@@ -4,20 +4,20 @@ import axios from 'axios';
 import cookie from 'utils/cookie';
 import { origin } from 'config/url';
 import { showError } from 'actions/ui';
-import type { Dispatch } from 'types';
+import type { Dispatch, ThunkAction } from 'types';
 
-export function loggedIn() {
+export function loggedIn(): ThunkAction {
   return (dispatch: Dispatch) => {
     dispatch({ type: 'LOGGED_IN' });
   };
 }
-export function logout() {
+export function logout(): ThunkAction {
   return (dispatch: Dispatch) => {
     cookie.deleteToken();
     dispatch({ type: 'LOGOUT' });
   };
 }
-export function login(email: string, password: string) {
+export function login(email: string, password: string): ThunkAction {
   return (dispatch: Dispatch) => {
     axios
       .post(`${origin}/api/login`, {
@@ -37,7 +37,7 @@ export function login(email: string, password: string) {
       });
   };
 }
-export function fetchUser(id: string) {
+export function fetchUser(id: string): ThunkAction {
   return (dispatch: Dispatch) =>
     axios
       .get(`https://jsonplaceholder.typicode.com/users/${id}`)
@@ -51,7 +51,7 @@ export function fetchUser(id: string) {
         console.error(err); // eslint-disable-line no-console
       });
 }
-export function fetchUsers() {
+export function fetchUsers(): ThunkAction {
   return (dispatch: Dispatch) =>
     axios
       .get('https://jsonplaceholder.typicode.com/users')

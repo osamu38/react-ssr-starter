@@ -15,40 +15,9 @@ import meta from 'utils/meta';
 import link from 'utils/link';
 import routes from 'routes';
 import 'styles';
-import type { Dispatch } from 'types';
+import type { Dispatch, PageProps } from 'types';
 
-type Props = {
-  location: {
-    pathname: string,
-  },
-  user: {
-    status: {
-      isLoggedIn: boolean,
-    },
-  },
-  ui: {
-    isOpenMenu: boolean,
-    error: string,
-  },
-  uiActions: {
-    openMenu: Function,
-    closeMenu: Function,
-    hideError: Function,
-  },
-};
-type PrevProps = {
-  history: {
-    action: string,
-  },
-  location: {
-    pathname: string,
-  },
-  ui: {
-    isOpenMenu: boolean,
-  },
-};
-
-export function App(props: Props) {
+export function App(props: PageProps) {
   const {
     location: { pathname },
     user: {
@@ -99,7 +68,7 @@ export default compose(
   ),
   hot(module),
   lifecycle({
-    componentDidUpdate(prevProps: PrevProps) {
+    componentDidUpdate(prevProps: PageProps) {
       const {
         history: { action },
         location: { pathname: prevPathname },

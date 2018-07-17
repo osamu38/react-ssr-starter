@@ -48,14 +48,14 @@ function getDocument(initialState, content, loadableState) {
 
   return `<!doctype html>${htmlString}`;
 }
-function getLoadBranchData(branch, store): Array<Promise<any>> {
+function getLoadBranchData(branch, store): Promise<any>[] {
   return branch
     .filter(({ route }) => route.component.loadData)
     .map(({ route, match }) =>
       route.component.loadData(store.dispatch, store.getState(), match.params)
     );
 }
-function getRedirectUrls(branch, store): Array<string> {
+function getRedirectUrls(branch, store): string[] {
   return branch
     .filter(({ route }) => route.component.getRedirectUrl)
     .map(({ route, match }) =>

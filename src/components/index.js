@@ -16,5 +16,5 @@ export const OctIcon = loadable(() => import('components/OctIcon'));
 export const StackList = loadable(() => import('components/StackList'));
 export const SubTitle = loadable(() => import('components/SubTitle'));
 export const Title = loadable(() => import('components/Title'));
-export const User = loadable(() => import('components/User'));
+export const UserDetail = loadable(() => import('components/UserDetail'));
 export const UserList = loadable(() => import('components/UserList'));

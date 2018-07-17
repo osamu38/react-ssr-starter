@@ -7,11 +7,11 @@ import rootReducer from 'reducers';
 import { isDevelopment, isClient } from 'servers/env';
 import type { BrowserHistory } from 'history/createBrowserHistory';
 import type { MemoryHistory } from 'history/createMemoryHistory';
-import type { Store } from 'types';
+import type { Store, ReduxState } from 'types';
 
 export default (
   history: BrowserHistory | MemoryHistory,
-  initialState: Object = {}
+  initialState?: ReduxState
 ): Store => {
   const middlewares = applyMiddleware(
     ...[

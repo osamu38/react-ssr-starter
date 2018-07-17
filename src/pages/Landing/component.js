@@ -3,14 +3,9 @@
 import * as React from 'react';
 import Helmet from 'react-helmet';
 import { LoginForm, Title } from 'components';
+import type { PageProps } from 'types';
 
-type Props = {
-  userActions: {
-    login: Function,
-  },
-};
-
-export default function Landing(props: Props) {
+export default function Landing(props: PageProps) {
   const {
     userActions: { login },
   } = props;

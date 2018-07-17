@@ -5,14 +5,15 @@ import { renderToString } from 'react-dom/server';
 import serialize from 'serialize-javascript';
 import { minify } from 'html-minifier';
 import { isProduction } from 'servers/env';
+import type { ReduxState } from 'types';
 
-export default function renderHtml(
+export default function getHtmlString(
   css: React.Node,
   head: Object,
   content: string,
-  initialState: Object,
+  initialState: ReduxState,
   loadableStateScript: React.Node
-) {
+): string {
   const Html = (
     <html lang="ja">
       <head>

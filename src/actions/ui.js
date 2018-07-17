@@ -1,18 +1,18 @@
 /* @flow */
 
-import type { Dispatch } from 'types';
+import type { Dispatch, ThunkAction } from 'types';
 
-export function openMenu() {
+export function openMenu(): ThunkAction {
   return (dispatch: Dispatch) => {
     dispatch({ type: 'OPEN_MENU' });
   };
 }
-export function closeMenu() {
+export function closeMenu(): ThunkAction {
   return (dispatch: Dispatch) => {
     dispatch({ type: 'CLOSE_MENU' });
   };
 }
-export function showError(error: string) {
+export function showError(error: string): ThunkAction {
   return (dispatch: Dispatch) => {
     dispatch({
       type: 'SHOW_ERROR',
@@ -22,7 +22,7 @@ export function showError(error: string) {
     });
   };
 }
-export function hideError() {
+export function hideError(): ThunkAction {
   return (dispatch: Dispatch) => {
     dispatch({ type: 'HIDE_ERROR' });
   };

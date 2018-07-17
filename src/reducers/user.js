@@ -1,25 +1,39 @@
 /* @flow */
 
 import type { Action } from 'types';
-
-type State = {
-  user: Object,
-  userList: Array<Object>,
-  status: {
-    isLoggedIn: boolean,
-    isFetchedUserList: boolean,
-  },
-};
+import type { UserState } from 'types/user';
 
 export const initialState = {
-  user: {},
+  user: {
+    address: {
+      city: '',
+      geo: {
+        lat: '',
+        lng: '',
+      },
+      street: '',
+      suite: '',
+      zipcode: '',
+    },
+    company: {
+      bs: '',
+      catchPhrase: '',
+      name: '',
+    },
+    email: '',
+    id: 0,
+    name: '',
+    phone: '',
+    username: '',
+    website: '',
+  },
   userList: [],
   status: {
     isLoggedIn: false,
     isFetchedUserList: false,
   },
 };
-export default (state: State = initialState, action: Action) => {
+export default (state: UserState = initialState, action: Action) => {
   switch (action.type) {
     case 'LOGGED_IN':
       return {

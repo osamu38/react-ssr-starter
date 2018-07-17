@@ -3,14 +3,9 @@
 import * as React from 'react';
 import Helmet from 'react-helmet';
 import { Title, User } from 'components';
+import type { PageProps } from 'types';
 
-type Props = {
-  user: {
-    user: Object,
-  },
-};
-
-export default function UserDetail(props: Props) {
+export default function UserDetail(props: PageProps) {
   const {
     user: { user },
   } = props;

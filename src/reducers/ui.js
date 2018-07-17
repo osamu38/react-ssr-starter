@@ -1,17 +1,13 @@
 /* @flow */
 
 import type { Action } from 'types';
-
-type State = {
-  isOpenMenu: boolean,
-  error: string,
-};
+import type { UiState } from 'types/ui';
 
 export const initialState = {
   isOpenMenu: false,
   error: '',
 };
-export default (state: State = initialState, action: Action) => {
+export default (state: UiState = initialState, action: Action) => {
   switch (action.type) {
     case 'OPEN_MENU':
       return {

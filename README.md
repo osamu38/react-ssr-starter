@@ -2,8 +2,7 @@
 
 All have been introduced React environment.
 
-Features
---------
+## Features
 
 - [react](https://reactjs.org/)
 - [react-router](https://reacttraining.com/react-router/)
@@ -64,8 +63,6 @@ npm run start:prod
 
 Go to `http://localhost:2525/`.
 
-
-
 ## Adding pages
 
 Basically page component is implemented using SFC and recompose.
@@ -78,17 +75,9 @@ Basically page component is implemented using SFC and recompose.
 import * as React from 'react';
 import Helmet from 'react-helmet';
 import { Button, Title, SubTitle, UserList } from 'components';
+import { PageProps } from 'types';
 
-type Props = {
-  user: {
-    userList: Array<Object>,
-  },
-  userActions: {
-    logout: Function,
-  },
-};
-
-export default function Home(props: Props) {
+export default function Home(props: PageProps) {
   const {
     user: { userList },
     userActions: { logout },

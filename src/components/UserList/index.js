@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { colors } from 'styles/variables';
 import media from 'styles/media';
+import type { User } from 'types/user';
 
 const UserListUI = styled.ul`
   margin-bottom: 20px;
@@ -62,7 +63,7 @@ const UserListLink = styled(Link)`
 `;
 
 type Props = {
-  userList: Array<Object>,
+  userList: User[],
 };
 
 export default function UserList(props: Props) {

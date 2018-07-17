@@ -3,17 +3,9 @@
 import * as React from 'react';
 import Helmet from 'react-helmet';
 import { Button, Title, SubTitle, UserList } from 'components';
+import type { PageProps } from 'types';
 
-type Props = {
-  user: {
-    userList: Array<Object>,
-  },
-  userActions: {
-    logout: Function,
-  },
-};
-
-export default function Home(props: Props) {
+export default function Home(props: PageProps) {
   const {
     user: { userList },
     userActions: { logout },

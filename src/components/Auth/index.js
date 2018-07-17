@@ -6,16 +6,10 @@ import { matchRoutes } from 'react-router-config';
 import { compose, lifecycle, setStatic, pure } from 'recompose';
 import { endpoint } from 'config/url';
 import routes from 'routes';
+import type { ReduxState } from 'types';
 
 type Props = {
-  routes: Array<any>,
-};
-type State = {
-  user: {
-    status: {
-      isLoggedIn: boolean,
-    },
-  },
+  routes: any[],
 };
 type Route = {
   isLoggedIn: boolean,
@@ -46,7 +40,7 @@ export function Auth(props: Props) {
   );
 }
 export default compose(
-  setStatic('getRedirectUrl', (state: State, route: Route) => {
+  setStatic('getRedirectUrl', (state: ReduxState, route: Route) => {
     const {
       user: {
         status: { isLoggedIn },

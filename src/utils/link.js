@@ -31,7 +31,7 @@ class Link {
     };
   }
 
-  parse(config: Object): Array<{ rel: string, href: string }> {
+  parse(config: Object): { rel: string, href: string }[] {
     return Object.keys(config).map((key: string) => ({
       rel: key,
       href: config[key],
