@@ -11,11 +11,12 @@ import type { ReduxState, PageProps } from 'types';
 type Route = {
   isLoggedIn: boolean,
 };
-const authRoutes = routes[0].routes;
 const guestRedirectUrl = endpoint.landing;
 const userRedirectUrl = endpoint.home;
 
 export function Auth(props: PageProps) {
+  const authRoutes = routes[0].routes;
+
   return (
     <Switch>
       {authRoutes.map((route, i) => (
@@ -67,6 +68,7 @@ export default compose(
       } = this.props;
       const branch = matchRoutes(routes, pathname);
       const routePath = branch[branch.length - 1].route.path;
+      const authRoutes = routes[0].routes;
       const guestRoutes = authRoutes
         .filter(
           route =>
