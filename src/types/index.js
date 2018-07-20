@@ -10,9 +10,9 @@ import type { UiAction } from 'types/ui';
 import * as userActions from 'actions/user';
 import * as uiActions from 'actions/ui';
 
-type $ExtractFunctionReturn = <V>(v: (...args: any) => V) => V; // eslint-disable-line no-undef
+type $ExtractFunctionReturn = <V>(v: (...args: any) => V) => V;
 
-export type ReduxState = $ObjMap<Reducers, $ExtractFunctionReturn>; // eslint-disable-line no-undef
+export type ReduxState = $ObjMap<Reducers, $ExtractFunctionReturn>;
 export type Action = UserAction | UiAction;
 export type ThunkAction = (dispatch: Dispatch, getState: GetState) => any;
 export type PromiseAction = Promise<Action>;
@@ -22,7 +22,7 @@ export type Dispatch = (
 export type GetState = () => ReduxState;
 export type Store = ReduxStore<ReduxState, Action>;
 export type PageProps = {
-  uiActions: $Call<bindActionCreators, typeof uiActions, Dispatch>, // eslint-disable-line no-undef
-  userActions: $Call<bindActionCreators, typeof userActions, Dispatch>, // eslint-disable-line no-undef
+  uiActions: $Call<bindActionCreators, typeof uiActions, Dispatch>,
+  userActions: $Call<bindActionCreators, typeof userActions, Dispatch>,
 } & ContextRouter &
   ReduxState;
