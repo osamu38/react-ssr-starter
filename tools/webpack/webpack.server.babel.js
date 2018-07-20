@@ -31,7 +31,7 @@ export default webpackEnv => {
     devtool: isDevelopment
       ? 'cheap-module-eval-source-map'
       : 'hidden-source-map',
-    entry: './src/server.js',
+    entry: ['@babel/polyfill', './src/server.js'],
     output: {
       path: joinPath('dist'),
       filename: 'server.js',

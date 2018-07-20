@@ -68,17 +68,15 @@ export default webpackEnv => {
     devtool: isDevelopment
       ? 'cheap-module-eval-source-map'
       : 'hidden-source-map',
-    entry: {
-      main: [
-        ...(isDevelopment
-          ? [
-              'react-hot-loader/patch',
-              'webpack-hot-middleware/client?reload=true&quiet=true',
-            ]
-          : []),
-        './src/client.js',
-      ],
-    },
+    entry: [
+      ...(isDevelopment
+        ? [
+            'react-hot-loader/patch',
+            'webpack-hot-middleware/client?reload=true&quiet=true',
+          ]
+        : []),
+      './src/client.js',
+    ],
     output: {
       path: joinPath(isProduction ? 'dist' : '', 'public/static/javascripts'),
       filename: `[name]${!isDevelopment ? '.min' : ''}.js`,
