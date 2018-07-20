@@ -1,7 +1,6 @@
 /* @flow */
 
-import type { Action } from 'types';
-import type { UserState } from 'types/user';
+import type { UserState, UserAction } from 'types/user';
 
 export const initialState = {
   user: {
@@ -33,7 +32,7 @@ export const initialState = {
     isFetchedUserList: false,
   },
 };
-export default (state: UserState = initialState, action: Action) => {
+export default (state: UserState = initialState, action: UserAction) => {
   switch (action.type) {
     case 'LOGGED_IN':
       return {
