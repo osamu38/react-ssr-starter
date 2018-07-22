@@ -8,7 +8,9 @@
 ./tools/flow/global.js
 
 [options]
-esproposal.optional_chaining=ignore
 module.system.node.resolve_dirname=node_modules
 module.system.node.resolve_dirname=./src
 module.system.node.resolve_dirname=.
+
+[lints]
+deprecated-call-syntax=off
