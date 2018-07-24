@@ -1,7 +1,6 @@
 /* @flow */
 
 import * as React from 'react';
-import { hot } from 'react-hot-loader';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Route, withRouter } from 'react-router-dom';
@@ -14,6 +13,7 @@ import * as uiActions from 'actions/ui';
 import meta from 'utils/meta';
 import link from 'utils/link';
 import routes from 'routes';
+import { isDevelopment } from 'servers/env';
 import 'styles';
 import type { Dispatch, PageProps } from 'types';
 
@@ -58,13 +58,12 @@ function mapDispatchToProps() {
   });
 }
 
-export default compose(
+const enhancers = [
   withRouter,
   connect(
     mapStateToProps,
     mapDispatchToProps
   ),
-  hot(module),
   lifecycle({
     componentDidUpdate(prevProps: PageProps) {
       const {
@@ -87,5 +86,13 @@ export default compose(
       }
     },
   }),
-  pure
-)(App);
+  pure,
+];
+
+if (isDevelopment) {
+  const { hot } = require('react-hot-loader');
+
+  enhancers.push(hot(module));
+}
+
+export default compose(...enhancers)(App);

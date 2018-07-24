@@ -9,10 +9,10 @@ import type { BrowserHistory } from 'history/createBrowserHistory';
 import type { MemoryHistory } from 'history/createMemoryHistory';
 import type { Store, ReduxState } from 'types';
 
-export default (
+export default function configureStore(
   history: BrowserHistory | MemoryHistory,
   initialState?: ReduxState
-): Store => {
+): Store {
   const middlewares = applyMiddleware(
     ...[
       thunkMiddleware,
@@ -34,4 +34,4 @@ export default (
     });
   }
   return store;
-};
+}

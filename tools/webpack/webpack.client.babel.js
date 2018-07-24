@@ -37,6 +37,7 @@ function getPlugins(isAnalyze) {
           },
         ]),
         new webpack.IgnorePlugin(/redux-logger/),
+        new webpack.IgnorePlugin(/react-hot-loader/),
         new workboxPlugin.GenerateSW({
           swDest: joinPath('dist/public/static/javascripts/sw.js'),
           clientsClaim: true,
