@@ -23,6 +23,7 @@ import routes from 'routes';
 import configureStore from 'utils/configureStore';
 import loginFromServer from 'utils/loginFromServer';
 import getHtmlString from 'utils/getHtmlString';
+import getPreloadResorceElement from 'utils/getPreloadResorceElement';
 import cookie from 'utils/cookie';
 import App from 'components/App';
 import { isDevelopment, isProduction } from 'servers/env';
@@ -38,12 +39,14 @@ function getDocument(initialState, content, loadableState) {
   const sheet = new ServerStyleSheet();
   const css = sheet.getStyleElement();
   const loadableStateScript = loadableState.getScriptElement();
+  const preloadResorceElement = getPreloadResorceElement(content);
   const htmlString = getHtmlString(
     css,
     head,
     content,
     initialState,
-    loadableStateScript
+    loadableStateScript,
+    preloadResorceElement
   );
 
   return `<!doctype html>${htmlString}`;

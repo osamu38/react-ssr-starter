@@ -12,7 +12,8 @@ export default function getHtmlString(
   head: Object,
   content: string,
   initialState: ReduxState,
-  loadableStateScript: React.Node
+  loadableStateScript: React.Node,
+  preloadResorceElement: React.Node
 ): string {
   const Html = (
     <html lang="ja">
@@ -20,13 +21,16 @@ export default function getHtmlString(
         {head.title.toComponent()}
         {head.meta.toComponent()}
         {head.link.toComponent()}
+        {isProduction ? preloadResorceElement : ''}
         {isProduction ? css : ''}
       </head>
       <body>
-        <div
-          id="root"
-          dangerouslySetInnerHTML={{ __html: isProduction ? content : '' }}
-        />
+        <div id="root">
+          <div
+            id="app"
+            dangerouslySetInnerHTML={{ __html: isProduction ? content : '' }}
+          />
+        </div>
         <script
           dangerouslySetInnerHTML={{
             __html: `window.__INITIAL_STATE__ = ${serialize(initialState)}`,
