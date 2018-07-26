@@ -38,8 +38,9 @@ function getDocument(initialState, content, loadableState) {
   const head = Helmet.rewind();
   const sheet = new ServerStyleSheet();
   const css = sheet.getStyleElement();
+  const styleTags = sheet.getStyleTags();
   const loadableStateScript = loadableState.getScriptElement();
-  const preloadResorceElement = getPreloadResorceElement(content);
+  const preloadResorceElement = getPreloadResorceElement(content, styleTags);
   const htmlString = getHtmlString(
     css,
     head,
