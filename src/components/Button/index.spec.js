@@ -1,28 +1,34 @@
 import React from 'react';
 import Button from 'components/Button';
+import 'jest-styled-components';
 
 describe('<Button />', () => {
-  it('render children', () => {
-    const children = 'Button';
-    const wrapper = shallow(<Button>{children}</Button>);
-
-    expect(wrapper.prop('children')).toEqual(children);
-  });
   it('render snapshots', () => {
-    const wrapper = shallow(<Button>Button</Button>);
+    const wrapper = mount(<Button>Button</Button>);
 
-    expect(toJson(wrapper)).toMatchInlineSnapshot(`
-<Button__ButtonUI>
-  Button
-</Button__ButtonUI>
+    expect(wrapper).toMatchInlineSnapshot(`
+.c0 {
+  display: block;
+  width: 100%;
+  max-width: 180px;
+  line-height: 40px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #f68084;
+  text-align: center;
+  cursor: pointer;
+  border: 2px #f68084 solid;
+}
+
+<Button>
+  <styled.button>
+    <button
+      className="c0"
+    >
+      Button
+    </button>
+  </styled.button>
+</Button>
 `);
-  });
-  it('call onclick', () => {
-    const mock = jest.fn();
-    const wrapper = shallow(<Button />);
-
-    wrapper.setProps({ onClick: mock });
-    wrapper.simulate('click');
-    expect(mock).toHaveBeenCalled();
   });
 });
