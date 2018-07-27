@@ -24,7 +24,7 @@ const ButtonUI = styled.button`
 
 type Props = {
   children?: React.Node,
-  onClick: Function,
+  onClick?: Function,
   isCenter?: boolean,
 };
 

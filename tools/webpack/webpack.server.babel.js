@@ -2,7 +2,7 @@ import webpack from 'webpack';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
 import nodeExternals from 'webpack-node-externals';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
-import { env, isDevelopment } from 'servers/env';
+import { env, isDevelopment, isProduction } from 'servers/env';
 import { joinPath } from 'servers/path';
 
 function getPlugins(isAnalyze) {
@@ -19,6 +19,20 @@ function getPlugins(isAnalyze) {
     plugins = [...plugins, ...[new BundleAnalyzerPlugin()]];
   }
   return plugins;
+}
+
+function getResolve() {
+  return {
+    extensions: ['.js', '.json'],
+    ...(isProduction
+      ? {
+          alias: {
+            react: 'preact-compat',
+            'react-dom': 'preact-compat',
+          },
+        }
+      : {}),
+  };
 }
 
 export default webpackEnv => {
@@ -57,9 +71,7 @@ export default webpackEnv => {
         },
       ],
     },
-    resolve: {
-      extensions: ['.js', '.json'],
-    },
+    resolve: getResolve(),
     node: {
       console: false,
       global: false,

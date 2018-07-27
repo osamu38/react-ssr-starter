@@ -2,7 +2,9 @@
 
 import * as React from 'react';
 import styled from 'styled-components';
-import { Button, Label, Input } from 'components';
+import Button from 'components/Button';
+import Label from 'components/Label';
+import Input from 'components/Input';
 
 const LoginFormUI = styled.form`
   width: 100%;

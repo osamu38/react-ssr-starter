@@ -84,7 +84,7 @@ export default function Home(props: PageProps) {
   } = props;
 
   return (
-    <>
+    <div>
       <Helmet title="Home" />
       <Title>Home Page</Title>
       <SubTitle>User List</SubTitle>
@@ -97,7 +97,7 @@ export default function Home(props: PageProps) {
       >
         Logout
       </Button>
-    </>
+    </div>
   );
 }
 ```
@@ -142,12 +142,4 @@ import Home from 'pages/Home';
     isLoggedIn: true,
     component: Home,
   },
-```
-
-## Adding components
-
-Add your components in `src/components/index.js`.
-
-```javascript
-export const Button = loadable(() => import('components/Button'));
 ```

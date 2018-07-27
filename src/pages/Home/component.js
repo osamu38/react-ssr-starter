@@ -2,7 +2,10 @@
 
 import * as React from 'react';
 import Helmet from 'react-helmet';
-import { Button, Title, SubTitle, UserList } from 'components';
+import Button from 'components/Button';
+import Title from 'components/Title';
+import SubTitle from 'components/SubTitle';
+import UserList from 'components/UserList';
 import type { PageProps } from 'types';
 
 export default function HomePage(props: PageProps) {
@@ -12,7 +15,7 @@ export default function HomePage(props: PageProps) {
   } = props;
 
   return (
-    <>
+    <div>
       <Helmet title="Home" />
       <Title>Home Page</Title>
       <SubTitle>User List</SubTitle>
@@ -25,6 +28,6 @@ export default function HomePage(props: PageProps) {
       >
         Logout
       </Button>
-    </>
+    </div>
   );
 }

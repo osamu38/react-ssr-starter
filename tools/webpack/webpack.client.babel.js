@@ -2,6 +2,7 @@ import webpack from 'webpack';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import FriendlyErrorsWebpackPlugin from 'friendly-errors-webpack-plugin';
+import UglifyJsWebpackPlugin from 'uglifyjs-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import workboxPlugin from 'workbox-webpack-plugin';
 import { env, isDevelopment, isProduction } from 'servers/env';
@@ -58,6 +59,20 @@ function getPlugins(isAnalyze) {
   return plugins;
 }
 
+function getResolve() {
+  return {
+    extensions: ['.js', '.json'],
+    ...(isProduction
+      ? {
+          alias: {
+            react: 'preact-compat',
+            'react-dom': 'preact-compat',
+          },
+        }
+      : {}),
+  };
+}
+
 export default webpackEnv => {
   const isAnalyze = webpackEnv.analyze;
 
@@ -89,6 +104,15 @@ export default webpackEnv => {
         name: 'vendor',
         chunks: 'initial',
       },
+      minimizer: [
+        new UglifyJsWebpackPlugin({
+          uglifyOptions: {
+            compress: {
+              reduce_vars: false,
+            },
+          },
+        }),
+      ],
     },
     module: {
       rules: [
@@ -110,9 +134,7 @@ export default webpackEnv => {
         },
       ],
     },
-    resolve: {
-      extensions: ['.js', '.json'],
-    },
+    resolve: getResolve(),
     node: {
       fs: 'empty',
       vm: 'empty',

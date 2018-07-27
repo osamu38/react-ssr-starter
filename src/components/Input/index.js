@@ -16,7 +16,6 @@ const InputUI = styled.input`
 type Props = {
   type: string,
   name: string,
-  value: string,
   placeholder: string,
   required: boolean,
 };

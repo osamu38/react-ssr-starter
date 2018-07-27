@@ -3,7 +3,10 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { sizes, spaces, colors } from 'styles/variables';
-import { Logo, Menu, MenuIcon, OctIcon } from 'components';
+import Logo from 'components/Logo';
+import Menu from 'components/Menu';
+import MenuIcon from 'components/MenuIcon';
+import OctIcon from 'components/OctIcon';
 
 const HeaderWrapper = styled.div`
   height: ${sizes.height.header}px;

@@ -16,7 +16,7 @@ const root: ?Element = document.getElementById('root');
 
 loadComponents().then(() => {
   if (root) {
-    ReactDOM[isProduction ? 'hydrate' : 'render'](
+    ReactDOM.render(
       <Provider store={store}>
         <BrowserRouter>
           <App />
