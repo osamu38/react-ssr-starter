@@ -11,9 +11,12 @@ import configureStore from 'utils/configureStore';
 import App from 'components/App';
 import { isProduction } from 'servers/env';
 
-const initialState = window.__INITIAL_STATE__;
 const history = createHistory();
-const store = configureStore(history, initialState);
+const configureStoreArgs = [history];
+if (isProduction) {
+  configureStoreArgs.push(window.__INITIAL_STATE__);
+}
+const store = configureStore(...configureStoreArgs);
 const root: ?Element = document.getElementById('root');
 
 loadComponents().then(() => {
