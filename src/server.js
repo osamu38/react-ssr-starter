@@ -18,7 +18,6 @@ import Helmet from 'react-helmet';
 import { Provider } from 'react-redux';
 import { getLoadableState } from 'loadable-components/server';
 import { ServerStyleSheet } from 'styled-components';
-import createHistory from 'history/createMemoryHistory';
 import routes from 'routes';
 import configureStore from 'utils/configureStore';
 import loginFromServer from 'utils/loginFromServer';
@@ -138,8 +137,7 @@ app.get('*', async (req: $Request, res: $Response) => {
     res
   );
 
-  const history = createHistory();
-  const store = configureStore(history);
+  const store = configureStore();
 
   // $FlowFixMe
   loginFromServer(store.dispatch);

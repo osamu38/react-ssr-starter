@@ -4,25 +4,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 import { loadComponents } from 'loadable-components';
-import { ConnectedRouter } from 'connected-react-router';
-import createHistory from 'history/createBrowserHistory';
 import configureStore from 'utils/configureStore';
 import App from 'components/App';
 import { isProduction } from 'servers/env';
 
 const initialState = window.__INITIAL_STATE__;
-const history = createHistory();
-const store = configureStore(history, initialState);
+const store = configureStore(initialState);
 const root: ?Element = document.getElementById('root');
 
 loadComponents().then(() => {
   if (root) {
     ReactDOM[isProduction ? 'hydrate' : 'render'](
       <Provider store={store}>
-        <ConnectedRouter history={history}>
+        <BrowserRouter>
           <App />
-        </ConnectedRouter>
+        </BrowserRouter>
       </Provider>,
       root
     );

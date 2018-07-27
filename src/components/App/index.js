@@ -4,7 +4,6 @@ import * as React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Route, withRouter } from 'react-router-dom';
-import { routerActions } from 'connected-react-router';
 import Helmet from 'react-helmet';
 import { compose, lifecycle, pure } from 'recompose';
 import { Container, Footer, Header, Main, Error } from 'components';
@@ -52,7 +51,6 @@ function mapStateToProps<S>(state: S): S {
 }
 function mapDispatchToProps() {
   return (dispatch: Dispatch) => ({
-    routerActions: bindActionCreators(routerActions, dispatch),
     userActions: bindActionCreators(userActions, dispatch),
     uiActions: bindActionCreators(uiActions, dispatch),
   });
