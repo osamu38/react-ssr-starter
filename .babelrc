@@ -2,7 +2,14 @@
   "env": {
     "development": {
       "plugins": [
-        "dynamic-import-node"
+        "dynamic-import-node",
+        "react-hot-loader/babel",
+        [
+          "babel-plugin-styled-components",
+          {
+            "ssr": true
+          }
+        ]
       ]
     }
   },
@@ -10,21 +17,11 @@
     [
       "module-resolver",
       {
-        "root": [
-          "./",
-          "./src"
-        ]
-      }
-    ],
-    [
-      "babel-plugin-styled-components",
-      {
-        "ssr": true
+        "root": ["./", "./src"]
       }
     ],
     "add-module-exports",
-    "loadable-components/babel",
-    "react-hot-loader/babel"
+    "loadable-components/babel"
   ],
   "presets": [
     [
