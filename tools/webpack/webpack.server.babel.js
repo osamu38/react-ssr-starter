@@ -16,7 +16,10 @@ function getPlugins(isAnalyze) {
   ];
 
   if (isAnalyze) {
-    plugins = [...plugins, ...[new BundleAnalyzerPlugin()]];
+    plugins = [
+      ...plugins,
+      ...[new BundleAnalyzerPlugin({ analyzerPort: 8889 })],
+    ];
   }
   return plugins;
 }

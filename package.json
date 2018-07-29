@@ -15,7 +15,7 @@
   },
   "scripts": {
     "build": "npm run build:client && npm run build:server",
-    "build:analyze": "npm run build:client:analyze && npm run build:server:analyze",
+    "build:analyze": "npm run build:client:analyze & npm run build:server:analyze",
     "build:client": "NODE_ENV=production webpack --progress --env --config ./tools/webpack/webpack.client.babel.js",
     "build:client:analyze": "NODE_ENV=production webpack --progress --env.analyze --config ./tools/webpack/webpack.client.babel.js",
     "build:server": "NODE_ENV=production webpack --progress --env --config ./tools/webpack/webpack.server.babel.js",
