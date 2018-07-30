@@ -1,9 +1,19 @@
 /* @flow */
 
-import loadable from 'loadable-components';
-import { compose, setStatic } from 'recompose';
+import * as React from 'react';
+import Helmet from 'react-helmet';
 import { endpoint } from 'config/url';
+import type { PageProps } from 'types';
 
-export default compose(setStatic('getRedirectUrl', () => endpoint.about))(
-  loadable(() => import('pages/RedirectAbout/component'))
-);
+export default class RedirectAboutPage extends React.PureComponent<
+  PageProps,
+  *
+> {
+  static getRedirectUrl() {
+    return endpoint.about;
+  }
+
+  render() {
+    return <Helmet title="RedirectAboutPage" />;
+  }
+}

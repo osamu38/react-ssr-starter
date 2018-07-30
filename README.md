@@ -8,7 +8,6 @@ All have been introduced React environment.
 - [react-router](https://reacttraining.com/react-router/)
 - [react-helmet](https://github.com/nfl/react-helmet)
 - [react-hot-loader](http://gaearon.github.io/react-hot-loader/)
-- [recompose](https://github.com/acdlite/recompose)
 - [redux](https://rackt.github.io/redux/)
 - [styled-components](https://www.styled-components.com/)
 - [loadable-components](https://github.com/smooth-code/loadable-components)
@@ -65,70 +64,64 @@ Go to `http://localhost:2525/`.
 
 ## Adding pages
 
-Basically page component is implemented using SFC and recompose.
+Basically page component is implemented using React.PureComponent.
 
-`src/pages/Home/component.js`
+`src/pages/Home/index.js`
 
 ```jsx
 /* @flow */
 
 import * as React from 'react';
 import Helmet from 'react-helmet';
-import { Button, Title, SubTitle, UserList } from 'components';
-import { PageProps } from 'types';
-
-export default function Home(props: PageProps) {
-  const {
-    user: { userList },
-    userActions: { logout },
-  } = props;
-
-  return (
-    <div>
-      <Helmet title="Home" />
-      <Title>Home Page</Title>
-      <SubTitle>User List</SubTitle>
-      <UserList userList={userList} />
-      <Button
-        onClick={() => {
-          logout();
-        }}
-        isCenter
-      >
-        Logout
-      </Button>
-    </div>
-  );
-}
-```
-
-`src/pages/Home/index.js`
-
-```javascript
-/* @flow */
-
-import loadable from 'loadable-components';
-import { compose, lifecycle, pure, setStatic } from 'recompose';
+import Button from 'components/Button';
+import Title from 'components/Title';
+import SubTitle from 'components/SubTitle';
+import UserList from 'components/UserList';
 import { fetchUsers as fetchUsersFromServer } from 'actions/user';
+import type { PageProps, Dispatch } from 'types';
 
-export default compose(
-  setStatic('loadData', dispatch => dispatch(fetchUsersFromServer())),
-  lifecycle({
-    componentDidMount() {
-      const {
-        user: {
-          status: { isFetchedUserList },
-        },
-        userActions: { fetchUsers },
-      } = this.props;
+export default class HomePage extends React.PureComponent<PageProps, *> {
+  static loadData(dispatch: Dispatch) {
+    return dispatch(fetchUsersFromServer());
+  }
 
-      if (!isFetchedUserList) {
-        fetchUsers();
-      }
-    },
-  }),
-  pure
-)(loadable(() => import('pages/Home/component')));
+  componentDidMount() {
+    const {
+      user: {
+        status: { isFetchedUserList },
+      },
+      userActions: { fetchUsers },
+    } = this.props;
+
+    if (!isFetchedUserList) {
+      fetchUsers();
+    }
+  }
+
+  render() {
+    const {
+      user: { userList },
+      userActions: { logout },
+    } = this.props;
+
+    return (
+      <div>
+        <Helmet title="Home" />
+        <Title>Home Page</Title>
+        <SubTitle>User List</SubTitle>
+        <UserList userList={userList} />
+        <Button
+          onClick={() => {
+            logout();
+          }}
+          isCenter
+        >
+          Logout
+        </Button>
+      </div>
+    );
+  }
+}
 ```
 
 Add your pages in `src/routes.js`.

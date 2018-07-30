@@ -1,13 +1,8 @@
 /* @flow */
 
+import loadable from 'loadable-components';
 import { endpoint } from 'config/url';
 import Auth from 'components/Auth';
-import Landing from 'pages/Landing';
-import Home from 'pages/Home';
-import UserDetail from 'pages/UserDetail';
-import About from 'pages/About';
-import RedirectAbout from 'pages/RedirectAbout';
-import NotFound from 'pages/NotFound';
 
 type Route = {
   path: string,
@@ -36,29 +31,29 @@ export default [
       {
         path: endpoint.landing,
         isLoggedIn: false,
-        component: Landing,
+        component: loadable(() => import('pages/Landing')),
       },
       {
         path: endpoint.home,
         isLoggedIn: true,
-        component: Home,
+        component: loadable(() => import('pages/Home')),
       },
       {
         path: endpoint.userDetail,
         isLoggedIn: true,
-        component: UserDetail,
+        component: loadable(() => import('pages/UserDetail')),
       },
       {
         path: endpoint.about,
-        component: About,
+        component: loadable(() => import('pages/About')),
       },
       {
         path: endpoint.redirectAbout,
-        component: RedirectAbout,
+        component: loadable(() => import('pages/RedirectAbout')),
       },
       {
         path: endpoint.notFound,
-        component: NotFound,
+        component: loadable(() => import('pages/NotFound')),
       },
     ]),
   },
