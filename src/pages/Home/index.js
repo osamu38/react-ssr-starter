@@ -1,7 +1,7 @@
 /* @flow */
 
 import loadable from 'loadable-components';
-import { compose, lifecycle, pure, setStatic } from 'recompose';
+import { compose, lifecycle, setStatic } from 'recompose';
 import { fetchUsers as fetchUsersFromServer } from 'actions/user';
 import type { Dispatch } from 'types';
 
@@ -22,6 +22,5 @@ export default compose(
         fetchUsers();
       }
     },
-  }),
-  pure
+  })
 )(loadable(() => import('pages/Home/component')));

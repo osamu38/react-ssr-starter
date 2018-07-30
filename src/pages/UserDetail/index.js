@@ -1,7 +1,7 @@
 /* @flow */
 
 import loadable from 'loadable-components';
-import { compose, lifecycle, pure, setStatic } from 'recompose';
+import { compose, lifecycle, setStatic } from 'recompose';
 import { fetchUser as fetchUserFromServer } from 'actions/user';
 import type { Dispatch, ReduxState } from 'types';
 
@@ -27,6 +27,5 @@ export default compose(
         fetchUser(id);
       }
     },
-  }),
-  pure
+  })
 )(loadable(() => import('pages/UserDetail/component')));
