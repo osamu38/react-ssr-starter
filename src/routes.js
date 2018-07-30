@@ -1,6 +1,6 @@
 /* @flow */
 
-import loadable from 'loadable-components';
+import loadable from 'loadable-components'; // eslint-disable-line no-unused-vars
 import { endpoint } from 'config/url';
 import Auth from 'components/Auth';
 
@@ -23,6 +23,9 @@ function addExact(routes: Route[]): Route[] {
   );
 }
 
+// Use 'require' instead of 'import'.
+// Because it replaces the string 'require' at build time.
+
 export default [
   {
     path: '/',
@@ -31,29 +34,29 @@ export default [
       {
         path: endpoint.landing,
         isLoggedIn: false,
-        component: loadable(() => import('pages/Landing')),
+        component: require('pages/Landing'),
       },
       {
         path: endpoint.home,
         isLoggedIn: true,
-        component: loadable(() => import('pages/Home')),
+        component: require('pages/Home'),
       },
       {
         path: endpoint.userDetail,
         isLoggedIn: true,
-        component: loadable(() => import('pages/UserDetail')),
+        component: require('pages/UserDetail'),
       },
       {
         path: endpoint.about,
-        component: loadable(() => import('pages/About')),
+        component: require('pages/About'),
       },
       {
         path: endpoint.redirectAbout,
-        component: loadable(() => import('pages/RedirectAbout')),
+        component: require('pages/RedirectAbout'),
       },
       {
         path: endpoint.notFound,
-        component: loadable(() => import('pages/NotFound')),
+        component: require('pages/NotFound'),
       },
     ]),
   },

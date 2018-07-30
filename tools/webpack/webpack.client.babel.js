@@ -1,6 +1,7 @@
 import webpack from 'webpack';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
+import StringReplacePlugin from 'string-replace-webpack-plugin';
 import FriendlyErrorsWebpackPlugin from 'friendly-errors-webpack-plugin';
 import UglifyJsWebpackPlugin from 'uglifyjs-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
@@ -62,6 +63,46 @@ function getPlugins(isAnalyze) {
   return plugins;
 }
 
+function getModule() {
+  return {
+    rules: [
+      {
+        test: /\.js$/,
+        include: joinPath('src'),
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+      {
+        test: /\.json$/,
+        include: joinPath('src'),
+        exclude: /node_modules/,
+        use: {
+          loader: 'json-loader',
+        },
+      },
+      ...(isProduction
+        ? [
+            {
+              test: /\.js$/,
+              loader: StringReplacePlugin.replace({
+                replacements: [
+                  {
+                    pattern: /component: require(.*?),/g,
+                    replacement(match, p1) {
+                      return `component: loadable(() => import${p1}),`;
+                    },
+                  },
+                ],
+              }),
+            },
+          ]
+        : []),
+    ],
+  };
+}
+
 function getResolve() {
   return {
     extensions: ['.js', '.json'],
@@ -117,26 +158,7 @@ export default webpackEnv => {
         }),
       ],
     },
-    module: {
-      rules: [
-        {
-          test: /\.js$/,
-          include: joinPath('src'),
-          exclude: /node_modules/,
-          use: {
-            loader: 'babel-loader',
-          },
-        },
-        {
-          test: /\.json$/,
-          include: joinPath('src'),
-          exclude: /node_modules/,
-          use: {
-            loader: 'json-loader',
-          },
-        },
-      ],
-    },
+    module: getModule(),
     resolve: getResolve(),
     node: {
       fs: 'empty',
