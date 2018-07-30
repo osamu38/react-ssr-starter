@@ -85,13 +85,13 @@ function getModule() {
       ...(isProduction
         ? [
             {
-              test: /\.js$/,
+              test: /src\/routes\.js$/,
               loader: StringReplacePlugin.replace({
                 replacements: [
                   {
-                    pattern: /component: require(.*?),/g,
+                    pattern: /require(.*?),/g,
                     replacement(match, p1) {
-                      return `component: loadable(() => import${p1}),`;
+                      return `loadable(() => import${p1}),`;
                     },
                   },
                 ],
