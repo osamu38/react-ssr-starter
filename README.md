@@ -4,6 +4,7 @@ All have been introduced React environment.
 
 ## Features
 
+- [preact](https://preactjs.com/)
 - [react](https://reactjs.org/)
 - [react-router](https://reacttraining.com/react-router/)
 - [react-helmet](https://github.com/nfl/react-helmet)
@@ -127,12 +128,10 @@ export default class HomePage extends React.PureComponent<PageProps, *> {
 Add your pages in `src/routes.js`.
 
 ```javascript
-import Home from 'pages/Home';
-
 ...
   {
     path: url.endpoint.home,
     isLoggedIn: true,
-    component: Home,
+    component: require('pages/Home'),
   },
 ```
