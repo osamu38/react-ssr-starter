@@ -2,6 +2,7 @@ import webpack from 'webpack';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
 import nodeExternals from 'webpack-node-externals';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import StringReplacePlugin from 'string-replace-webpack-plugin';
 import { env, isDevelopment, isProduction } from 'servers/env';
 import { joinPath } from 'servers/path';
 
@@ -24,17 +25,43 @@ function getPlugins(isAnalyze) {
   return plugins;
 }
 
-function getResolve() {
+function getModule() {
   return {
-    extensions: ['.js', '.json'],
-    ...(isProduction
-      ? {
-          alias: {
-            react: 'preact-compat',
-            'react-dom': 'preact-compat',
-          },
-        }
-      : {}),
+    rules: [
+      {
+        test: /\.js$/,
+        include: joinPath('src'),
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+      {
+        test: /\.json$/,
+        include: joinPath('src'),
+        exclude: /node_modules/,
+        use: {
+          loader: 'json-loader',
+        },
+      },
+      ...(isProduction
+        ? [
+            {
+              test: /src\/routes\.js$/,
+              loader: StringReplacePlugin.replace({
+                replacements: [
+                  {
+                    pattern: /require(.*?),/g,
+                    replacement(match, p1) {
+                      return `loadable(() => import${p1}),`;
+                    },
+                  },
+                ],
+              }),
+            },
+          ]
+        : []),
+    ],
   };
 }
 
@@ -54,27 +81,10 @@ export default webpackEnv => {
       filename: 'server.js',
     },
     plugins: getPlugins(isAnalyze),
-    module: {
-      rules: [
-        {
-          test: /\.js$/,
-          include: joinPath('src'),
-          exclude: /node_modules/,
-          use: {
-            loader: 'babel-loader',
-          },
-        },
-        {
-          test: /\.json$/,
-          include: joinPath('src'),
-          exclude: /node_modules/,
-          use: {
-            loader: 'json-loader',
-          },
-        },
-      ],
+    module: getModule(),
+    resolve: {
+      extensions: ['.js', '.json'],
     },
-    resolve: getResolve(),
     node: {
       console: false,
       global: false,
