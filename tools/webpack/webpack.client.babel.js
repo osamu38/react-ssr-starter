@@ -89,9 +89,18 @@ function getModule() {
               loader: StringReplacePlugin.replace({
                 replacements: [
                   {
-                    pattern: /require(.*?),/g,
-                    replacement(match, p1) {
-                      return `loadable(() => import${p1}),`;
+                    pattern: /\/\* @flow \*\//g,
+                    replacement(match) {
+                      return `
+                        ${match}
+                        import loadable from 'loadable-components';
+                      `;
+                    },
+                  },
+                  {
+                    pattern: /import (.*?) from 'pages\/(.*?)';/g,
+                    replacement(match, p1, p2) {
+                      return `const ${p1} = loadable(() => import('pages/${p2}'));`;
                     },
                   },
                 ],

@@ -1,8 +1,13 @@
 /* @flow */
 
-import loadable from 'loadable-components'; // eslint-disable-line no-unused-vars
 import { endpoint } from 'config/url';
 import Auth from 'components/Auth';
+import Landing from 'pages/Landing';
+import Home from 'pages/Home';
+import UserDetail from 'pages/UserDetail';
+import About from 'pages/About';
+import RedirectAbout from 'pages/RedirectAbout';
+import NotFound from 'pages/NotFound';
 
 type Route = {
   path: string,
@@ -23,9 +28,6 @@ function addExact(routes: Route[]): Route[] {
   );
 }
 
-// Use 'require' instead of 'import'.
-// Because it replaces the string 'require' at build time.
-
 export default [
   {
     path: '/',
@@ -34,29 +36,29 @@ export default [
       {
         path: endpoint.landing,
         isLoggedIn: false,
-        component: require('pages/Landing'),
+        component: Landing,
       },
       {
         path: endpoint.home,
         isLoggedIn: true,
-        component: require('pages/Home'),
+        component: Home,
       },
       {
         path: endpoint.userDetail,
         isLoggedIn: true,
-        component: require('pages/UserDetail'),
+        component: UserDetail,
       },
       {
         path: endpoint.about,
-        component: require('pages/About'),
+        component: About,
       },
       {
         path: endpoint.redirectAbout,
-        component: require('pages/RedirectAbout'),
+        component: RedirectAbout,
       },
       {
         path: endpoint.notFound,
-        component: require('pages/NotFound'),
+        component: NotFound,
       },
     ]),
   },
