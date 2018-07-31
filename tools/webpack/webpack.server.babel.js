@@ -51,12 +51,9 @@ function getModule() {
               loader: StringReplacePlugin.replace({
                 replacements: [
                   {
-                    pattern: /\/\* @flow \*\//g,
-                    replacement(match) {
-                      return `
-                        ${match}
-                        import loadable from 'loadable-components';
-                      `;
+                    pattern: /import/,
+                    replacement() {
+                      return `import loadable from 'loadable-components';import`;
                     },
                   },
                   {
