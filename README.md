@@ -124,14 +124,3 @@ export default class HomePage extends React.PureComponent<PageProps, *> {
   }
 }
 ```
-
-Add your pages in `src/routes.js`.
-
-```javascript
-...
-  {
-    path: url.endpoint.home,
-    isLoggedIn: true,
-    component: require('pages/Home'),
-  },
-```

@@ -21,74 +21,78 @@ const StackListLink = styled.a`
   }
 `;
 
-export default function StackList() {
-  const stackData = [
-    {
-      name: 'react',
-      link: 'https://reactjs.org/',
-    },
-    {
-      name: 'react-router',
-      link: 'https://reacttraining.com/react-router/',
-    },
-    {
-      name: 'react-hot-loader',
-      link: 'http://gaearon.github.io/react-hot-loader/',
-    },
-    {
-      name: 'redux',
-      link: 'https://redux.js.org/',
-    },
-    {
-      name: 'styled-components',
-      link: 'https://www.styled-components.com/',
-    },
-    {
-      name: 'babel',
-      link: 'https://babeljs.io/',
-    },
-    {
-      name: 'webpack',
-      link: 'https://webpack.js.org/',
-    },
-    {
-      name: 'storybook',
-      link: 'https://storybook.js.org/',
-    },
-    {
-      name: 'express',
-      link: 'http://expressjs.com/',
-    },
-    {
-      name: 'prettier',
-      link: 'https://prettier.io/',
-    },
-    {
-      name: 'eslint',
-      link: 'https://eslint.org/',
-    },
-    {
-      name: 'stylelint',
-      link: 'https://stylelint.io/',
-    },
-    {
-      name: 'flow',
-      link: 'https://flow.org/',
-    },
-    {
-      name: 'enzyme',
-      link: 'http://airbnb.io/enzyme/',
-    },
-    {
-      name: 'jest',
-      link: 'https://facebook.github.io/jest/',
-    },
-    {
-      name: 'workbox',
-      link: 'https://developers.google.com/web/tools/workbox/',
-    },
-  ];
+const stackData = [
+  {
+    name: 'preact',
+    link: 'https://preactjs.com/',
+  },
+  {
+    name: 'react',
+    link: 'https://reactjs.org/',
+  },
+  {
+    name: 'react-router',
+    link: 'https://reacttraining.com/react-router/',
+  },
+  {
+    name: 'react-hot-loader',
+    link: 'http://gaearon.github.io/react-hot-loader/',
+  },
+  {
+    name: 'redux',
+    link: 'https://redux.js.org/',
+  },
+  {
+    name: 'styled-components',
+    link: 'https://www.styled-components.com/',
+  },
+  {
+    name: 'babel',
+    link: 'https://babeljs.io/',
+  },
+  {
+    name: 'webpack',
+    link: 'https://webpack.js.org/',
+  },
+  {
+    name: 'storybook',
+    link: 'https://storybook.js.org/',
+  },
+  {
+    name: 'express',
+    link: 'http://expressjs.com/',
+  },
+  {
+    name: 'prettier',
+    link: 'https://prettier.io/',
+  },
+  {
+    name: 'eslint',
+    link: 'https://eslint.org/',
+  },
+  {
+    name: 'stylelint',
+    link: 'https://stylelint.io/',
+  },
+  {
+    name: 'flow',
+    link: 'https://flow.org/',
+  },
+  {
+    name: 'enzyme',
+    link: 'http://airbnb.io/enzyme/',
+  },
+  {
+    name: 'jest',
+    link: 'https://facebook.github.io/jest/',
+  },
+  {
+    name: 'workbox',
+    link: 'https://developers.google.com/web/tools/workbox/',
+  },
+];
 
+export default function StackList() {
   return (
     <StackListUI>
       {stackData.map((item, i) => (
