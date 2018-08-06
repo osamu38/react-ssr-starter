@@ -7,8 +7,7 @@ import getClientPlugins from 'tools/webpack/getClientPlugins';
 
 export default webpackEnv => {
   const isAnalyze = webpackEnv.analyze;
-  console.log('HEROKU_DOMAIN: ');
-  console.log(process);
+
   return {
     mode: env,
     name: 'client',

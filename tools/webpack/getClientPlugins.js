@@ -10,7 +10,12 @@ import { joinPath } from 'utils/path';
 
 export default function getPlugins(isAnalyze) {
   return [
-    new webpack.EnvironmentPlugin({ NODE_ENV: `${env}` }),
+    new webpack.EnvironmentPlugin({
+      NODE_ENV: `${env}`,
+      ...(process.env.HEROKU_DOMAIN
+        ? { HEROKU_DOMAIN: process.env.HEROKU_DOMAIN }
+        : {}),
+    }),
     new webpack.NoEmitOnErrorsPlugin(),
     ...(isDevelopment
       ? [
