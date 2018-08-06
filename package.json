@@ -128,5 +128,9 @@
     "webpack-node-externals": "^1.7.2",
     "workbox-sw": "^3.4.1",
     "workbox-webpack-plugin": "^3.4.1"
+  },
+  "engines": {
+    "node": "10.0.0",
+    "npm": "5.6.0"
   }
 }
