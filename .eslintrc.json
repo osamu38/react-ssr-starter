@@ -11,11 +11,11 @@
     "class-methods-use-this": 0,
     "import/no-extraneous-dependencies": 0,
     "import/no-named-as-default": 0,
+    "import/no-cycle": 0,
     "react/no-danger": 0,
     "react/jsx-filename-extension": 0,
     "react/no-array-index-key": 0,
     "react/require-default-props": 0,
-    "import/no-cycle": 0,
     "flowtype/define-flow-type": 1,
     "flowtype/use-flow-type": 1
   },
