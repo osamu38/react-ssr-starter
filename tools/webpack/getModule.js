@@ -1,6 +1,6 @@
 import StringReplacePlugin from 'string-replace-webpack-plugin';
-import { isDevelopment } from 'servers/env';
-import { joinPath } from 'servers/path';
+import { isDevelopment } from 'config/env';
+import { joinPath } from 'utils/path';
 
 export default function getModule() {
   return {

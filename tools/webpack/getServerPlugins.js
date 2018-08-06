@@ -1,8 +1,8 @@
 import webpack from 'webpack';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
-import { env } from 'servers/env';
-import { joinPath } from 'servers/path';
+import { env } from 'config/env';
+import { joinPath } from 'utils/path';
 
 export default function getPlugins(isAnalyze) {
   return [

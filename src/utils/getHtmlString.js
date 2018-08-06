@@ -4,7 +4,7 @@ import * as React from 'react';
 import { renderToString } from 'react-dom/server';
 import serialize from 'serialize-javascript';
 import { minify } from 'html-minifier';
-import { isDevelopment } from 'servers/env';
+import { isDevelopment } from 'config/env';
 import type { ReduxState } from 'types';
 
 export default function getHtmlString(

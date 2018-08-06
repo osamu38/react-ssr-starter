@@ -1,6 +1,6 @@
 import UglifyJsWebpackPlugin from 'uglifyjs-webpack-plugin';
-import { env, isDevelopment } from 'servers/env';
-import { joinPath } from 'servers/path';
+import { env, isDevelopment } from 'config/env';
+import { joinPath } from 'utils/path';
 import getModule from 'tools/webpack/getModule';
 import getResolve from 'tools/webpack/getResolve';
 import getClientPlugins from 'tools/webpack/getClientPlugins';

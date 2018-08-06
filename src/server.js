@@ -25,8 +25,8 @@ import getHtmlString from 'utils/getHtmlString';
 import getPreloadResorceElement from 'utils/getPreloadResorceElement';
 import cookie from 'utils/cookie';
 import App from 'components/App';
-import { isDevelopment } from 'servers/env';
-import { joinPath } from 'servers/path';
+import { isDevelopment } from 'config/env';
+import { joinPath } from 'utils/path';
 import { port as defaultPort } from 'config/url';
 import type { $Request, $Response } from 'express';
 

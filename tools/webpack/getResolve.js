@@ -1,4 +1,4 @@
-import { isDevelopment } from 'servers/env';
+import { isDevelopment } from 'config/env';
 
 export default function getResolve() {
   return {

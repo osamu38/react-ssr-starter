@@ -16,7 +16,7 @@ import * as uiActions from 'actions/ui';
 import meta from 'utils/meta';
 import link from 'utils/link';
 import routes from 'routes';
-import { isDevelopment } from 'servers/env';
+import { isDevelopment } from 'config/env';
 import 'styles';
 import type { Dispatch, PageProps } from 'types';
 

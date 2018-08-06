@@ -8,7 +8,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { loadComponents } from 'loadable-components';
 import configureStore from 'utils/configureStore';
 import App from 'components/App';
-import { isDevelopment } from 'servers/env';
+import { isDevelopment } from 'config/env';
 
 const initialState = window.__INITIAL_STATE__;
 const store = configureStore(initialState);

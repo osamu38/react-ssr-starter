@@ -5,8 +5,8 @@ import FriendlyErrorsWebpackPlugin from 'friendly-errors-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import ManifestPlugin from 'webpack-manifest-plugin';
 import workboxPlugin from 'workbox-webpack-plugin';
-import { env, isDevelopment } from 'servers/env';
-import { joinPath } from 'servers/path';
+import { env, isDevelopment } from 'config/env';
+import { joinPath } from 'utils/path';
 
 export default function getPlugins(isAnalyze) {
   return [

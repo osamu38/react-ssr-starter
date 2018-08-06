@@ -1,6 +1,6 @@
 /* @flow */
 
-import { isDevelopment } from 'servers/env';
+import { isDevelopment } from 'config/env';
 
 export const port = 2525;
 export const origin = isDevelopment
