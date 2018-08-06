@@ -8,7 +8,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { loadComponents } from 'loadable-components';
 import configureStore from 'utils/configureStore';
 import App from 'components/App';
-import { isProduction } from 'servers/env';
+import { isDevelopment } from 'servers/env';
 
 const initialState = window.__INITIAL_STATE__;
 const store = configureStore(initialState);
@@ -29,7 +29,7 @@ loadComponents().then(() => {
 
 window.addEventListener('load', () => {
   if ('serviceWorker' in navigator && navigator.serviceWorker) {
-    if (isProduction) {
+    if (!isDevelopment) {
       navigator.serviceWorker
         .register('/static/javascripts/sw.js', { scope: '/' })
         .then(() => {

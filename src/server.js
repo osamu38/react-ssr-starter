@@ -25,7 +25,7 @@ import getHtmlString from 'utils/getHtmlString';
 import getPreloadResorceElement from 'utils/getPreloadResorceElement';
 import cookie from 'utils/cookie';
 import App from 'components/App';
-import { isDevelopment, isProduction } from 'servers/env';
+import { isDevelopment } from 'servers/env';
 import { joinPath } from 'servers/path';
 import { port as defaultPort } from 'config/url';
 import type { $Request, $Response } from 'express';
@@ -79,13 +79,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(
-  express.static(joinPath(isProduction ? 'dist' : '', 'public'), {
+  express.static(joinPath(!isDevelopment ? 'dist' : '', 'public'), {
     setHeaders: res => {
       res.set('Service-Worker-Allowed', '/');
     },
   })
 );
-app.use(favicon(joinPath(isProduction ? 'dist' : '', 'public/favicon.ico')));
+app.use(favicon(joinPath(!isDevelopment ? 'dist' : '', 'public/favicon.ico')));
 
 if (isDevelopment) {
   const webpack = require('webpack');
