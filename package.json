@@ -30,7 +30,8 @@
     "flow": "flow",
     "test": "NODE_ENV=test jest",
     "test:update": "npm test -- -u",
-    "test:coverage": "npm test -- --coverage"
+    "test:coverage": "npm test -- --coverage",
+    "heroku-postbuild": "npm run build"
   },
   "jest": {
     "setupFiles": [
