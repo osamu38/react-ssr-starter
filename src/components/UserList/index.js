@@ -28,6 +28,7 @@ const UserListItem = styled.li`
   &:nth-last-child(3):nth-child(3n-2) {
     border-bottom: none;
   }
+
   ${media.tablet`
     width: 50%;
     &:nth-child(3n) {
@@ -43,7 +44,8 @@ const UserListItem = styled.li`
     &:nth-last-child(3):nth-child(3n-2) {
       border-bottom: 1px ${colors.superLightGray} solid;
     }
-  `} ${media.phone`
+  `};
+  ${media.phone`
     width: 100%;
     &:nth-child(n) {
       border-right: none;
