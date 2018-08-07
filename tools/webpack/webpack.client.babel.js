@@ -33,7 +33,7 @@ export default webpackEnv => {
     plugins: getClientPlugins(isAnalyze),
     optimization: {
       splitChunks: {
-        name: 'vendor',
+        name: 'vendors',
         chunks: 'initial',
       },
       minimizer: [

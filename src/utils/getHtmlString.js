@@ -18,9 +18,9 @@ export default function getHtmlString(
   const main = isDevelopment
     ? '/static/javascripts/main.js'
     : global.manifest['main.js'];
-  const vendor = isDevelopment
-    ? '/static/javascripts/vendor.js'
-    : global.manifest['vendor.js'];
+  const vendors = isDevelopment
+    ? '/static/javascripts/vendors.js'
+    : global.manifest['vendors.js'];
   const Html = (
     <html lang="ja">
       <head>
@@ -41,7 +41,7 @@ export default function getHtmlString(
           }}
         />
         {loadableStateScript}
-        <script src={vendor} />
+        <script src={vendors} />
         <script src={main} />
       </body>
     </html>
