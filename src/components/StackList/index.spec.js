@@ -40,6 +40,28 @@ describe('<StackList />', () => {
           className="c1"
         >
           <styled.a
+            href="https://preactjs.com/"
+            rel="noopener"
+            target="_blank"
+          >
+            <a
+              className="c2"
+              href="https://preactjs.com/"
+              rel="noopener"
+              target="_blank"
+            >
+              preact
+            </a>
+          </styled.a>
+        </li>
+      </styled.li>
+      <styled.li
+        key="1"
+      >
+        <li
+          className="c1"
+        >
+          <styled.a
             href="https://reactjs.org/"
             rel="noopener"
             target="_blank"
@@ -56,7 +78,7 @@ describe('<StackList />', () => {
         </li>
       </styled.li>
       <styled.li
-        key="1"
+        key="2"
       >
         <li
           className="c1"
@@ -78,7 +100,7 @@ describe('<StackList />', () => {
         </li>
       </styled.li>
       <styled.li
-        key="2"
+        key="3"
       >
         <li
           className="c1"
@@ -100,7 +122,7 @@ describe('<StackList />', () => {
         </li>
       </styled.li>
       <styled.li
-        key="3"
+        key="4"
       >
         <li
           className="c1"
@@ -122,7 +144,7 @@ describe('<StackList />', () => {
         </li>
       </styled.li>
       <styled.li
-        key="4"
+        key="5"
       >
         <li
           className="c1"
@@ -144,7 +166,7 @@ describe('<StackList />', () => {
         </li>
       </styled.li>
       <styled.li
-        key="5"
+        key="6"
       >
         <li
           className="c1"
@@ -166,7 +188,7 @@ describe('<StackList />', () => {
         </li>
       </styled.li>
       <styled.li
-        key="6"
+        key="7"
       >
         <li
           className="c1"
@@ -188,7 +210,7 @@ describe('<StackList />', () => {
         </li>
       </styled.li>
       <styled.li
-        key="7"
+        key="8"
       >
         <li
           className="c1"
@@ -210,7 +232,7 @@ describe('<StackList />', () => {
         </li>
       </styled.li>
       <styled.li
-        key="8"
+        key="9"
       >
         <li
           className="c1"
@@ -232,7 +254,7 @@ describe('<StackList />', () => {
         </li>
       </styled.li>
       <styled.li
-        key="9"
+        key="10"
       >
         <li
           className="c1"
@@ -254,7 +276,7 @@ describe('<StackList />', () => {
         </li>
       </styled.li>
       <styled.li
-        key="10"
+        key="11"
       >
         <li
           className="c1"
@@ -276,7 +298,7 @@ describe('<StackList />', () => {
         </li>
       </styled.li>
       <styled.li
-        key="11"
+        key="12"
       >
         <li
           className="c1"
@@ -298,7 +320,7 @@ describe('<StackList />', () => {
         </li>
       </styled.li>
       <styled.li
-        key="12"
+        key="13"
       >
         <li
           className="c1"
@@ -320,7 +342,7 @@ describe('<StackList />', () => {
         </li>
       </styled.li>
       <styled.li
-        key="13"
+        key="14"
       >
         <li
           className="c1"
@@ -342,7 +364,7 @@ describe('<StackList />', () => {
         </li>
       </styled.li>
       <styled.li
-        key="14"
+        key="15"
       >
         <li
           className="c1"
@@ -364,7 +386,7 @@ describe('<StackList />', () => {
         </li>
       </styled.li>
       <styled.li
-        key="15"
+        key="16"
       >
         <li
           className="c1"
