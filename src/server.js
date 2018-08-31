@@ -58,6 +58,17 @@ function getLoadBranchData(branch, store): Promise<any>[] {
       route.component.loadData(store.dispatch, store.getState(), match.params)
     );
 }
+function loadComponent(branch) {
+  return Promise.all(
+    branch.map(({ route }) => {
+      if (route.component.load) {
+        route.component.load();
+        return route.component.loadingPromise;
+      }
+      return Promise.resolve();
+    })
+  );
+}
 function getRedirectUrls(branch, store): string[] {
   return branch
     .filter(({ route }) => route.component.getRedirectUrl)
@@ -143,6 +154,9 @@ app.get('*', async (req: $Request, res: $Response) => {
   loginFromServer(store.dispatch);
 
   const branch = matchRoutes(routes, req.url);
+
+  await loadComponent(branch);
+
   const loadBranchData = getLoadBranchData(branch, store);
 
   Promise.all(loadBranchData)
