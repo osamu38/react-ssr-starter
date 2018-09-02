@@ -7,6 +7,7 @@ import Logo from 'components/Logo';
 import Menu from 'components/Menu';
 import MenuIcon from 'components/MenuIcon';
 import OctIcon from 'components/OctIcon';
+import { clearfix } from 'styles/helpers';
 
 const HeaderWrapper = styled.div`
   height: ${sizes.height.header}px;
@@ -29,6 +30,7 @@ const HeaderInner = styled.div`
   margin: 0 auto;
   max-width: ${sizes.width.main + spaces.main * 2}px;
   width: 100%;
+  ${clearfix()};
 `;
 const LogoWrapper = styled.div`
   float: left;

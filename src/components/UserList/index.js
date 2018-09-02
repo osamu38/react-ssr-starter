@@ -1,10 +1,10 @@
 /* @flow */
 
 import * as React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { colors } from 'styles/variables';
 import media from 'styles/media';
+import PreloadLink from 'components/PreloadLink';
 import type { User } from 'types/user';
 
 const UserListUI = styled.ul`
@@ -55,7 +55,7 @@ const UserListItem = styled.li`
     }
   `};
 `;
-const UserListLink = styled(Link)`
+const UserListLink = styled(PreloadLink)`
   display: block;
   padding: 8px;
   color: ${colors.link};

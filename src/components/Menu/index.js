@@ -1,8 +1,8 @@
 /* @flow */
 
 import * as React from 'react';
-import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import PreloadLink from 'components/PreloadLink';
 import { sizes, colors } from 'styles/variables';
 import { endpoint } from 'config/url';
 
@@ -16,7 +16,7 @@ const MenuUI = styled.div`
   border: 1px ${colors.superLightGray} solid;
   background-color: ${colors.white};
 `;
-const MenuLink = styled(NavLink)`
+const MenuLink = styled(PreloadLink)`
   display: block;
   color: ${colors.link};
   &.active {

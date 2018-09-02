@@ -36,7 +36,7 @@ export default function getModule() {
                   {
                     pattern: /import (.*?) from 'pages\/(.*?)';/g,
                     replacement(match, p1, p2) {
-                      return `const ${p1} = loadable(() => import(/* webpackPrefetch: true */'pages/${p2}'));`;
+                      return `const ${p1} = loadable(() => import(/* webpackPrefetch: true */ 'pages/${p2}'));`;
                     },
                   },
                 ],

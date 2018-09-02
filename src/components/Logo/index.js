@@ -1,12 +1,12 @@
 /* @flow */
 
 import * as React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import PreloadLink from 'components/PreloadLink';
 import { colors } from 'styles/variables';
 import { endpoint } from 'config/url';
 
-const LogoUI = styled(Link)`
+const LogoUI = styled(PreloadLink)`
   font-size: 20px;
   font-weight: bold;
   color: ${colors.white};
