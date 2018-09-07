@@ -33,18 +33,6 @@
     "test:coverage": "npm test -- --coverage",
     "heroku-postbuild": "npm run build"
   },
-  "jest": {
-    "setupFiles": [
-      "raf/polyfill",
-      "<rootDir>/tools/jest/setup.js"
-    ],
-    "transform": {
-      ".js": "<rootDir>/node_modules/babel-jest"
-    },
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ]
-  },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
     "@researchgate/react-intersection-observer": "^0.7.3",
