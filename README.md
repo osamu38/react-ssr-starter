@@ -34,7 +34,7 @@ $ npm i
 ## Run
 
 ```
-$ npm start
+$ npm run dev
 ```
 
 Go to `http://localhost:2525/`.
@@ -58,7 +58,7 @@ $ npm run build:server:analyze
 ## Run for production
 
 ```
-npm run start:prod
+npm start
 ```
 
 Go to `http://localhost:2525/`.
