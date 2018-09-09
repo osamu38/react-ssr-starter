@@ -1,42 +1,89 @@
 /* @flow */
 
 import * as React from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import Observer from '@researchgate/react-intersection-observer';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import pathToRegexp from 'path-to-regexp';
 import { endpoint } from 'config/url';
 import routes from 'routes';
+import { compose, isJSON } from 'utils/helpers';
+import type { Dispatch, ReduxState, StateProps } from 'types';
 
 type Props = {
-  to: string,
-  children?: React.Node,
+  href: string,
+  children: any,
   activeClassName?: string,
 };
+type DispatchProps = {
+  dispatch: Dispatch,
+  state: ReduxState,
+};
 
-export default function PreloadLink(props: Props) {
-  const { to, children, activeClassName } = props;
-  const authRoutes = routes[0].routes;
-  const path = Object.keys(endpoint).find(key =>
-    pathToRegexp(endpoint[key]).test(to)
-  );
-  const targetEndpoint = path ? endpoint[path] : '';
-  const targetRoute = authRoutes.find(route => route.path === targetEndpoint);
-  const targetComponent = targetRoute ? targetRoute.component : {};
-  const Tag = activeClassName ? NavLink : Link;
-
-  return (
-    <Observer
-      onChange={({ isIntersecting }) => {
-        if (
-          isIntersecting &&
-          targetRoute &&
-          targetComponent.loadingPromise === null
-        ) {
-          targetComponent.load();
-        }
-      }}
-    >
-      <Tag {...props}>{children}</Tag>
-    </Observer>
+function loadComponent(targetRoute, targetComponent) {
+  if (targetRoute && targetComponent.loadingPromise === null) {
+    targetComponent.load();
+    return targetComponent.loadingPromise;
+  }
+  return Promise.resolve();
+}
+function getPageName(href) {
+  return Object.keys(endpoint).find(key =>
+    pathToRegexp(endpoint[key]).test(href)
   );
 }
+function getParams(targetEndpoint, href) {
+  const re = pathToRegexp(targetEndpoint);
+  const endpointInfo = re.exec(href);
+  const keys = [];
+
+  pathToRegexp(targetEndpoint, keys);
+
+  return keys.reduce(
+    (pre, cur, index) => ({
+      [cur.name]: isJSON(endpointInfo[index + 1])
+        ? JSON.parse(endpointInfo[index + 1])
+        : endpointInfo[index + 1],
+    }),
+    {}
+  );
+}
+function PreloadLink(props: StateProps & DispatchProps & Props) {
+  const {
+    href,
+    children,
+    history: { push },
+    dispatch,
+    state,
+  } = props;
+  const authRoutes = routes[0].routes;
+  const pageName = getPageName(href);
+  const targetEndpoint = pageName ? endpoint[pageName] : '';
+  const targetRoute = authRoutes.find(route => route.path === targetEndpoint);
+  const targetComponent = targetRoute ? targetRoute.component : {};
+  const params = getParams(targetEndpoint, href);
+
+  return React.cloneElement(children, {
+    href,
+    onClick: async e => {
+      e.preventDefault();
+      await loadComponent(targetRoute, targetComponent);
+
+      const { loadData } = targetComponent;
+
+      if (loadData) {
+        await loadData(dispatch, state, params);
+      }
+      push(href);
+    },
+  });
+}
+
+function mapStateToProps(state) {
+  return {
+    state,
+  };
+}
+
+const enhancers = [withRouter, connect(mapStateToProps)];
+
+export default compose(...enhancers)(PreloadLink);

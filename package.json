@@ -35,7 +35,6 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
-    "@researchgate/react-intersection-observer": "^0.7.3",
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "compression": "^1.7.3",
@@ -65,6 +64,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-flow": "^7.0.0",
     "@babel/preset-react": "^7.0.0",

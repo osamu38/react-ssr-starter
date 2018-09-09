@@ -29,6 +29,7 @@ injectGlobal`
   a {
     color: inherit;
     text-decoration: none;
+    cursor: pointer;
   }
   img {
     vertical-align: middle;

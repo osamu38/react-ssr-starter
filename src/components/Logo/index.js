@@ -6,7 +6,7 @@ import PreloadLink from 'components/PreloadLink';
 import { colors } from 'styles/variables';
 import { endpoint } from 'config/url';
 
-const LogoUI = styled(PreloadLink)`
+const LogoUI = styled.a`
   font-size: 20px;
   font-weight: bold;
   color: ${colors.white};
@@ -21,8 +21,8 @@ export default function Logo(props: Props) {
   const { isLoggedIn } = props;
 
   return (
-    <LogoUI to={isLoggedIn ? endpoint.home : endpoint.landing}>
-      React SSR Starter
-    </LogoUI>
+    <PreloadLink href={isLoggedIn ? endpoint.home : endpoint.landing}>
+      <LogoUI>React SSR Starter</LogoUI>
+    </PreloadLink>
   );
 }

@@ -55,7 +55,7 @@ const UserListItem = styled.li`
     }
   `};
 `;
-const UserListLink = styled(PreloadLink)`
+const UserListLink = styled.a`
   display: block;
   padding: 8px;
   color: ${colors.link};
@@ -75,7 +75,9 @@ export default function UserList(props: Props) {
     <UserListUI>
       {userList.map((item, i) => (
         <UserListItem key={i}>
-          <UserListLink to={`/users/${item.id}`}>{item.name}</UserListLink>
+          <PreloadLink href={`/users/${item.id}`}>
+            <UserListLink>{item.name}</UserListLink>
+          </PreloadLink>
         </UserListItem>
       ))}
     </UserListUI>

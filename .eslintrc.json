@@ -16,6 +16,7 @@
     "react/jsx-filename-extension": 0,
     "react/no-array-index-key": 0,
     "react/require-default-props": 0,
+    "jsx-a11y/anchor-is-valid": 0,
     "flowtype/define-flow-type": 1,
     "flowtype/use-flow-type": 1
   },

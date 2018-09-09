@@ -21,7 +21,13 @@
       }
     ],
     "add-module-exports",
-    "loadable-components/babel"
+    "loadable-components/babel",
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "helpers": false
+      }
+    ]
   ],
   "presets": [
     [

@@ -21,8 +21,9 @@ export type Dispatch = (
 ) => any;
 export type GetState = () => ReduxState;
 export type Store = ReduxStore<ReduxState, Action>;
-export type PageProps = {
+export type DispatchProps = {
   uiActions: $Call<bindActionCreators, typeof uiActions, Dispatch>,
   userActions: $Call<bindActionCreators, typeof userActions, Dispatch>,
-} & ContextRouter &
-  ReduxState;
+};
+export type StateProps = ContextRouter & ReduxState;
+export type PageProps = DispatchProps & StateProps;

@@ -16,7 +16,7 @@ const MenuUI = styled.div`
   border: 1px ${colors.superLightGray} solid;
   background-color: ${colors.white};
 `;
-const MenuLink = styled(PreloadLink)`
+const MenuLink = styled.a`
   display: block;
   color: ${colors.link};
   &.active {
@@ -58,9 +58,9 @@ export default function Menu(props: Props) {
   return isOpenMenu ? (
     <MenuUI>
       {MenuLinkList.map((item, i) => (
-        <MenuLink to={item.to} activeClassName="active" exact key={i}>
-          {item.text}
-        </MenuLink>
+        <PreloadLink href={item.to} key={i}>
+          <MenuLink>{item.text}</MenuLink>
+        </PreloadLink>
       ))}
     </MenuUI>
   ) : null;
