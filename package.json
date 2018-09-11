@@ -45,7 +45,7 @@
     "html-minifier": "^3.5.20",
     "jsonwebtoken": "^8.3.0",
     "loadable-components": "^2.2.3",
-    "morgan": "^1.9.0",
+    "morgan": "^1.9.1",
     "path-to-regexp": "^2.4.0",
     "preact": "^8.3.1",
     "preact-compat": "^3.18.4",
@@ -60,7 +60,7 @@
     "redux-thunk": "^2.3.0",
     "serialize-javascript": "^1.5.0",
     "serve-favicon": "^2.5.0",
-    "styled-components": "^3.4.5"
+    "styled-components": "^3.4.6"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
@@ -75,7 +75,7 @@
     "babel-eslint": "^9.0.0",
     "babel-jest": "^23.6.0",
     "babel-loader": "8.0.0-beta.4",
-    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-add-module-exports": "^1.0.0",
     "babel-plugin-dynamic-import-node": "^1.2.0",
     "babel-plugin-module-resolver": "^3.1.1",
     "babel-plugin-styled-components": "^1.6.4",
