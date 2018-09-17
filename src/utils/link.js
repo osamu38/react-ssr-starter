@@ -7,6 +7,8 @@ class Link {
     this.link = {
       manifest: '/manifest.json',
       canonical: origin,
+      stylesheet:
+        'https://cdn.rawgit.com/rikmms/progress-bar-4-axios/0a3acf92/dist/nprogress.css',
       'shortcut icon': '/favicon.ico',
       'apple-touch-icon': '',
       'apple-touch-icon-precomposed': '',

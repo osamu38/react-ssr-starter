@@ -66,4 +66,7 @@ injectGlobal`
   textarea:-webkit-autofill {
     box-shadow: 0 0 0 1000px white inset;
   }
+  #nprogress .spinner-icon {
+    display: none !important;
+  }
 `;
