@@ -21,7 +21,7 @@ export default function Logo(props: Props) {
   const { isLoggedIn } = props;
 
   return (
-    <PreloadLink href={isLoggedIn ? endpoint.home : endpoint.landing}>
+    <PreloadLink href={isLoggedIn ? endpoint.home : endpoint.landing} progress>
       <LogoUI>React SSR Starter</LogoUI>
     </PreloadLink>
   );

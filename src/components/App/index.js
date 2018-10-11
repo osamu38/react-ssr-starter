@@ -5,6 +5,7 @@ import { bindActionCreators, compose } from 'redux';
 import { connect } from 'react-redux';
 import { Route, withRouter } from 'react-router-dom';
 import Helmet from 'react-helmet';
+import { NProgress } from 'redux-nprogress';
 import Container from 'components/Container';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
@@ -57,6 +58,7 @@ class App extends React.PureComponent<PageProps, *> {
     return (
       <Container>
         <Helmet meta={metaData} link={linkData} />
+        <NProgress />
         {error ? <Error hideError={hideError}>{error}</Error> : null}
         <Header
           isLoggedIn={isLoggedIn}

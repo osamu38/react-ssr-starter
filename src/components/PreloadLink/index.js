@@ -4,6 +4,7 @@ import * as React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { beginTask, endTask } from 'redux-nprogress';
 import pathToRegexp from 'path-to-regexp';
 import { endpoint } from 'config/url';
 import routes from 'routes';
@@ -14,6 +15,7 @@ type Props = {
   href: string,
   children: any,
   activeClassName?: string,
+  progress?: boolean,
 };
 type DispatchProps = {
   dispatch: Dispatch,
@@ -55,6 +57,7 @@ function PreloadLink(props: StateProps & DispatchProps & Props) {
     history: { push },
     dispatch,
     state,
+    progress,
   } = props;
   const authRoutes = routes[0].routes;
   const pageName = getPageName(href);
@@ -67,12 +70,18 @@ function PreloadLink(props: StateProps & DispatchProps & Props) {
     href,
     onClick: async e => {
       e.preventDefault();
+      if (progress) {
+        dispatch(beginTask());
+      }
       await loadComponent(targetRoute, targetComponent);
 
       const { loadData } = targetComponent;
 
       if (loadData) {
         await loadData(dispatch, state, params);
+      }
+      if (progress) {
+        dispatch(endTask());
       }
       push(href);
     },
