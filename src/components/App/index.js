@@ -20,7 +20,7 @@ import { isDevelopment } from 'config/env';
 import 'styles';
 import type { Dispatch, PageProps } from 'types';
 
-class App extends React.PureComponent<PageProps, *> {
+class App extends React.PureComponent<PageProps> {
   componentDidUpdate(prevProps: any) {
     const {
       history: { action },

@@ -13,7 +13,7 @@ type Route = {
 const guestRedirectUrl = endpoint.landing;
 const userRedirectUrl = endpoint.home;
 
-export default class Auth extends React.PureComponent<PageProps, *> {
+export default class Auth extends React.PureComponent<PageProps> {
   componentDidUpdate() {
     const {
       user: {

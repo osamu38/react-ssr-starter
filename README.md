@@ -81,7 +81,7 @@ import UserList from 'components/UserList';
 import { fetchUsers as fetchUsersFromServer } from 'actions/user';
 import type { PageProps, Dispatch } from 'types';
 
-export default class HomePage extends React.PureComponent<PageProps, *> {
+export default class HomePage extends React.PureComponent<PageProps> {
   static loadData(dispatch: Dispatch) {
     return dispatch(fetchUsersFromServer());
   }

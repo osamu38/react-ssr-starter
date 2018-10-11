@@ -7,7 +7,7 @@ import UserDetail from 'components/UserDetail';
 import { fetchUser as fetchUserFromServer } from 'actions/user';
 import type { PageProps, ReduxState, Dispatch } from 'types';
 
-export default class UserDetailPage extends React.PureComponent<PageProps, *> {
+export default class UserDetailPage extends React.PureComponent<PageProps> {
   static loadData(dispatch: Dispatch, state: ReduxState, params: Object) {
     return dispatch(fetchUserFromServer(params.id));
   }
