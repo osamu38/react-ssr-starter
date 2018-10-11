@@ -1,12 +1,13 @@
 /* @flow */
 
 import * as React from 'react';
+import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import pathToRegexp from 'path-to-regexp';
 import { endpoint } from 'config/url';
 import routes from 'routes';
-import { compose, isJSON } from 'utils/helpers';
+import { isJSON } from 'utils/helpers';
 import type { Dispatch, ReduxState, StateProps } from 'types';
 
 type Props = {
@@ -33,7 +34,7 @@ function getPageName(href) {
 }
 function getParams(targetEndpoint, href) {
   const re = pathToRegexp(targetEndpoint);
-  const endpointInfo = re.exec(href);
+  const endpointInfo = re.exec(href) || [];
   const keys = [];
 
   pathToRegexp(targetEndpoint, keys);

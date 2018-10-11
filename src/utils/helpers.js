@@ -1,4 +1,5 @@
 /* @flow */
+/* eslint-disable import/prefer-default-export */
 
 export function isJSON(arg: any) {
   try {
@@ -7,10 +8,4 @@ export function isJSON(arg: any) {
   } catch (e) {
     return false;
   }
-}
-export function compose(...funcs: Function[]) {
-  return funcs.reduce(
-    (a, b) => (...args: Function[]) => a(b(...args)),
-    (arg: Function) => arg
-  );
 }

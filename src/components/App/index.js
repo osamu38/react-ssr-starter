@@ -1,11 +1,10 @@
 /* @flow */
 
 import * as React from 'react';
-import { bindActionCreators } from 'redux';
+import { bindActionCreators, compose } from 'redux';
 import { connect } from 'react-redux';
 import { Route, withRouter } from 'react-router-dom';
 import Helmet from 'react-helmet';
-import { compose } from 'utils/helpers';
 import Container from 'components/Container';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
