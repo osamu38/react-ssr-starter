@@ -58,7 +58,7 @@ export default function Menu(props: Props) {
   return isOpenMenu ? (
     <MenuUI>
       {MenuLinkList.map((item, i) => (
-        <PreloadLink href={item.to} key={i} progress>
+        <PreloadLink href={item.to} key={i}>
           <MenuLink>{item.text}</MenuLink>
         </PreloadLink>
       ))}

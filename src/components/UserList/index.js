@@ -75,7 +75,7 @@ export default function UserList(props: Props) {
     <UserListUI>
       {userList.map((item, i) => (
         <UserListItem key={i}>
-          <PreloadLink href={`/users/${item.id}`} progress>
+          <PreloadLink href={`/users/${item.id}`}>
             <UserListLink>{item.name}</UserListLink>
           </PreloadLink>
         </UserListItem>

@@ -15,7 +15,8 @@ type Props = {
   href: string,
   children: any,
   activeClassName?: string,
-  progress?: boolean,
+  isProgress?: boolean,
+  isLoadData?: boolean,
 };
 type DispatchProps = {
   dispatch: Dispatch,
@@ -57,7 +58,8 @@ function PreloadLink(props: StateProps & DispatchProps & Props) {
     history: { push },
     dispatch,
     state,
-    progress,
+    isProgress = true,
+    isLoadData = true,
   } = props;
   const authRoutes = routes[0].routes;
   const pageName = getPageName(href);
@@ -70,17 +72,17 @@ function PreloadLink(props: StateProps & DispatchProps & Props) {
     href,
     onClick: async e => {
       e.preventDefault();
-      if (progress) {
+      if (isProgress) {
         dispatch(beginTask());
       }
       await loadComponent(targetRoute, targetComponent);
 
       const { loadData } = targetComponent;
 
-      if (loadData) {
+      if (loadData && isLoadData) {
         await loadData(dispatch, state, params);
       }
-      if (progress) {
+      if (isProgress) {
         dispatch(endTask());
       }
       push(href);
