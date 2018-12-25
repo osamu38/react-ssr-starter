@@ -29,7 +29,7 @@ const UserListItem = styled.li`
     border-bottom: none;
   }
 
-  ${media.tablet`
+  ${media.tablet} {
     width: 50%;
     &:nth-child(3n) {
       border-right: 1px ${colors.superLightGray} solid;
@@ -44,8 +44,8 @@ const UserListItem = styled.li`
     &:nth-last-child(3):nth-child(3n-2) {
       border-bottom: 1px ${colors.superLightGray} solid;
     }
-  `};
-  ${media.phone`
+  }
+  ${media.phone} {
     width: 100%;
     &:nth-child(n) {
       border-right: none;
@@ -53,7 +53,7 @@ const UserListItem = styled.li`
     &:nth-last-child(2):nth-child(2n-1) {
       border-bottom: 1px ${colors.superLightGray} solid;
     }
-  `};
+  }
 `;
 const UserListLink = styled.a`
   display: block;

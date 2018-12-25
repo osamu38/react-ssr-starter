@@ -11,11 +11,10 @@ export default function getPreloadResorceElement(
   );
   const resourcesFromBackgroundImage = (
     styleTags.match(/url\(.*?\)/g) || []
-  ).map(
-    item =>
-      item.includes('"') || item.includes("'")
-        ? item.slice(5, -2)
-        : item.slice(4, -1)
+  ).map(item =>
+    item.includes('"') || item.includes("'")
+      ? item.slice(5, -2)
+      : item.slice(4, -1)
   );
   const totalResources = [
     ...resourcesFromImageTag,
@@ -24,7 +23,7 @@ export default function getPreloadResorceElement(
 
   return totalResources
     .filter((item, index, array) => array.indexOf(item) === index)
-    .map(resource => (
+    .map<React.Node>(resource => (
       <link rel="preload" as="image" href={resource} key={resource} />
     ));
 }

@@ -104,7 +104,9 @@ if (isDevelopment) {
   const webpackHotMiddleware = require('webpack-hot-middleware');
   const getWebpackClientConfig = require('tools/webpack/webpack.client.babel');
   const webpackClientConfig = getWebpackClientConfig({});
-  const compiler = webpack(webpackClientConfig);
+  const compiler = webpack(webpackClientConfig, err => {
+    console.error(err);
+  });
 
   app.use(
     webpackDevMiddleware(compiler, {
