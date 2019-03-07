@@ -46,7 +46,7 @@ export default function getPlugins(isAnalyze) {
                 urlPattern: new RegExp(
                   '^https://jsonplaceholder.typicode.com/'
                 ),
-                handler: 'staleWhileRevalidate',
+                handler: 'StaleWhileRevalidate',
               },
             ],
           }),
