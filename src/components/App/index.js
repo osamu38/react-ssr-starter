@@ -17,7 +17,7 @@ import meta from 'utils/meta';
 import link from 'utils/link';
 import routes from 'routes';
 import { isDevelopment } from 'config/env';
-import 'styles';
+import GlobalStyle from 'styles';
 import type { Dispatch, PageProps } from 'types';
 
 class App extends React.PureComponent<PageProps> {
@@ -58,6 +58,7 @@ class App extends React.PureComponent<PageProps> {
     return (
       <Container>
         <Helmet meta={metaData} link={linkData} />
+        <GlobalStyle />
         <NProgress />
         {error ? <Error hideError={hideError}>{error}</Error> : null}
         <Header

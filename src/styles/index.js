@@ -1,11 +1,11 @@
 /* @flow */
 /* eslint-disable no-unused-expressions */
 
-import { injectGlobal } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 import { colors } from 'styles/variables';
 
-injectGlobal`
+export default createGlobalStyle`
   ${reset}
   *,
   *::before,
