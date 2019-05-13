@@ -104,7 +104,6 @@ if (isDevelopment) {
   const webpackHotMiddleware = require('webpack-hot-middleware');
   const getWebpackClientConfig = require('tools/webpack/webpack.client.babel');
   const webpackClientConfig = getWebpackClientConfig({});
-  // $FlowFixMe
   const compiler = webpack(webpackClientConfig);
 
   app.use(
@@ -144,10 +143,7 @@ app.post('/api/login', (req: $Request, res: $Response) => {
 });
 
 app.get('*', async (req: $Request, res: $Response) => {
-  cookie.connect(
-    req,
-    res
-  );
+  cookie.connect(req, res);
 
   const store = configureStore();
 
