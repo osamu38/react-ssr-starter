@@ -20,7 +20,7 @@
     "build:client:analyze": "NODE_ENV=production webpack --progress --env.analyze --config ./tools/webpack/webpack.client.babel.js",
     "build:server": "NODE_ENV=production webpack --progress --env --config ./tools/webpack/webpack.server.babel.js",
     "build:server:analyze": "NODE_ENV=production webpack --progress --env.analyze --config ./tools/webpack/webpack.server.babel.js",
-    "flow-typed": "flow-typed install --overwrite",
+    "flow-typed": "flow-typed install",
     "lint": "eslint . --fix",
     "lint:css": "stylelint './src/**/*.js'",
     "dev": "nodemon index",
