@@ -4,7 +4,6 @@ import * as React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { beginTask, endTask } from 'redux-nprogress';
 import pathToRegexp from 'path-to-regexp';
 import { endpoint } from 'config/url';
 import routes from 'routes';
@@ -23,12 +22,11 @@ type DispatchProps = {
   state: ReduxState,
 };
 
-function loadComponent(targetRoute, targetComponent) {
-  if (targetRoute && targetComponent.loadingPromise === null) {
-    targetComponent.load();
-    return targetComponent.loadingPromise;
+function loadComponent(targetRoute) {
+  if (targetRoute && targetRoute.component && targetRoute.component.load) {
+    return targetRoute.component.load();
   }
-  return Promise.resolve();
+  return Promise.resolve({ default: { loadData: null } });
 }
 function getPageName(href) {
   return Object.keys(endpoint).find(key =>
@@ -58,32 +56,23 @@ function PreloadLink(props: StateProps & DispatchProps & Props) {
     history: { push },
     dispatch,
     state,
-    isProgress = true,
     isLoadData = true,
   } = props;
   const authRoutes = routes[0].routes;
   const pageName = getPageName(href);
   const targetEndpoint = pageName ? endpoint[pageName] : '';
   const targetRoute = authRoutes.find(route => route.path === targetEndpoint);
-  const targetComponent = targetRoute ? targetRoute.component : {};
   const params = getParams(targetEndpoint, href);
 
   return React.cloneElement(children, {
     href,
     onClick: async e => {
       e.preventDefault();
-      if (isProgress) {
-        dispatch(beginTask());
-      }
-      await loadComponent(targetRoute, targetComponent);
-
-      const { loadData } = targetComponent;
+      const loadedComponent = await loadComponent(targetRoute);
+      const { loadData } = loadedComponent.default;
 
       if (loadData && isLoadData) {
         await loadData(dispatch, state, params);
-      }
-      if (isProgress) {
-        dispatch(endTask());
       }
       push(href);
     },

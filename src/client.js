@@ -5,7 +5,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import { loadComponents } from 'loadable-components';
+import { HelmetProvider } from 'react-helmet-async';
+import { loadableReady } from '@loadable/component';
 import configureStore from 'utils/configureStore';
 import App from 'components/App';
 import { isDevelopment } from 'config/env';
@@ -14,12 +15,14 @@ const initialState = window.__INITIAL_STATE__;
 const store = configureStore(initialState);
 const root: ?Element = document.getElementById('root');
 
-loadComponents().then(() => {
+loadableReady().then(() => {
   if (root) {
-    ReactDOM.render(
+    ReactDOM[isDevelopment ? 'render' : 'hydrate'](
       <Provider store={store}>
         <BrowserRouter>
-          <App />
+          <HelmetProvider>
+            <App />
+          </HelmetProvider>
         </BrowserRouter>
       </Provider>,
       root

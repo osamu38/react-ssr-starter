@@ -73,7 +73,7 @@ Basically page component is implemented using React.PureComponent.
 /* @flow */
 
 import * as React from 'react';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import Button from 'components/Button';
 import Title from 'components/Title';
 import SubTitle from 'components/SubTitle';

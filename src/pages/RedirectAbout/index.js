@@ -1,7 +1,7 @@
 /* @flow */
 
 import * as React from 'react';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { endpoint } from 'config/url';
 import type { PageProps } from 'types';
 

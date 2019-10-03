@@ -18,6 +18,7 @@ export default webpackEnv => {
     output: {
       path: joinPath('dist'),
       filename: 'server.js',
+      libraryTarget: 'commonjs2',
     },
     plugins: getServerPlugins(isAnalyze),
     module: getModule(),
@@ -30,6 +31,7 @@ export default webpackEnv => {
       __dirname: true,
     },
     externals: [
+      '@loadable/component',
       nodeExternals({
         whitelist: [/\.(?!(?:json)$).{1,5}$/i],
       }),

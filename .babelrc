@@ -21,7 +21,7 @@
       }
     ],
     "add-module-exports",
-    "loadable-components/babel",
+    "@loadable/babel-plugin",
     [
       "@babel/plugin-transform-runtime",
       {

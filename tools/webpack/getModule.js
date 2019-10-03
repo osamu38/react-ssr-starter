@@ -30,7 +30,7 @@ export default function getModule() {
                   {
                     pattern: /import/,
                     replacement() {
-                      return `import loadable from 'loadable-components';import`;
+                      return `import loadable from '@loadable/component';import`;
                     },
                   },
                   {

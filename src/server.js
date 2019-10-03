@@ -14,9 +14,9 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
 import { matchRoutes } from 'react-router-config';
-import Helmet from 'react-helmet';
+import { HelmetProvider } from 'react-helmet-async';
 import { Provider } from 'react-redux';
-import { getLoadableState } from 'loadable-components/server';
+import { ChunkExtractor } from '@loadable/server';
 import { ServerStyleSheet } from 'styled-components';
 import routes from 'routes';
 import configureStore from 'utils/configureStore';
@@ -33,19 +33,17 @@ import type { $Request, $Response } from 'express';
 const port = process.env.PORT || defaultPort;
 const app = express();
 
-function getDocument(initialState, content, loadableState) {
-  const head = Helmet.rewind();
+function getDocument(initialState, content, scriptElements, head) {
   const sheet = new ServerStyleSheet();
   const css = sheet.getStyleElement();
   const styleTags = sheet.getStyleTags();
-  const loadableStateScript = loadableState.getScriptElement();
   const preloadResorceElement = getPreloadResorceElement(content, styleTags);
   const htmlString = getHtmlString(
     css,
     head,
     content,
     initialState,
-    loadableStateScript,
+    scriptElements,
     preloadResorceElement
   );
 
@@ -58,16 +56,26 @@ function getLoadBranchData(branch, store): Promise<any>[] {
       route.component.loadData(store.dispatch, store.getState(), match.params)
     );
 }
-function loadComponent(branch) {
+function loadComponents(branch) {
   return Promise.all(
     branch.map(({ route }) => {
       if (route.component.load) {
-        route.component.load();
-        return route.component.loadingPromise;
+        return route.component.load();
       }
       return Promise.resolve();
     })
   );
+}
+function getBranchWithLoadedComponents(branch, loadedComponents) {
+  return loadedComponents.map((component, index) => ({
+    ...branch[index],
+    route: {
+      ...branch[index].route,
+      ...component && {
+        component: component.default
+      },
+    },
+  }));
 }
 function getRedirectUrls(branch, store): string[] {
   return branch
@@ -80,6 +88,15 @@ function getRedirectUrls(branch, store): string[] {
       )
     )
     .filter(location => location);
+}
+function getExtractor() {
+  if (isDevelopment) {
+    return null;
+  }
+  const statsFile = joinPath('dist/public/static/javascripts/loadable-stats.json');
+  const extractor = new ChunkExtractor({ statsFile });
+
+  return extractor;
 }
 
 app.use(helmet());
@@ -151,10 +168,9 @@ app.get('*', async (req: $Request, res: $Response) => {
   loginFromServer(store.dispatch);
 
   const branch = matchRoutes(routes, req.url);
-
-  await loadComponent(branch);
-
-  const loadBranchData = getLoadBranchData(branch, store);
+  const loadedComponents = await loadComponents(branch);
+  const branchWithLoadedComponents = getBranchWithLoadedComponents(branch, loadedComponents);
+  const loadBranchData = getLoadBranchData(branchWithLoadedComponents, store);
 
   Promise.all(loadBranchData)
     .then(async () => {
@@ -163,17 +179,23 @@ app.get('*', async (req: $Request, res: $Response) => {
       if (redirectUrls.length) {
         res.redirect(redirectUrls[0]);
       } else {
+        const helmetContext = {};
         const initialState = store.getState();
         const AppComponent = (
           <Provider store={store}>
             <StaticRouter location={req.url} context={{}}>
-              <App />
+              <HelmetProvider context={helmetContext}>
+                <App />
+              </HelmetProvider>
             </StaticRouter>
           </Provider>
         );
-        const loadableState = await getLoadableState(AppComponent);
-        const content = renderToString(AppComponent);
-        const document = getDocument(initialState, content, loadableState);
+        const extractor = getExtractor();
+        const jsx = extractor ? extractor.collectChunks(AppComponent) : AppComponent;
+        const content = renderToString(jsx);
+        const { helmet: head } = helmetContext;
+        const scriptElements = extractor && extractor.getScriptElements();
+        const document = getDocument(initialState, content, scriptElements, head);
 
         res.status(200).send(document);
       }

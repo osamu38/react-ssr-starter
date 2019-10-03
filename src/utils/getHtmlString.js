@@ -12,15 +12,9 @@ export default function getHtmlString(
   head: Object,
   content: string,
   initialState: ReduxState,
-  loadableStateScript: React.Node,
+  scriptElements: React.Node,
   preloadResorceElement: React.Node
 ): string {
-  const main = isDevelopment
-    ? '/static/javascripts/main.js'
-    : global.manifest['main.js'];
-  const vendors = isDevelopment
-    ? '/static/javascripts/vendors.js'
-    : global.manifest['vendors.js'];
   const Html = (
     <html lang="ja">
       <head>
@@ -40,9 +34,12 @@ export default function getHtmlString(
             __html: `window.__INITIAL_STATE__ = ${serialize(initialState)}`,
           }}
         />
-        {loadableStateScript}
-        <script src={vendors} />
-        <script src={main} />
+        {scriptElements || (
+          <>
+            <script src="/static/javascripts/vendors.js" />
+            <script src="/static/javascripts/main.js" />
+          </>
+        )}
       </body>
     </html>
   );
