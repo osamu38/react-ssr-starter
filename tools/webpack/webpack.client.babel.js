@@ -1,4 +1,4 @@
-import UglifyJsWebpackPlugin from 'uglifyjs-webpack-plugin';
+import TerserPlugin from 'terser-webpack-plugin';
 import { env, isDevelopment } from 'config/env';
 import { joinPath } from 'utils/path';
 import getModule from 'tools/webpack/getModule';
@@ -35,13 +35,17 @@ export default webpackEnv => {
         name: 'vendors',
         chunks: 'initial',
       },
+      minimize: true,
       minimizer: [
-        new UglifyJsWebpackPlugin({
-          uglifyOptions: {
-            compress: {
-              reduce_vars: false,
-            },
-          },
+        new TerserPlugin({
+          terserOptions: {
+            ecma: 6,
+            compress: true,
+            output: {
+              comments: false,
+              beautify: false
+            }
+          }
         }),
       ],
     },
