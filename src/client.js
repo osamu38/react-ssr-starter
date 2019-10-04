@@ -17,7 +17,7 @@ const root: ?Element = document.getElementById('root');
 
 loadableReady().then(() => {
   if (root) {
-    ReactDOM[isDevelopment ? 'render' : 'hydrate'](
+    ReactDOM.hydrate(
       <Provider store={store}>
         <BrowserRouter>
           <HelmetProvider>
