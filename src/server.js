@@ -33,22 +33,6 @@ import type { $Request, $Response } from 'express';
 const port = process.env.PORT || defaultPort;
 const app = express();
 
-function getDocument(initialState, content, scriptElements, head) {
-  const sheet = new ServerStyleSheet();
-  const css = sheet.getStyleElement();
-  const styleTags = sheet.getStyleTags();
-  const preloadResorceElement = getPreloadResorceElement(content, styleTags);
-  const htmlString = getHtmlString(
-    css,
-    head,
-    content,
-    initialState,
-    scriptElements,
-    preloadResorceElement
-  );
-
-  return `<!doctype html>${htmlString}`;
-}
 function getLoadBranchData(branch, store, query): Promise<any>[] {
   return branch
     .filter(({ route }) => route.component.loadData)
@@ -189,6 +173,7 @@ app.get('*', async (req: $Request, res: $Response) => {
       } else {
         const helmetContext = {};
         const initialState = store.getState();
+        const sheet = new ServerStyleSheet();
         const AppComponent = (
           <Provider store={store}>
             <StaticRouter location={req.url} context={{}}>
@@ -200,10 +185,21 @@ app.get('*', async (req: $Request, res: $Response) => {
         );
         const extractor = getExtractor();
         const jsx = extractor.collectChunks(AppComponent);
-        const content = renderToString(jsx);
+        const content = renderToString(sheet.collectStyles(jsx));
+        const css = sheet.getStyleElement();
+        const styleTags = sheet.getStyleTags();
         const { helmet: head } = helmetContext;
         const scriptElements = extractor.getScriptElements();
-        const document = getDocument(initialState, content, scriptElements, head);
+        const preloadResorceElement = getPreloadResorceElement(content, styleTags);
+        const htmlString = getHtmlString(
+          css,
+          head,
+          content,
+          initialState,
+          scriptElements,
+          preloadResorceElement
+        );
+        const document = `<!doctype html>${htmlString}`;
 
         res.status(200).send(document);
       }
