@@ -4,14 +4,13 @@ All have been introduced React environment.
 
 ## Features
 
-- [preact](https://preactjs.com/)
 - [react](https://reactjs.org/)
 - [react-router](https://reacttraining.com/react-router/)
-- [react-helmet](https://github.com/nfl/react-helmet)
+- [react-helmet-async](https://github.com/staylor/react-helmet-async/)
 - [react-hot-loader](http://gaearon.github.io/react-hot-loader/)
 - [redux](https://rackt.github.io/redux/)
 - [styled-components](https://www.styled-components.com/)
-- [loadable-components](https://github.com/smooth-code/loadable-components)
+- [loadable-components](https://www.smooth-code.com/open-source/loadable-components/)
 - [express](http://expressjs.com/)
 - [workbox](https://developers.google.com/web/tools/workbox/)
 - [eslint](https://eslint.org/)
@@ -20,6 +19,7 @@ All have been introduced React environment.
 - [flow](https://flow.org/)
 - [jest](https://facebook.github.io/jest/)
 - [enzyme](http://airbnb.io/enzyme/)
+- [storybook](https://storybook.js.org/)
 - [webpack](https://webpack.js.org/)
 - [babel](https://babeljs.io/)
 
@@ -65,7 +65,7 @@ Go to `http://localhost:2525/`.
 
 ## Adding pages
 
-Basically page component is implemented using React.PureComponent.
+Basically page component is implemented using Functional Component.
 
 `src/pages/Home/index.js`
 

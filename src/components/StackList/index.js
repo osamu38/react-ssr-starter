@@ -23,16 +23,16 @@ const StackListLink = styled.a`
 
 const stackData = [
   {
-    name: 'preact',
-    link: 'https://preactjs.com/',
-  },
-  {
     name: 'react',
     link: 'https://reactjs.org/',
   },
   {
     name: 'react-router',
     link: 'https://reacttraining.com/react-router/',
+  },
+  {
+    name: 'react-helmet-async',
+    link: 'https://github.com/staylor/react-helmet-async/',
   },
   {
     name: 'react-hot-loader',
@@ -47,24 +47,16 @@ const stackData = [
     link: 'https://www.styled-components.com/',
   },
   {
-    name: 'babel',
-    link: 'https://babeljs.io/',
-  },
-  {
-    name: 'webpack',
-    link: 'https://webpack.js.org/',
-  },
-  {
-    name: 'storybook',
-    link: 'https://storybook.js.org/',
+    name: 'loadable-components',
+    link: 'https://www.smooth-code.com/open-source/loadable-components/',
   },
   {
     name: 'express',
     link: 'http://expressjs.com/',
   },
   {
-    name: 'prettier',
-    link: 'https://prettier.io/',
+    name: 'workbox',
+    link: 'https://developers.google.com/web/tools/workbox/',
   },
   {
     name: 'eslint',
@@ -75,20 +67,32 @@ const stackData = [
     link: 'https://stylelint.io/',
   },
   {
-    name: 'flow',
-    link: 'https://flow.org/',
+    name: 'prettier',
+    link: 'https://prettier.io/',
   },
   {
-    name: 'enzyme',
-    link: 'http://airbnb.io/enzyme/',
+    name: 'flow',
+    link: 'https://flow.org/',
   },
   {
     name: 'jest',
     link: 'https://facebook.github.io/jest/',
   },
   {
-    name: 'workbox',
-    link: 'https://developers.google.com/web/tools/workbox/',
+    name: 'enzyme',
+    link: 'http://airbnb.io/enzyme/',
+  },
+  {
+    name: 'storybook',
+    link: 'https://storybook.js.org/',
+  },
+  {
+    name: 'webpack',
+    link: 'https://webpack.js.org/',
+  },
+  {
+    name: 'babel',
+    link: 'https://babeljs.io/',
   },
 ];
 
