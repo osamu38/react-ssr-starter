@@ -7,53 +7,21 @@ describe('<Label />', () => {
     const wrapper = mount(<Label>Label</Label>);
 
     expect(wrapper).toMatchInlineSnapshot(`
-.c0 {
-  font-size: 14px;
-  font-weight: bold;
-  color: #666;
-}
-
-<Label>
-  <styled.span>
-    <StyledComponent
-      forwardedComponent={
-        Object {
-          "$$typeof": Symbol(react.forward_ref),
-          "attrs": Array [],
-          "componentStyle": ComponentStyle {
-            "componentId": "sc-bdVaJa",
-            "isStatic": true,
-            "lastClassName": "c0",
-            "rules": Array [
-              "
-  font-size: 14px;
-  font-weight: bold;
-  color: ",
-              "#666",
-              ";
-",
-            ],
-          },
-          "displayName": "styled.span",
-          "foldedComponentIds": Array [],
-          "render": [Function],
-          "styledComponentId": "sc-bdVaJa",
-          "target": "span",
-          "toString": [Function],
-          "warnTooManyClasses": [Function],
-          "withComponent": [Function],
-        }
+      .c0 {
+        font-size: 14px;
+        font-weight: bold;
+        color: #666;
       }
-      forwardedRef={null}
-    >
-      <span
-        className="c0"
-      >
-        Label
-      </span>
-    </StyledComponent>
-  </styled.span>
-</Label>
-`);
+
+      <Label>
+        <styled.span>
+          <span
+            className="c0"
+          >
+            Label
+          </span>
+        </styled.span>
+      </Label>
+    `);
   });
 });
