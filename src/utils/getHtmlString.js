@@ -33,12 +33,7 @@ export default function getHtmlString(
             __html: `window.__INITIAL_STATE__ = ${serialize(initialState)}`,
           }}
         />
-        {scriptElements || (
-          <>
-            <script src="/static/javascripts/vendors.js" />
-            <script src="/static/javascripts/main.js" />
-          </>
-        )}
+        {scriptElements}
       </body>
     </html>
   );
