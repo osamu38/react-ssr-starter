@@ -22,11 +22,56 @@ describe('<Button />', () => {
 
       <Button>
         <styled.button>
-          <button
-            className="c0"
+          <StyledComponent
+            forwardedComponent={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "attrs": Array [],
+                "componentStyle": ComponentStyle {
+                  "componentId": "sc-bdVaJa",
+                  "isStatic": false,
+                  "lastClassName": "c0",
+                  "rules": Array [
+                    "
+        display: block;
+        width: 100%;
+        max-width: 180px;
+        line-height: 40px;
+        font-size: 16px;
+        font-weight: bold;
+        color: ",
+                    "#f68084",
+                    ";
+        text-align: center;
+        cursor: pointer;
+        border: 2px ",
+                    "#f68084",
+                    " solid;
+        ",
+                    [Function],
+                    ";
+      ",
+                  ],
+                },
+                "displayName": "styled.button",
+                "foldedComponentIds": Array [],
+                "render": [Function],
+                "styledComponentId": "sc-bdVaJa",
+                "target": "button",
+                "toString": [Function],
+                "usesTheme": false,
+                "warnTooManyClasses": [Function],
+                "withComponent": [Function],
+              }
+            }
+            forwardedRef={null}
           >
-            Button
-          </button>
+            <button
+              className="c0"
+            >
+              Button
+            </button>
+          </StyledComponent>
         </styled.button>
       </Button>
     `);

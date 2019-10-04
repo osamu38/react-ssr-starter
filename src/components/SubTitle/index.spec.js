@@ -16,11 +16,45 @@ describe('<SubTitle />', () => {
 
       <SubTitle>
         <styled.div>
-          <div
-            className="c0"
+          <StyledComponent
+            forwardedComponent={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "attrs": Array [],
+                "componentStyle": ComponentStyle {
+                  "componentId": "sc-bdVaJa",
+                  "isStatic": false,
+                  "lastClassName": "c0",
+                  "rules": Array [
+                    "
+        margin-bottom: 12px;
+        font-size: 20px;
+        font-weight: bold;
+        color: ",
+                    "#666",
+                    ";
+      ",
+                  ],
+                },
+                "displayName": "styled.div",
+                "foldedComponentIds": Array [],
+                "render": [Function],
+                "styledComponentId": "sc-bdVaJa",
+                "target": "div",
+                "toString": [Function],
+                "usesTheme": false,
+                "warnTooManyClasses": [Function],
+                "withComponent": [Function],
+              }
+            }
+            forwardedRef={null}
           >
-            SubTitle
-          </div>
+            <div
+              className="c0"
+            >
+              SubTitle
+            </div>
+          </StyledComponent>
         </styled.div>
       </SubTitle>
     `);

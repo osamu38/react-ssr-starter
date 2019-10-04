@@ -22,7 +22,6 @@ import type { Dispatch, PageProps } from 'types';
 
 class App extends React.PureComponent<PageProps> {
   componentDidUpdate(prevProps: PageProps) {
-    console.log('update!!');
     const {
       history: { action },
       location: { pathname: prevPathname },

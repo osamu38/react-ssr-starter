@@ -20,21 +20,83 @@ describe('<MenuIcon />', () => {
         <styled.span
           onClick={[Function]}
         >
-          <span
-            className="c0"
+          <StyledComponent
+            forwardedComponent={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "attrs": Array [],
+                "componentStyle": ComponentStyle {
+                  "componentId": "sc-bdVaJa",
+                  "isStatic": false,
+                  "lastClassName": "c0",
+                  "rules": Array [
+                    "
+        cursor: pointer;
+      ",
+                  ],
+                },
+                "displayName": "styled.span",
+                "foldedComponentIds": Array [],
+                "render": [Function],
+                "styledComponentId": "sc-bdVaJa",
+                "target": "span",
+                "toString": [Function],
+                "usesTheme": false,
+                "warnTooManyClasses": [Function],
+                "withComponent": [Function],
+              }
+            }
+            forwardedRef={null}
             onClick={[Function]}
           >
-            <styled.img
-              alt="menu-icon"
-              src="/static/images/svg/menu-icon.svg"
+            <span
+              className="c0"
+              onClick={[Function]}
             >
-              <img
+              <styled.img
                 alt="menu-icon"
-                className="c1"
                 src="/static/images/svg/menu-icon.svg"
-              />
-            </styled.img>
-          </span>
+              >
+                <StyledComponent
+                  alt="menu-icon"
+                  forwardedComponent={
+                    Object {
+                      "$$typeof": Symbol(react.forward_ref),
+                      "attrs": Array [],
+                      "componentStyle": ComponentStyle {
+                        "componentId": "sc-bwzfXH",
+                        "isStatic": false,
+                        "lastClassName": "c1",
+                        "rules": Array [
+                          "
+        padding: 4px;
+        width: 32px;
+      ",
+                        ],
+                      },
+                      "displayName": "styled.img",
+                      "foldedComponentIds": Array [],
+                      "render": [Function],
+                      "styledComponentId": "sc-bwzfXH",
+                      "target": "img",
+                      "toString": [Function],
+                      "usesTheme": false,
+                      "warnTooManyClasses": [Function],
+                      "withComponent": [Function],
+                    }
+                  }
+                  forwardedRef={null}
+                  src="/static/images/svg/menu-icon.svg"
+                >
+                  <img
+                    alt="menu-icon"
+                    className="c1"
+                    src="/static/images/svg/menu-icon.svg"
+                  />
+                </StyledComponent>
+              </styled.img>
+            </span>
+          </StyledComponent>
         </styled.span>
       </MenuIcon>
     `);
