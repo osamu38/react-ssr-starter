@@ -4,7 +4,6 @@ import * as React from 'react';
 import { renderToString } from 'react-dom/server';
 import serialize from 'serialize-javascript';
 import { minify } from 'html-minifier';
-import { isDevelopment } from 'config/env';
 import type { ReduxState } from 'types';
 
 export default function getHtmlString(
@@ -21,13 +20,13 @@ export default function getHtmlString(
         {head.title.toComponent()}
         {head.meta.toComponent()}
         {head.link.toComponent()}
-        {!isDevelopment ? preloadResorceElement : ''}
-        {!isDevelopment ? css : ''}
+        {preloadResorceElement}
+        {css}
       </head>
       <body>
         <div
           id="root"
-          dangerouslySetInnerHTML={{ __html: !isDevelopment ? content : '' }}
+          dangerouslySetInnerHTML={{ __html: content }}
         />
         <script
           dangerouslySetInnerHTML={{
