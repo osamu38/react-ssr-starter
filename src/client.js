@@ -13,7 +13,7 @@ import { isDevelopment } from 'config/env';
 
 const initialState = window.__INITIAL_STATE__;
 const store = configureStore(initialState);
-const root: ?Element = document.getElementById('root');
+const root = document.getElementById('root');
 
 loadableReady().then(() => {
   if (root) {

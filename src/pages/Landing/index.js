@@ -8,14 +8,16 @@ import type { PageProps } from 'types';
 
 export default function LandingPage(props: PageProps) {
   const {
-    userActions: { login },
+    actions: {
+      userActions: { login },
+    },
   } = props;
 
   return (
-    <div>
+    <>
       <Helmet title="Landing" />
       <Title>Landing Page</Title>
       <LoginForm login={login} />
-    </div>
+    </>
   );
 }

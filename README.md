@@ -78,49 +78,50 @@ import Button from 'components/Button';
 import Title from 'components/Title';
 import SubTitle from 'components/SubTitle';
 import UserList from 'components/UserList';
-import { fetchUsers as fetchUsersFromServer } from 'actions/user';
-import type { PageProps, Dispatch } from 'types';
+import { fetchUsers } from 'actions/user';
+import type { PageProps, Ctx } from 'types';
 
-export default class HomePage extends React.PureComponent<PageProps> {
-  static loadData(dispatch: Dispatch) {
-    return dispatch(fetchUsersFromServer());
-  }
-
-  componentDidMount() {
-    const {
-      user: {
-        status: { isFetchedUserList },
-      },
-      userActions: { fetchUsers },
-    } = this.props;
-
-    if (!isFetchedUserList) {
-      fetchUsers();
-    }
-  }
-
-  render() {
-    const {
+function HomePage(props: PageProps) {
+  const {
+    state: {
       user: { userList },
+    },
+    actions: {
       userActions: { logout },
-    } = this.props;
+    },
+  } = props;
 
-    return (
-      <div>
-        <Helmet title="Home" />
-        <Title>Home Page</Title>
-        <SubTitle>User List</SubTitle>
-        <UserList userList={userList} />
-        <Button
-          onClick={() => {
-            logout();
-          }}
-          isCenter
-        >
-          Logout
-        </Button>
-      </div>
-    );
-  }
+  return (
+    <>
+      <Helmet title="Home" />
+      <Title>Home Page</Title>
+      <SubTitle>User List</SubTitle>
+      <UserList userList={userList} />
+      <Button
+        onClick={() => {
+          logout();
+        }}
+        isCenter
+      >
+        Logout
+      </Button>
+    </>
+  );
 }
+
+HomePage.loadData = async (ctx: Ctx) => {
+  const {
+    dispatch,
+    state: {
+      user: { userList },
+    },
+  } = ctx;
+
+  if (!userList.length) {
+    return dispatch(fetchUsers());
+  }
+  return Promise.resolve();
+};
+
+export default HomePage;
 ```

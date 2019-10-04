@@ -5,25 +5,27 @@ import { Route as SwitchRoute, Switch } from 'react-router-dom';
 import { matchRoutes } from 'react-router-config';
 import { endpoint } from 'config/url';
 import routes from 'routes';
-import type { ReduxState, PageProps } from 'types';
+import customPush from 'utils/customPush';
+import type { PageProps, Ctx } from 'types';
 
-type Route = {
-  isLoggedIn: boolean,
-};
 const guestRedirectUrl = endpoint.landing;
 const userRedirectUrl = endpoint.home;
 
 export default class Auth extends React.PureComponent<PageProps> {
-  componentDidUpdate() {
+  async componentDidUpdate() {
     const {
-      user: {
-        status: { isLoggedIn },
-      },
+      dispatch,
+      state,
       history: {
         location: { pathname },
         push,
       },
     } = this.props;
+    const {
+      user: {
+        status: { isLoggedIn },
+      },
+    } = state;
     const branch = matchRoutes(routes, pathname);
     const routePath = branch[branch.length - 1].route.path;
     const authRoutes = routes[0].routes;
@@ -44,18 +46,18 @@ export default class Auth extends React.PureComponent<PageProps> {
       routePath !== guestRedirectUrl &&
       userRoutes.includes(routePath)
     ) {
-      push(guestRedirectUrl);
+      await customPush(guestRedirectUrl, push, dispatch, state);
     }
     if (
       isLoggedIn &&
       routePath !== userRedirectUrl &&
       guestRoutes.includes(routePath)
     ) {
-      push(userRedirectUrl);
+      await customPush(userRedirectUrl, push, dispatch, state);
     }
   }
 
-  static getRedirectUrl(state: ReduxState, route: Route) {
+  static getRedirectUrl({ state, route }: Ctx) {
     const {
       user: {
         status: { isLoggedIn },
@@ -89,6 +91,7 @@ export default class Auth extends React.PureComponent<PageProps> {
             exact={!!route.exact}
             path={route.path}
             render={renderProps => (
+              // eslint-disable-next-line
               <route.component {...this.props} {...renderProps} />
             )}
           />

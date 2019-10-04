@@ -3,13 +3,14 @@
 import * as React from 'react';
 import { bindActionCreators, compose } from 'redux';
 import { connect } from 'react-redux';
-import { Route, withRouter } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Container from 'components/Container';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
 import Main from 'components/Main';
 import Error from 'components/Error';
+import withExtendRouter from 'components/withExtendRouter';
 import * as userActions from 'actions/user';
 import * as uiActions from 'actions/ui';
 import meta from 'utils/meta';
@@ -20,15 +21,20 @@ import GlobalStyle from 'styles';
 import type { Dispatch, PageProps } from 'types';
 
 class App extends React.PureComponent<PageProps> {
-  componentDidUpdate(prevProps: any) {
+  componentDidUpdate(prevProps: PageProps) {
+    console.log('update!!');
     const {
       history: { action },
       location: { pathname: prevPathname },
-      ui: { isOpenMenu },
+      state: {
+        ui: { isOpenMenu },
+      },
     } = prevProps;
     const {
       location: { pathname: nextPathname },
-      uiActions: { closeMenu },
+      actions: {
+        uiActions: { closeMenu },
+      },
     } = this.props;
     const isNotPop = action !== 'POP';
     const isChengedPathname = prevPathname !== nextPathname;
@@ -44,11 +50,15 @@ class App extends React.PureComponent<PageProps> {
   render() {
     const {
       location: { pathname },
-      user: {
-        status: { isLoggedIn },
+      state: {
+        user: {
+          status: { isLoggedIn },
+        },
+        ui: { isOpenMenu, error },
       },
-      ui: { isOpenMenu, error },
-      uiActions: { openMenu, closeMenu, hideError },
+      actions: {
+        uiActions: { openMenu, closeMenu, hideError },
+      }
     } = this.props;
     const auth = routes[0];
     const metaData = meta.get(pathname);
@@ -66,7 +76,7 @@ class App extends React.PureComponent<PageProps> {
           closeMenu={closeMenu}
         />
         <Main>
-          {/* $FlowFixMe */}
+          {/* eslint-disable-next-line */}
           <Route render={() => <auth.component {...this.props} />} />
         </Main>
         <Footer />
@@ -74,18 +84,22 @@ class App extends React.PureComponent<PageProps> {
     );
   }
 }
-function mapStateToProps<S>(state: S): S {
-  return state;
+function mapStateToProps<S>(state: S): { state: S } {
+  return { state };
 }
 function mapDispatchToProps() {
+  // $FlowFixMe
   return (dispatch: Dispatch) => ({
-    userActions: bindActionCreators(userActions, dispatch),
-    uiActions: bindActionCreators(uiActions, dispatch),
+    dispatch,
+    actions: {
+      userActions: bindActionCreators(userActions, dispatch),
+      uiActions: bindActionCreators(uiActions, dispatch),
+    },
   });
 }
 
 const enhancers = [
-  withRouter,
+  withExtendRouter,
   connect(
     mapStateToProps,
     mapDispatchToProps

@@ -53,7 +53,13 @@ function getLoadBranchData(branch, store, query): Promise<any>[] {
   return branch
     .filter(({ route }) => route.component.loadData)
     .map(({ route, match }) =>
-      route.component.loadData(store.dispatch, store.getState(), match.params, query)
+      route.component.loadData({
+        dispatch: store.dispatch,
+        state: store.getState(),
+        params: match.params,
+        query,
+        route,
+      })
     );
 }
 function loadComponents(branch) {
@@ -81,12 +87,13 @@ function getRedirectUrls(branch, store, query): string[] {
   return branch
     .filter(({ route }) => route.component.getRedirectUrl)
     .map(({ route, match }) =>
-      route.component.getRedirectUrl(
-        store.getState(),
-        branch[branch.length - 1].route,
-        match.params,
-        query
-      )
+      route.component.getRedirectUrl({
+        dispatch: store.dispatch,
+        state: store.getState(),
+        params: match.params,
+        query,
+        route,
+      })
     )
     .filter(location => location);
 }
@@ -175,7 +182,7 @@ app.get('*', async (req: $Request, res: $Response) => {
 
   Promise.all(loadBranchData)
     .then(async () => {
-      const redirectUrls = getRedirectUrls(branch, store, req.query);
+      const redirectUrls = getRedirectUrls(branchWithLoadedComponents, store, req.query);
 
       if (redirectUrls.length) {
         res.redirect(redirectUrls[0]);

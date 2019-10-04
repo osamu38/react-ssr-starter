@@ -3,10 +3,11 @@
 
 import type { Store as ReduxStore } from 'redux';
 import typeof { bindActionCreators } from 'redux';
-import type { ContextRouter } from 'react-router-dom';
+// import type { Match } from 'react-router-dom';
 import type { Reducers } from 'reducers';
 import type { UserAction } from 'types/user';
 import type { UiAction } from 'types/ui';
+import type { ExtendRouterProps } from 'components/withExtendRouter';
 import * as userActions from 'actions/user';
 import * as uiActions from 'actions/ui';
 
@@ -22,8 +23,18 @@ export type Dispatch = (
 export type GetState = () => ReduxState;
 export type Store = ReduxStore<ReduxState, Action>;
 export type DispatchProps = {
-  uiActions: $Call<bindActionCreators, typeof uiActions, Dispatch>,
-  userActions: $Call<bindActionCreators, typeof userActions, Dispatch>,
+  dispatch: Dispatch,
+  actions: {
+    uiActions: $Call<bindActionCreators, typeof uiActions, Dispatch>,
+    userActions: $Call<bindActionCreators, typeof userActions, Dispatch>,
+  },
 };
-export type StateProps = ContextRouter & ReduxState;
+export type StateProps = ExtendRouterProps & { state: ReduxState };
 export type PageProps = DispatchProps & StateProps;
+export type Ctx = {
+  dispatch: Dispatch,
+  state: ReduxState,
+  params: any,
+  query: any,
+  route: any,
+}

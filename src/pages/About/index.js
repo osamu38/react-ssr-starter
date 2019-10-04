@@ -8,11 +8,11 @@ import StackList from 'components/StackList';
 
 export default function AboutPage() {
   return (
-    <div>
+    <>
       <Helmet title="About" />
       <Title>About Page</Title>
       <SubTitle>Use Stack List</SubTitle>
       <StackList />
-    </div>
+    </>
   );
 }
