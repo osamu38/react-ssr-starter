@@ -90,10 +90,7 @@ function getRedirectUrls(branch, store): string[] {
     .filter(location => location);
 }
 function getExtractor() {
-  if (isDevelopment) {
-    return null;
-  }
-  const statsFile = joinPath('dist/public/static/javascripts/loadable-stats.json');
+  const statsFile = joinPath(!isDevelopment ? 'dist' : '', 'public/static/javascripts/loadable-stats.json');
   const extractor = new ChunkExtractor({ statsFile });
 
   return extractor;
@@ -129,6 +126,9 @@ if (isDevelopment) {
       hot: true,
       stats: 'none',
       serverSideRender: true,
+      writeToDisk(filePath) {
+        return /loadable-stats/.test(filePath);
+      },
     })
   );
   app.use(

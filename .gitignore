@@ -1,5 +1,6 @@
 node_modules/*
 dist/*
+public/static/javascripts/loadable-stats.json
 coverage/*
 flow-typed/*
 *.log

@@ -2,7 +2,6 @@
   "env": {
     "development": {
       "plugins": [
-        "dynamic-import-node",
         "react-hot-loader/babel",
         [
           "babel-plugin-styled-components",

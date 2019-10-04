@@ -18,6 +18,7 @@ export default function getPlugins(isAnalyze) {
         : {}),
     }),
     new webpack.NoEmitOnErrorsPlugin(),
+    new LoadablePlugin(),
     ...(isDevelopment
       ? [
           new webpack.NamedModulesPlugin(),
@@ -51,7 +52,6 @@ export default function getPlugins(isAnalyze) {
               },
             ],
           }),
-          new LoadablePlugin(),
           new ManifestPlugin(),
         ]),
     ...(isAnalyze ? [new BundleAnalyzerPlugin({ analyzerPort: 8888 })] : []),

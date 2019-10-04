@@ -1,13 +1,15 @@
 /* @flow */
 
+import loadable from '@loadable/component';
 import { endpoint } from 'config/url';
 import Auth from 'components/Auth';
-import Landing from 'pages/Landing';
-import Home from 'pages/Home';
-import UserDetail from 'pages/UserDetail';
-import About from 'pages/About';
-import RedirectAbout from 'pages/RedirectAbout';
-import NotFound from 'pages/NotFound';
+
+const Landing = loadable(() => import(/* webpackPrefetch: true */ 'pages/Landing'));
+const Home = loadable(() => import(/* webpackPrefetch: true */ 'pages/Home'));
+const UserDetail = loadable(() => import(/* webpackPrefetch: true */ 'pages/UserDetail'));
+const About = loadable(() => import(/* webpackPrefetch: true */ 'pages/About'));
+const RedirectAbout = loadable(() => import(/* webpackPrefetch: true */ 'pages/RedirectAbout'));
+const NotFound = loadable(() => import(/* webpackPrefetch: true */ 'pages/NotFound'));
 
 type Route = {
   path: string,
