@@ -49,11 +49,11 @@ function getDocument(initialState, content, scriptElements, head) {
 
   return `<!doctype html>${htmlString}`;
 }
-function getLoadBranchData(branch, store): Promise<any>[] {
+function getLoadBranchData(branch, store, query): Promise<any>[] {
   return branch
     .filter(({ route }) => route.component.loadData)
     .map(({ route, match }) =>
-      route.component.loadData(store.dispatch, store.getState(), match.params)
+      route.component.loadData(store.dispatch, store.getState(), match.params, query)
     );
 }
 function loadComponents(branch) {
@@ -77,14 +77,15 @@ function getBranchWithLoadedComponents(branch, loadedComponents) {
     },
   }));
 }
-function getRedirectUrls(branch, store): string[] {
+function getRedirectUrls(branch, store, query): string[] {
   return branch
     .filter(({ route }) => route.component.getRedirectUrl)
     .map(({ route, match }) =>
       route.component.getRedirectUrl(
         store.getState(),
         branch[branch.length - 1].route,
-        match.params
+        match.params,
+        query
       )
     )
     .filter(location => location);
@@ -167,14 +168,14 @@ app.get('*', async (req: $Request, res: $Response) => {
   // $FlowFixMe
   loginFromServer(store.dispatch);
 
-  const branch = matchRoutes(routes, req.url);
+  const branch = matchRoutes(routes, req.path);
   const loadedComponents = await loadComponents(branch);
   const branchWithLoadedComponents = getBranchWithLoadedComponents(branch, loadedComponents);
-  const loadBranchData = getLoadBranchData(branchWithLoadedComponents, store);
+  const loadBranchData = getLoadBranchData(branchWithLoadedComponents, store, req.query);
 
   Promise.all(loadBranchData)
     .then(async () => {
-      const redirectUrls = getRedirectUrls(branch, store);
+      const redirectUrls = getRedirectUrls(branch, store, req.query);
 
       if (redirectUrls.length) {
         res.redirect(redirectUrls[0]);
@@ -191,10 +192,10 @@ app.get('*', async (req: $Request, res: $Response) => {
           </Provider>
         );
         const extractor = getExtractor();
-        const jsx = extractor ? extractor.collectChunks(AppComponent) : AppComponent;
+        const jsx = extractor.collectChunks(AppComponent);
         const content = renderToString(jsx);
         const { helmet: head } = helmetContext;
-        const scriptElements = extractor && extractor.getScriptElements();
+        const scriptElements = extractor.getScriptElements();
         const document = getDocument(initialState, content, scriptElements, head);
 
         res.status(200).send(document);
