@@ -60,7 +60,7 @@
     "redux-thunk": "^2.3.0",
     "serialize-javascript": "^2.1.2",
     "serve-favicon": "^2.5.0",
-    "styled-components": "^4.4.1",
+    "styled-components": "^5.0.0-rc.3",
     "styled-reset": "^4.0.9"
   },
   "devDependencies": {
@@ -99,7 +99,7 @@
     "flow-typed": "^2.6.2",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "jest": "^24.9.0",
-    "jest-styled-components": "^6.3.4",
+    "jest-styled-components": "^7.0.0-beta.2",
     "json-loader": "^0.5.7",
     "nodemon": "^2.0.2",
     "prettier": "^1.19.1",

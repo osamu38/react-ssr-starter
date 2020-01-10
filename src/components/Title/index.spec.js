@@ -16,44 +16,11 @@ describe('<Title />', () => {
 
       <Title>
         <styled.h1>
-          <StyledComponent
-            forwardedComponent={
-              Object {
-                "$$typeof": Symbol(react.forward_ref),
-                "attrs": Array [],
-                "componentStyle": ComponentStyle {
-                  "componentId": "sc-bdVaJa",
-                  "isStatic": false,
-                  "lastClassName": "c0",
-                  "rules": Array [
-                    "
-        margin-bottom: 12px;
-        font-size: 24px;
-        font-weight: bold;
-        color: ",
-                    "#f68084",
-                    ";
-      ",
-                  ],
-                },
-                "displayName": "styled.h1",
-                "foldedComponentIds": Array [],
-                "render": [Function],
-                "styledComponentId": "sc-bdVaJa",
-                "target": "h1",
-                "toString": [Function],
-                "warnTooManyClasses": [Function],
-                "withComponent": [Function],
-              }
-            }
-            forwardedRef={null}
+          <h1
+            className="c0"
           >
-            <h1
-              className="c0"
-            >
-              Title
-            </h1>
-          </StyledComponent>
+            Title
+          </h1>
         </styled.h1>
       </Title>
     `);

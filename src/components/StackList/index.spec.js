@@ -30,1694 +30,406 @@ describe('<StackList />', () => {
 
       <StackList>
         <styled.ul>
-          <StyledComponent
-            forwardedComponent={
-              Object {
-                "$$typeof": Symbol(react.forward_ref),
-                "attrs": Array [],
-                "componentStyle": ComponentStyle {
-                  "componentId": "sc-bdVaJa",
-                  "isStatic": false,
-                  "lastClassName": "c0",
-                  "rules": Array [
-                    "
-        margin: -8px 0 0 -8px;
-      ",
-                  ],
-                },
-                "displayName": "styled.ul",
-                "foldedComponentIds": Array [],
-                "render": [Function],
-                "styledComponentId": "sc-bdVaJa",
-                "target": "ul",
-                "toString": [Function],
-                "warnTooManyClasses": [Function],
-                "withComponent": [Function],
-              }
-            }
-            forwardedRef={null}
+          <ul
+            className="c0"
           >
-            <ul
-              className="c0"
+            <styled.li
+              key="0"
             >
-              <styled.li
-                key="0"
+              <li
+                className="c1"
               >
-                <StyledComponent
-                  forwardedComponent={
-                    Object {
-                      "$$typeof": Symbol(react.forward_ref),
-                      "attrs": Array [],
-                      "componentStyle": ComponentStyle {
-                        "componentId": "sc-bwzfXH",
-                        "isStatic": false,
-                        "lastClassName": "c1",
-                        "rules": Array [
-                          "
-        display: inline-block;
-        margin: 8px 0 0 8px;
-      ",
-                        ],
-                      },
-                      "displayName": "styled.li",
-                      "foldedComponentIds": Array [],
-                      "render": [Function],
-                      "styledComponentId": "sc-bwzfXH",
-                      "target": "li",
-                      "toString": [Function],
-                      "warnTooManyClasses": [Function],
-                      "withComponent": [Function],
-                    }
-                  }
-                  forwardedRef={null}
+                <styled.a
+                  href="https://reactjs.org/"
+                  rel="noopener"
+                  target="_blank"
                 >
-                  <li
-                    className="c1"
+                  <a
+                    className="c2"
+                    href="https://reactjs.org/"
+                    rel="noopener"
+                    target="_blank"
                   >
-                    <styled.a
-                      href="https://reactjs.org/"
-                      rel="noopener"
-                      target="_blank"
-                    >
-                      <StyledComponent
-                        forwardedComponent={
-                          Object {
-                            "$$typeof": Symbol(react.forward_ref),
-                            "attrs": Array [],
-                            "componentStyle": ComponentStyle {
-                              "componentId": "sc-htpNat",
-                              "isStatic": false,
-                              "lastClassName": "c2",
-                              "rules": Array [
-                                "
-        display: inline-block;
-        padding: 8px 12px;
-        color: ",
-                                "#a6c0fe",
-                                ";
-        border: 1px ",
-                                "#eee",
-                                " solid;
-        &:hover {
-          text-decoration: underline;
-        }
-      ",
-                              ],
-                            },
-                            "displayName": "styled.a",
-                            "foldedComponentIds": Array [],
-                            "render": [Function],
-                            "styledComponentId": "sc-htpNat",
-                            "target": "a",
-                            "toString": [Function],
-                            "warnTooManyClasses": [Function],
-                            "withComponent": [Function],
-                          }
-                        }
-                        forwardedRef={null}
-                        href="https://reactjs.org/"
-                        rel="noopener"
-                        target="_blank"
-                      >
-                        <a
-                          className="c2"
-                          href="https://reactjs.org/"
-                          rel="noopener"
-                          target="_blank"
-                        >
-                          react
-                        </a>
-                      </StyledComponent>
-                    </styled.a>
-                  </li>
-                </StyledComponent>
-              </styled.li>
-              <styled.li
-                key="1"
+                    react
+                  </a>
+                </styled.a>
+              </li>
+            </styled.li>
+            <styled.li
+              key="1"
+            >
+              <li
+                className="c1"
               >
-                <StyledComponent
-                  forwardedComponent={
-                    Object {
-                      "$$typeof": Symbol(react.forward_ref),
-                      "attrs": Array [],
-                      "componentStyle": ComponentStyle {
-                        "componentId": "sc-bwzfXH",
-                        "isStatic": false,
-                        "lastClassName": "c1",
-                        "rules": Array [
-                          "
-        display: inline-block;
-        margin: 8px 0 0 8px;
-      ",
-                        ],
-                      },
-                      "displayName": "styled.li",
-                      "foldedComponentIds": Array [],
-                      "render": [Function],
-                      "styledComponentId": "sc-bwzfXH",
-                      "target": "li",
-                      "toString": [Function],
-                      "warnTooManyClasses": [Function],
-                      "withComponent": [Function],
-                    }
-                  }
-                  forwardedRef={null}
+                <styled.a
+                  href="https://reacttraining.com/react-router/"
+                  rel="noopener"
+                  target="_blank"
                 >
-                  <li
-                    className="c1"
+                  <a
+                    className="c2"
+                    href="https://reacttraining.com/react-router/"
+                    rel="noopener"
+                    target="_blank"
                   >
-                    <styled.a
-                      href="https://reacttraining.com/react-router/"
-                      rel="noopener"
-                      target="_blank"
-                    >
-                      <StyledComponent
-                        forwardedComponent={
-                          Object {
-                            "$$typeof": Symbol(react.forward_ref),
-                            "attrs": Array [],
-                            "componentStyle": ComponentStyle {
-                              "componentId": "sc-htpNat",
-                              "isStatic": false,
-                              "lastClassName": "c2",
-                              "rules": Array [
-                                "
-        display: inline-block;
-        padding: 8px 12px;
-        color: ",
-                                "#a6c0fe",
-                                ";
-        border: 1px ",
-                                "#eee",
-                                " solid;
-        &:hover {
-          text-decoration: underline;
-        }
-      ",
-                              ],
-                            },
-                            "displayName": "styled.a",
-                            "foldedComponentIds": Array [],
-                            "render": [Function],
-                            "styledComponentId": "sc-htpNat",
-                            "target": "a",
-                            "toString": [Function],
-                            "warnTooManyClasses": [Function],
-                            "withComponent": [Function],
-                          }
-                        }
-                        forwardedRef={null}
-                        href="https://reacttraining.com/react-router/"
-                        rel="noopener"
-                        target="_blank"
-                      >
-                        <a
-                          className="c2"
-                          href="https://reacttraining.com/react-router/"
-                          rel="noopener"
-                          target="_blank"
-                        >
-                          react-router
-                        </a>
-                      </StyledComponent>
-                    </styled.a>
-                  </li>
-                </StyledComponent>
-              </styled.li>
-              <styled.li
-                key="2"
+                    react-router
+                  </a>
+                </styled.a>
+              </li>
+            </styled.li>
+            <styled.li
+              key="2"
+            >
+              <li
+                className="c1"
               >
-                <StyledComponent
-                  forwardedComponent={
-                    Object {
-                      "$$typeof": Symbol(react.forward_ref),
-                      "attrs": Array [],
-                      "componentStyle": ComponentStyle {
-                        "componentId": "sc-bwzfXH",
-                        "isStatic": false,
-                        "lastClassName": "c1",
-                        "rules": Array [
-                          "
-        display: inline-block;
-        margin: 8px 0 0 8px;
-      ",
-                        ],
-                      },
-                      "displayName": "styled.li",
-                      "foldedComponentIds": Array [],
-                      "render": [Function],
-                      "styledComponentId": "sc-bwzfXH",
-                      "target": "li",
-                      "toString": [Function],
-                      "warnTooManyClasses": [Function],
-                      "withComponent": [Function],
-                    }
-                  }
-                  forwardedRef={null}
+                <styled.a
+                  href="https://github.com/staylor/react-helmet-async/"
+                  rel="noopener"
+                  target="_blank"
                 >
-                  <li
-                    className="c1"
+                  <a
+                    className="c2"
+                    href="https://github.com/staylor/react-helmet-async/"
+                    rel="noopener"
+                    target="_blank"
                   >
-                    <styled.a
-                      href="https://github.com/staylor/react-helmet-async/"
-                      rel="noopener"
-                      target="_blank"
-                    >
-                      <StyledComponent
-                        forwardedComponent={
-                          Object {
-                            "$$typeof": Symbol(react.forward_ref),
-                            "attrs": Array [],
-                            "componentStyle": ComponentStyle {
-                              "componentId": "sc-htpNat",
-                              "isStatic": false,
-                              "lastClassName": "c2",
-                              "rules": Array [
-                                "
-        display: inline-block;
-        padding: 8px 12px;
-        color: ",
-                                "#a6c0fe",
-                                ";
-        border: 1px ",
-                                "#eee",
-                                " solid;
-        &:hover {
-          text-decoration: underline;
-        }
-      ",
-                              ],
-                            },
-                            "displayName": "styled.a",
-                            "foldedComponentIds": Array [],
-                            "render": [Function],
-                            "styledComponentId": "sc-htpNat",
-                            "target": "a",
-                            "toString": [Function],
-                            "warnTooManyClasses": [Function],
-                            "withComponent": [Function],
-                          }
-                        }
-                        forwardedRef={null}
-                        href="https://github.com/staylor/react-helmet-async/"
-                        rel="noopener"
-                        target="_blank"
-                      >
-                        <a
-                          className="c2"
-                          href="https://github.com/staylor/react-helmet-async/"
-                          rel="noopener"
-                          target="_blank"
-                        >
-                          react-helmet-async
-                        </a>
-                      </StyledComponent>
-                    </styled.a>
-                  </li>
-                </StyledComponent>
-              </styled.li>
-              <styled.li
-                key="3"
+                    react-helmet-async
+                  </a>
+                </styled.a>
+              </li>
+            </styled.li>
+            <styled.li
+              key="3"
+            >
+              <li
+                className="c1"
               >
-                <StyledComponent
-                  forwardedComponent={
-                    Object {
-                      "$$typeof": Symbol(react.forward_ref),
-                      "attrs": Array [],
-                      "componentStyle": ComponentStyle {
-                        "componentId": "sc-bwzfXH",
-                        "isStatic": false,
-                        "lastClassName": "c1",
-                        "rules": Array [
-                          "
-        display: inline-block;
-        margin: 8px 0 0 8px;
-      ",
-                        ],
-                      },
-                      "displayName": "styled.li",
-                      "foldedComponentIds": Array [],
-                      "render": [Function],
-                      "styledComponentId": "sc-bwzfXH",
-                      "target": "li",
-                      "toString": [Function],
-                      "warnTooManyClasses": [Function],
-                      "withComponent": [Function],
-                    }
-                  }
-                  forwardedRef={null}
+                <styled.a
+                  href="http://gaearon.github.io/react-hot-loader/"
+                  rel="noopener"
+                  target="_blank"
                 >
-                  <li
-                    className="c1"
+                  <a
+                    className="c2"
+                    href="http://gaearon.github.io/react-hot-loader/"
+                    rel="noopener"
+                    target="_blank"
                   >
-                    <styled.a
-                      href="http://gaearon.github.io/react-hot-loader/"
-                      rel="noopener"
-                      target="_blank"
-                    >
-                      <StyledComponent
-                        forwardedComponent={
-                          Object {
-                            "$$typeof": Symbol(react.forward_ref),
-                            "attrs": Array [],
-                            "componentStyle": ComponentStyle {
-                              "componentId": "sc-htpNat",
-                              "isStatic": false,
-                              "lastClassName": "c2",
-                              "rules": Array [
-                                "
-        display: inline-block;
-        padding: 8px 12px;
-        color: ",
-                                "#a6c0fe",
-                                ";
-        border: 1px ",
-                                "#eee",
-                                " solid;
-        &:hover {
-          text-decoration: underline;
-        }
-      ",
-                              ],
-                            },
-                            "displayName": "styled.a",
-                            "foldedComponentIds": Array [],
-                            "render": [Function],
-                            "styledComponentId": "sc-htpNat",
-                            "target": "a",
-                            "toString": [Function],
-                            "warnTooManyClasses": [Function],
-                            "withComponent": [Function],
-                          }
-                        }
-                        forwardedRef={null}
-                        href="http://gaearon.github.io/react-hot-loader/"
-                        rel="noopener"
-                        target="_blank"
-                      >
-                        <a
-                          className="c2"
-                          href="http://gaearon.github.io/react-hot-loader/"
-                          rel="noopener"
-                          target="_blank"
-                        >
-                          react-hot-loader
-                        </a>
-                      </StyledComponent>
-                    </styled.a>
-                  </li>
-                </StyledComponent>
-              </styled.li>
-              <styled.li
-                key="4"
+                    react-hot-loader
+                  </a>
+                </styled.a>
+              </li>
+            </styled.li>
+            <styled.li
+              key="4"
+            >
+              <li
+                className="c1"
               >
-                <StyledComponent
-                  forwardedComponent={
-                    Object {
-                      "$$typeof": Symbol(react.forward_ref),
-                      "attrs": Array [],
-                      "componentStyle": ComponentStyle {
-                        "componentId": "sc-bwzfXH",
-                        "isStatic": false,
-                        "lastClassName": "c1",
-                        "rules": Array [
-                          "
-        display: inline-block;
-        margin: 8px 0 0 8px;
-      ",
-                        ],
-                      },
-                      "displayName": "styled.li",
-                      "foldedComponentIds": Array [],
-                      "render": [Function],
-                      "styledComponentId": "sc-bwzfXH",
-                      "target": "li",
-                      "toString": [Function],
-                      "warnTooManyClasses": [Function],
-                      "withComponent": [Function],
-                    }
-                  }
-                  forwardedRef={null}
+                <styled.a
+                  href="https://redux.js.org/"
+                  rel="noopener"
+                  target="_blank"
                 >
-                  <li
-                    className="c1"
+                  <a
+                    className="c2"
+                    href="https://redux.js.org/"
+                    rel="noopener"
+                    target="_blank"
                   >
-                    <styled.a
-                      href="https://redux.js.org/"
-                      rel="noopener"
-                      target="_blank"
-                    >
-                      <StyledComponent
-                        forwardedComponent={
-                          Object {
-                            "$$typeof": Symbol(react.forward_ref),
-                            "attrs": Array [],
-                            "componentStyle": ComponentStyle {
-                              "componentId": "sc-htpNat",
-                              "isStatic": false,
-                              "lastClassName": "c2",
-                              "rules": Array [
-                                "
-        display: inline-block;
-        padding: 8px 12px;
-        color: ",
-                                "#a6c0fe",
-                                ";
-        border: 1px ",
-                                "#eee",
-                                " solid;
-        &:hover {
-          text-decoration: underline;
-        }
-      ",
-                              ],
-                            },
-                            "displayName": "styled.a",
-                            "foldedComponentIds": Array [],
-                            "render": [Function],
-                            "styledComponentId": "sc-htpNat",
-                            "target": "a",
-                            "toString": [Function],
-                            "warnTooManyClasses": [Function],
-                            "withComponent": [Function],
-                          }
-                        }
-                        forwardedRef={null}
-                        href="https://redux.js.org/"
-                        rel="noopener"
-                        target="_blank"
-                      >
-                        <a
-                          className="c2"
-                          href="https://redux.js.org/"
-                          rel="noopener"
-                          target="_blank"
-                        >
-                          redux
-                        </a>
-                      </StyledComponent>
-                    </styled.a>
-                  </li>
-                </StyledComponent>
-              </styled.li>
-              <styled.li
-                key="5"
+                    redux
+                  </a>
+                </styled.a>
+              </li>
+            </styled.li>
+            <styled.li
+              key="5"
+            >
+              <li
+                className="c1"
               >
-                <StyledComponent
-                  forwardedComponent={
-                    Object {
-                      "$$typeof": Symbol(react.forward_ref),
-                      "attrs": Array [],
-                      "componentStyle": ComponentStyle {
-                        "componentId": "sc-bwzfXH",
-                        "isStatic": false,
-                        "lastClassName": "c1",
-                        "rules": Array [
-                          "
-        display: inline-block;
-        margin: 8px 0 0 8px;
-      ",
-                        ],
-                      },
-                      "displayName": "styled.li",
-                      "foldedComponentIds": Array [],
-                      "render": [Function],
-                      "styledComponentId": "sc-bwzfXH",
-                      "target": "li",
-                      "toString": [Function],
-                      "warnTooManyClasses": [Function],
-                      "withComponent": [Function],
-                    }
-                  }
-                  forwardedRef={null}
+                <styled.a
+                  href="https://www.styled-components.com/"
+                  rel="noopener"
+                  target="_blank"
                 >
-                  <li
-                    className="c1"
+                  <a
+                    className="c2"
+                    href="https://www.styled-components.com/"
+                    rel="noopener"
+                    target="_blank"
                   >
-                    <styled.a
-                      href="https://www.styled-components.com/"
-                      rel="noopener"
-                      target="_blank"
-                    >
-                      <StyledComponent
-                        forwardedComponent={
-                          Object {
-                            "$$typeof": Symbol(react.forward_ref),
-                            "attrs": Array [],
-                            "componentStyle": ComponentStyle {
-                              "componentId": "sc-htpNat",
-                              "isStatic": false,
-                              "lastClassName": "c2",
-                              "rules": Array [
-                                "
-        display: inline-block;
-        padding: 8px 12px;
-        color: ",
-                                "#a6c0fe",
-                                ";
-        border: 1px ",
-                                "#eee",
-                                " solid;
-        &:hover {
-          text-decoration: underline;
-        }
-      ",
-                              ],
-                            },
-                            "displayName": "styled.a",
-                            "foldedComponentIds": Array [],
-                            "render": [Function],
-                            "styledComponentId": "sc-htpNat",
-                            "target": "a",
-                            "toString": [Function],
-                            "warnTooManyClasses": [Function],
-                            "withComponent": [Function],
-                          }
-                        }
-                        forwardedRef={null}
-                        href="https://www.styled-components.com/"
-                        rel="noopener"
-                        target="_blank"
-                      >
-                        <a
-                          className="c2"
-                          href="https://www.styled-components.com/"
-                          rel="noopener"
-                          target="_blank"
-                        >
-                          styled-components
-                        </a>
-                      </StyledComponent>
-                    </styled.a>
-                  </li>
-                </StyledComponent>
-              </styled.li>
-              <styled.li
-                key="6"
+                    styled-components
+                  </a>
+                </styled.a>
+              </li>
+            </styled.li>
+            <styled.li
+              key="6"
+            >
+              <li
+                className="c1"
               >
-                <StyledComponent
-                  forwardedComponent={
-                    Object {
-                      "$$typeof": Symbol(react.forward_ref),
-                      "attrs": Array [],
-                      "componentStyle": ComponentStyle {
-                        "componentId": "sc-bwzfXH",
-                        "isStatic": false,
-                        "lastClassName": "c1",
-                        "rules": Array [
-                          "
-        display: inline-block;
-        margin: 8px 0 0 8px;
-      ",
-                        ],
-                      },
-                      "displayName": "styled.li",
-                      "foldedComponentIds": Array [],
-                      "render": [Function],
-                      "styledComponentId": "sc-bwzfXH",
-                      "target": "li",
-                      "toString": [Function],
-                      "warnTooManyClasses": [Function],
-                      "withComponent": [Function],
-                    }
-                  }
-                  forwardedRef={null}
+                <styled.a
+                  href="https://www.smooth-code.com/open-source/loadable-components/"
+                  rel="noopener"
+                  target="_blank"
                 >
-                  <li
-                    className="c1"
+                  <a
+                    className="c2"
+                    href="https://www.smooth-code.com/open-source/loadable-components/"
+                    rel="noopener"
+                    target="_blank"
                   >
-                    <styled.a
-                      href="https://www.smooth-code.com/open-source/loadable-components/"
-                      rel="noopener"
-                      target="_blank"
-                    >
-                      <StyledComponent
-                        forwardedComponent={
-                          Object {
-                            "$$typeof": Symbol(react.forward_ref),
-                            "attrs": Array [],
-                            "componentStyle": ComponentStyle {
-                              "componentId": "sc-htpNat",
-                              "isStatic": false,
-                              "lastClassName": "c2",
-                              "rules": Array [
-                                "
-        display: inline-block;
-        padding: 8px 12px;
-        color: ",
-                                "#a6c0fe",
-                                ";
-        border: 1px ",
-                                "#eee",
-                                " solid;
-        &:hover {
-          text-decoration: underline;
-        }
-      ",
-                              ],
-                            },
-                            "displayName": "styled.a",
-                            "foldedComponentIds": Array [],
-                            "render": [Function],
-                            "styledComponentId": "sc-htpNat",
-                            "target": "a",
-                            "toString": [Function],
-                            "warnTooManyClasses": [Function],
-                            "withComponent": [Function],
-                          }
-                        }
-                        forwardedRef={null}
-                        href="https://www.smooth-code.com/open-source/loadable-components/"
-                        rel="noopener"
-                        target="_blank"
-                      >
-                        <a
-                          className="c2"
-                          href="https://www.smooth-code.com/open-source/loadable-components/"
-                          rel="noopener"
-                          target="_blank"
-                        >
-                          loadable-components
-                        </a>
-                      </StyledComponent>
-                    </styled.a>
-                  </li>
-                </StyledComponent>
-              </styled.li>
-              <styled.li
-                key="7"
+                    loadable-components
+                  </a>
+                </styled.a>
+              </li>
+            </styled.li>
+            <styled.li
+              key="7"
+            >
+              <li
+                className="c1"
               >
-                <StyledComponent
-                  forwardedComponent={
-                    Object {
-                      "$$typeof": Symbol(react.forward_ref),
-                      "attrs": Array [],
-                      "componentStyle": ComponentStyle {
-                        "componentId": "sc-bwzfXH",
-                        "isStatic": false,
-                        "lastClassName": "c1",
-                        "rules": Array [
-                          "
-        display: inline-block;
-        margin: 8px 0 0 8px;
-      ",
-                        ],
-                      },
-                      "displayName": "styled.li",
-                      "foldedComponentIds": Array [],
-                      "render": [Function],
-                      "styledComponentId": "sc-bwzfXH",
-                      "target": "li",
-                      "toString": [Function],
-                      "warnTooManyClasses": [Function],
-                      "withComponent": [Function],
-                    }
-                  }
-                  forwardedRef={null}
+                <styled.a
+                  href="http://expressjs.com/"
+                  rel="noopener"
+                  target="_blank"
                 >
-                  <li
-                    className="c1"
+                  <a
+                    className="c2"
+                    href="http://expressjs.com/"
+                    rel="noopener"
+                    target="_blank"
                   >
-                    <styled.a
-                      href="http://expressjs.com/"
-                      rel="noopener"
-                      target="_blank"
-                    >
-                      <StyledComponent
-                        forwardedComponent={
-                          Object {
-                            "$$typeof": Symbol(react.forward_ref),
-                            "attrs": Array [],
-                            "componentStyle": ComponentStyle {
-                              "componentId": "sc-htpNat",
-                              "isStatic": false,
-                              "lastClassName": "c2",
-                              "rules": Array [
-                                "
-        display: inline-block;
-        padding: 8px 12px;
-        color: ",
-                                "#a6c0fe",
-                                ";
-        border: 1px ",
-                                "#eee",
-                                " solid;
-        &:hover {
-          text-decoration: underline;
-        }
-      ",
-                              ],
-                            },
-                            "displayName": "styled.a",
-                            "foldedComponentIds": Array [],
-                            "render": [Function],
-                            "styledComponentId": "sc-htpNat",
-                            "target": "a",
-                            "toString": [Function],
-                            "warnTooManyClasses": [Function],
-                            "withComponent": [Function],
-                          }
-                        }
-                        forwardedRef={null}
-                        href="http://expressjs.com/"
-                        rel="noopener"
-                        target="_blank"
-                      >
-                        <a
-                          className="c2"
-                          href="http://expressjs.com/"
-                          rel="noopener"
-                          target="_blank"
-                        >
-                          express
-                        </a>
-                      </StyledComponent>
-                    </styled.a>
-                  </li>
-                </StyledComponent>
-              </styled.li>
-              <styled.li
-                key="8"
+                    express
+                  </a>
+                </styled.a>
+              </li>
+            </styled.li>
+            <styled.li
+              key="8"
+            >
+              <li
+                className="c1"
               >
-                <StyledComponent
-                  forwardedComponent={
-                    Object {
-                      "$$typeof": Symbol(react.forward_ref),
-                      "attrs": Array [],
-                      "componentStyle": ComponentStyle {
-                        "componentId": "sc-bwzfXH",
-                        "isStatic": false,
-                        "lastClassName": "c1",
-                        "rules": Array [
-                          "
-        display: inline-block;
-        margin: 8px 0 0 8px;
-      ",
-                        ],
-                      },
-                      "displayName": "styled.li",
-                      "foldedComponentIds": Array [],
-                      "render": [Function],
-                      "styledComponentId": "sc-bwzfXH",
-                      "target": "li",
-                      "toString": [Function],
-                      "warnTooManyClasses": [Function],
-                      "withComponent": [Function],
-                    }
-                  }
-                  forwardedRef={null}
+                <styled.a
+                  href="https://developers.google.com/web/tools/workbox/"
+                  rel="noopener"
+                  target="_blank"
                 >
-                  <li
-                    className="c1"
+                  <a
+                    className="c2"
+                    href="https://developers.google.com/web/tools/workbox/"
+                    rel="noopener"
+                    target="_blank"
                   >
-                    <styled.a
-                      href="https://developers.google.com/web/tools/workbox/"
-                      rel="noopener"
-                      target="_blank"
-                    >
-                      <StyledComponent
-                        forwardedComponent={
-                          Object {
-                            "$$typeof": Symbol(react.forward_ref),
-                            "attrs": Array [],
-                            "componentStyle": ComponentStyle {
-                              "componentId": "sc-htpNat",
-                              "isStatic": false,
-                              "lastClassName": "c2",
-                              "rules": Array [
-                                "
-        display: inline-block;
-        padding: 8px 12px;
-        color: ",
-                                "#a6c0fe",
-                                ";
-        border: 1px ",
-                                "#eee",
-                                " solid;
-        &:hover {
-          text-decoration: underline;
-        }
-      ",
-                              ],
-                            },
-                            "displayName": "styled.a",
-                            "foldedComponentIds": Array [],
-                            "render": [Function],
-                            "styledComponentId": "sc-htpNat",
-                            "target": "a",
-                            "toString": [Function],
-                            "warnTooManyClasses": [Function],
-                            "withComponent": [Function],
-                          }
-                        }
-                        forwardedRef={null}
-                        href="https://developers.google.com/web/tools/workbox/"
-                        rel="noopener"
-                        target="_blank"
-                      >
-                        <a
-                          className="c2"
-                          href="https://developers.google.com/web/tools/workbox/"
-                          rel="noopener"
-                          target="_blank"
-                        >
-                          workbox
-                        </a>
-                      </StyledComponent>
-                    </styled.a>
-                  </li>
-                </StyledComponent>
-              </styled.li>
-              <styled.li
-                key="9"
+                    workbox
+                  </a>
+                </styled.a>
+              </li>
+            </styled.li>
+            <styled.li
+              key="9"
+            >
+              <li
+                className="c1"
               >
-                <StyledComponent
-                  forwardedComponent={
-                    Object {
-                      "$$typeof": Symbol(react.forward_ref),
-                      "attrs": Array [],
-                      "componentStyle": ComponentStyle {
-                        "componentId": "sc-bwzfXH",
-                        "isStatic": false,
-                        "lastClassName": "c1",
-                        "rules": Array [
-                          "
-        display: inline-block;
-        margin: 8px 0 0 8px;
-      ",
-                        ],
-                      },
-                      "displayName": "styled.li",
-                      "foldedComponentIds": Array [],
-                      "render": [Function],
-                      "styledComponentId": "sc-bwzfXH",
-                      "target": "li",
-                      "toString": [Function],
-                      "warnTooManyClasses": [Function],
-                      "withComponent": [Function],
-                    }
-                  }
-                  forwardedRef={null}
+                <styled.a
+                  href="https://eslint.org/"
+                  rel="noopener"
+                  target="_blank"
                 >
-                  <li
-                    className="c1"
+                  <a
+                    className="c2"
+                    href="https://eslint.org/"
+                    rel="noopener"
+                    target="_blank"
                   >
-                    <styled.a
-                      href="https://eslint.org/"
-                      rel="noopener"
-                      target="_blank"
-                    >
-                      <StyledComponent
-                        forwardedComponent={
-                          Object {
-                            "$$typeof": Symbol(react.forward_ref),
-                            "attrs": Array [],
-                            "componentStyle": ComponentStyle {
-                              "componentId": "sc-htpNat",
-                              "isStatic": false,
-                              "lastClassName": "c2",
-                              "rules": Array [
-                                "
-        display: inline-block;
-        padding: 8px 12px;
-        color: ",
-                                "#a6c0fe",
-                                ";
-        border: 1px ",
-                                "#eee",
-                                " solid;
-        &:hover {
-          text-decoration: underline;
-        }
-      ",
-                              ],
-                            },
-                            "displayName": "styled.a",
-                            "foldedComponentIds": Array [],
-                            "render": [Function],
-                            "styledComponentId": "sc-htpNat",
-                            "target": "a",
-                            "toString": [Function],
-                            "warnTooManyClasses": [Function],
-                            "withComponent": [Function],
-                          }
-                        }
-                        forwardedRef={null}
-                        href="https://eslint.org/"
-                        rel="noopener"
-                        target="_blank"
-                      >
-                        <a
-                          className="c2"
-                          href="https://eslint.org/"
-                          rel="noopener"
-                          target="_blank"
-                        >
-                          eslint
-                        </a>
-                      </StyledComponent>
-                    </styled.a>
-                  </li>
-                </StyledComponent>
-              </styled.li>
-              <styled.li
-                key="10"
+                    eslint
+                  </a>
+                </styled.a>
+              </li>
+            </styled.li>
+            <styled.li
+              key="10"
+            >
+              <li
+                className="c1"
               >
-                <StyledComponent
-                  forwardedComponent={
-                    Object {
-                      "$$typeof": Symbol(react.forward_ref),
-                      "attrs": Array [],
-                      "componentStyle": ComponentStyle {
-                        "componentId": "sc-bwzfXH",
-                        "isStatic": false,
-                        "lastClassName": "c1",
-                        "rules": Array [
-                          "
-        display: inline-block;
-        margin: 8px 0 0 8px;
-      ",
-                        ],
-                      },
-                      "displayName": "styled.li",
-                      "foldedComponentIds": Array [],
-                      "render": [Function],
-                      "styledComponentId": "sc-bwzfXH",
-                      "target": "li",
-                      "toString": [Function],
-                      "warnTooManyClasses": [Function],
-                      "withComponent": [Function],
-                    }
-                  }
-                  forwardedRef={null}
+                <styled.a
+                  href="https://stylelint.io/"
+                  rel="noopener"
+                  target="_blank"
                 >
-                  <li
-                    className="c1"
+                  <a
+                    className="c2"
+                    href="https://stylelint.io/"
+                    rel="noopener"
+                    target="_blank"
                   >
-                    <styled.a
-                      href="https://stylelint.io/"
-                      rel="noopener"
-                      target="_blank"
-                    >
-                      <StyledComponent
-                        forwardedComponent={
-                          Object {
-                            "$$typeof": Symbol(react.forward_ref),
-                            "attrs": Array [],
-                            "componentStyle": ComponentStyle {
-                              "componentId": "sc-htpNat",
-                              "isStatic": false,
-                              "lastClassName": "c2",
-                              "rules": Array [
-                                "
-        display: inline-block;
-        padding: 8px 12px;
-        color: ",
-                                "#a6c0fe",
-                                ";
-        border: 1px ",
-                                "#eee",
-                                " solid;
-        &:hover {
-          text-decoration: underline;
-        }
-      ",
-                              ],
-                            },
-                            "displayName": "styled.a",
-                            "foldedComponentIds": Array [],
-                            "render": [Function],
-                            "styledComponentId": "sc-htpNat",
-                            "target": "a",
-                            "toString": [Function],
-                            "warnTooManyClasses": [Function],
-                            "withComponent": [Function],
-                          }
-                        }
-                        forwardedRef={null}
-                        href="https://stylelint.io/"
-                        rel="noopener"
-                        target="_blank"
-                      >
-                        <a
-                          className="c2"
-                          href="https://stylelint.io/"
-                          rel="noopener"
-                          target="_blank"
-                        >
-                          stylelint
-                        </a>
-                      </StyledComponent>
-                    </styled.a>
-                  </li>
-                </StyledComponent>
-              </styled.li>
-              <styled.li
-                key="11"
+                    stylelint
+                  </a>
+                </styled.a>
+              </li>
+            </styled.li>
+            <styled.li
+              key="11"
+            >
+              <li
+                className="c1"
               >
-                <StyledComponent
-                  forwardedComponent={
-                    Object {
-                      "$$typeof": Symbol(react.forward_ref),
-                      "attrs": Array [],
-                      "componentStyle": ComponentStyle {
-                        "componentId": "sc-bwzfXH",
-                        "isStatic": false,
-                        "lastClassName": "c1",
-                        "rules": Array [
-                          "
-        display: inline-block;
-        margin: 8px 0 0 8px;
-      ",
-                        ],
-                      },
-                      "displayName": "styled.li",
-                      "foldedComponentIds": Array [],
-                      "render": [Function],
-                      "styledComponentId": "sc-bwzfXH",
-                      "target": "li",
-                      "toString": [Function],
-                      "warnTooManyClasses": [Function],
-                      "withComponent": [Function],
-                    }
-                  }
-                  forwardedRef={null}
+                <styled.a
+                  href="https://prettier.io/"
+                  rel="noopener"
+                  target="_blank"
                 >
-                  <li
-                    className="c1"
+                  <a
+                    className="c2"
+                    href="https://prettier.io/"
+                    rel="noopener"
+                    target="_blank"
                   >
-                    <styled.a
-                      href="https://prettier.io/"
-                      rel="noopener"
-                      target="_blank"
-                    >
-                      <StyledComponent
-                        forwardedComponent={
-                          Object {
-                            "$$typeof": Symbol(react.forward_ref),
-                            "attrs": Array [],
-                            "componentStyle": ComponentStyle {
-                              "componentId": "sc-htpNat",
-                              "isStatic": false,
-                              "lastClassName": "c2",
-                              "rules": Array [
-                                "
-        display: inline-block;
-        padding: 8px 12px;
-        color: ",
-                                "#a6c0fe",
-                                ";
-        border: 1px ",
-                                "#eee",
-                                " solid;
-        &:hover {
-          text-decoration: underline;
-        }
-      ",
-                              ],
-                            },
-                            "displayName": "styled.a",
-                            "foldedComponentIds": Array [],
-                            "render": [Function],
-                            "styledComponentId": "sc-htpNat",
-                            "target": "a",
-                            "toString": [Function],
-                            "warnTooManyClasses": [Function],
-                            "withComponent": [Function],
-                          }
-                        }
-                        forwardedRef={null}
-                        href="https://prettier.io/"
-                        rel="noopener"
-                        target="_blank"
-                      >
-                        <a
-                          className="c2"
-                          href="https://prettier.io/"
-                          rel="noopener"
-                          target="_blank"
-                        >
-                          prettier
-                        </a>
-                      </StyledComponent>
-                    </styled.a>
-                  </li>
-                </StyledComponent>
-              </styled.li>
-              <styled.li
-                key="12"
+                    prettier
+                  </a>
+                </styled.a>
+              </li>
+            </styled.li>
+            <styled.li
+              key="12"
+            >
+              <li
+                className="c1"
               >
-                <StyledComponent
-                  forwardedComponent={
-                    Object {
-                      "$$typeof": Symbol(react.forward_ref),
-                      "attrs": Array [],
-                      "componentStyle": ComponentStyle {
-                        "componentId": "sc-bwzfXH",
-                        "isStatic": false,
-                        "lastClassName": "c1",
-                        "rules": Array [
-                          "
-        display: inline-block;
-        margin: 8px 0 0 8px;
-      ",
-                        ],
-                      },
-                      "displayName": "styled.li",
-                      "foldedComponentIds": Array [],
-                      "render": [Function],
-                      "styledComponentId": "sc-bwzfXH",
-                      "target": "li",
-                      "toString": [Function],
-                      "warnTooManyClasses": [Function],
-                      "withComponent": [Function],
-                    }
-                  }
-                  forwardedRef={null}
+                <styled.a
+                  href="https://flow.org/"
+                  rel="noopener"
+                  target="_blank"
                 >
-                  <li
-                    className="c1"
+                  <a
+                    className="c2"
+                    href="https://flow.org/"
+                    rel="noopener"
+                    target="_blank"
                   >
-                    <styled.a
-                      href="https://flow.org/"
-                      rel="noopener"
-                      target="_blank"
-                    >
-                      <StyledComponent
-                        forwardedComponent={
-                          Object {
-                            "$$typeof": Symbol(react.forward_ref),
-                            "attrs": Array [],
-                            "componentStyle": ComponentStyle {
-                              "componentId": "sc-htpNat",
-                              "isStatic": false,
-                              "lastClassName": "c2",
-                              "rules": Array [
-                                "
-        display: inline-block;
-        padding: 8px 12px;
-        color: ",
-                                "#a6c0fe",
-                                ";
-        border: 1px ",
-                                "#eee",
-                                " solid;
-        &:hover {
-          text-decoration: underline;
-        }
-      ",
-                              ],
-                            },
-                            "displayName": "styled.a",
-                            "foldedComponentIds": Array [],
-                            "render": [Function],
-                            "styledComponentId": "sc-htpNat",
-                            "target": "a",
-                            "toString": [Function],
-                            "warnTooManyClasses": [Function],
-                            "withComponent": [Function],
-                          }
-                        }
-                        forwardedRef={null}
-                        href="https://flow.org/"
-                        rel="noopener"
-                        target="_blank"
-                      >
-                        <a
-                          className="c2"
-                          href="https://flow.org/"
-                          rel="noopener"
-                          target="_blank"
-                        >
-                          flow
-                        </a>
-                      </StyledComponent>
-                    </styled.a>
-                  </li>
-                </StyledComponent>
-              </styled.li>
-              <styled.li
-                key="13"
+                    flow
+                  </a>
+                </styled.a>
+              </li>
+            </styled.li>
+            <styled.li
+              key="13"
+            >
+              <li
+                className="c1"
               >
-                <StyledComponent
-                  forwardedComponent={
-                    Object {
-                      "$$typeof": Symbol(react.forward_ref),
-                      "attrs": Array [],
-                      "componentStyle": ComponentStyle {
-                        "componentId": "sc-bwzfXH",
-                        "isStatic": false,
-                        "lastClassName": "c1",
-                        "rules": Array [
-                          "
-        display: inline-block;
-        margin: 8px 0 0 8px;
-      ",
-                        ],
-                      },
-                      "displayName": "styled.li",
-                      "foldedComponentIds": Array [],
-                      "render": [Function],
-                      "styledComponentId": "sc-bwzfXH",
-                      "target": "li",
-                      "toString": [Function],
-                      "warnTooManyClasses": [Function],
-                      "withComponent": [Function],
-                    }
-                  }
-                  forwardedRef={null}
+                <styled.a
+                  href="https://facebook.github.io/jest/"
+                  rel="noopener"
+                  target="_blank"
                 >
-                  <li
-                    className="c1"
+                  <a
+                    className="c2"
+                    href="https://facebook.github.io/jest/"
+                    rel="noopener"
+                    target="_blank"
                   >
-                    <styled.a
-                      href="https://facebook.github.io/jest/"
-                      rel="noopener"
-                      target="_blank"
-                    >
-                      <StyledComponent
-                        forwardedComponent={
-                          Object {
-                            "$$typeof": Symbol(react.forward_ref),
-                            "attrs": Array [],
-                            "componentStyle": ComponentStyle {
-                              "componentId": "sc-htpNat",
-                              "isStatic": false,
-                              "lastClassName": "c2",
-                              "rules": Array [
-                                "
-        display: inline-block;
-        padding: 8px 12px;
-        color: ",
-                                "#a6c0fe",
-                                ";
-        border: 1px ",
-                                "#eee",
-                                " solid;
-        &:hover {
-          text-decoration: underline;
-        }
-      ",
-                              ],
-                            },
-                            "displayName": "styled.a",
-                            "foldedComponentIds": Array [],
-                            "render": [Function],
-                            "styledComponentId": "sc-htpNat",
-                            "target": "a",
-                            "toString": [Function],
-                            "warnTooManyClasses": [Function],
-                            "withComponent": [Function],
-                          }
-                        }
-                        forwardedRef={null}
-                        href="https://facebook.github.io/jest/"
-                        rel="noopener"
-                        target="_blank"
-                      >
-                        <a
-                          className="c2"
-                          href="https://facebook.github.io/jest/"
-                          rel="noopener"
-                          target="_blank"
-                        >
-                          jest
-                        </a>
-                      </StyledComponent>
-                    </styled.a>
-                  </li>
-                </StyledComponent>
-              </styled.li>
-              <styled.li
-                key="14"
+                    jest
+                  </a>
+                </styled.a>
+              </li>
+            </styled.li>
+            <styled.li
+              key="14"
+            >
+              <li
+                className="c1"
               >
-                <StyledComponent
-                  forwardedComponent={
-                    Object {
-                      "$$typeof": Symbol(react.forward_ref),
-                      "attrs": Array [],
-                      "componentStyle": ComponentStyle {
-                        "componentId": "sc-bwzfXH",
-                        "isStatic": false,
-                        "lastClassName": "c1",
-                        "rules": Array [
-                          "
-        display: inline-block;
-        margin: 8px 0 0 8px;
-      ",
-                        ],
-                      },
-                      "displayName": "styled.li",
-                      "foldedComponentIds": Array [],
-                      "render": [Function],
-                      "styledComponentId": "sc-bwzfXH",
-                      "target": "li",
-                      "toString": [Function],
-                      "warnTooManyClasses": [Function],
-                      "withComponent": [Function],
-                    }
-                  }
-                  forwardedRef={null}
+                <styled.a
+                  href="http://airbnb.io/enzyme/"
+                  rel="noopener"
+                  target="_blank"
                 >
-                  <li
-                    className="c1"
+                  <a
+                    className="c2"
+                    href="http://airbnb.io/enzyme/"
+                    rel="noopener"
+                    target="_blank"
                   >
-                    <styled.a
-                      href="http://airbnb.io/enzyme/"
-                      rel="noopener"
-                      target="_blank"
-                    >
-                      <StyledComponent
-                        forwardedComponent={
-                          Object {
-                            "$$typeof": Symbol(react.forward_ref),
-                            "attrs": Array [],
-                            "componentStyle": ComponentStyle {
-                              "componentId": "sc-htpNat",
-                              "isStatic": false,
-                              "lastClassName": "c2",
-                              "rules": Array [
-                                "
-        display: inline-block;
-        padding: 8px 12px;
-        color: ",
-                                "#a6c0fe",
-                                ";
-        border: 1px ",
-                                "#eee",
-                                " solid;
-        &:hover {
-          text-decoration: underline;
-        }
-      ",
-                              ],
-                            },
-                            "displayName": "styled.a",
-                            "foldedComponentIds": Array [],
-                            "render": [Function],
-                            "styledComponentId": "sc-htpNat",
-                            "target": "a",
-                            "toString": [Function],
-                            "warnTooManyClasses": [Function],
-                            "withComponent": [Function],
-                          }
-                        }
-                        forwardedRef={null}
-                        href="http://airbnb.io/enzyme/"
-                        rel="noopener"
-                        target="_blank"
-                      >
-                        <a
-                          className="c2"
-                          href="http://airbnb.io/enzyme/"
-                          rel="noopener"
-                          target="_blank"
-                        >
-                          enzyme
-                        </a>
-                      </StyledComponent>
-                    </styled.a>
-                  </li>
-                </StyledComponent>
-              </styled.li>
-              <styled.li
-                key="15"
+                    enzyme
+                  </a>
+                </styled.a>
+              </li>
+            </styled.li>
+            <styled.li
+              key="15"
+            >
+              <li
+                className="c1"
               >
-                <StyledComponent
-                  forwardedComponent={
-                    Object {
-                      "$$typeof": Symbol(react.forward_ref),
-                      "attrs": Array [],
-                      "componentStyle": ComponentStyle {
-                        "componentId": "sc-bwzfXH",
-                        "isStatic": false,
-                        "lastClassName": "c1",
-                        "rules": Array [
-                          "
-        display: inline-block;
-        margin: 8px 0 0 8px;
-      ",
-                        ],
-                      },
-                      "displayName": "styled.li",
-                      "foldedComponentIds": Array [],
-                      "render": [Function],
-                      "styledComponentId": "sc-bwzfXH",
-                      "target": "li",
-                      "toString": [Function],
-                      "warnTooManyClasses": [Function],
-                      "withComponent": [Function],
-                    }
-                  }
-                  forwardedRef={null}
+                <styled.a
+                  href="https://storybook.js.org/"
+                  rel="noopener"
+                  target="_blank"
                 >
-                  <li
-                    className="c1"
+                  <a
+                    className="c2"
+                    href="https://storybook.js.org/"
+                    rel="noopener"
+                    target="_blank"
                   >
-                    <styled.a
-                      href="https://storybook.js.org/"
-                      rel="noopener"
-                      target="_blank"
-                    >
-                      <StyledComponent
-                        forwardedComponent={
-                          Object {
-                            "$$typeof": Symbol(react.forward_ref),
-                            "attrs": Array [],
-                            "componentStyle": ComponentStyle {
-                              "componentId": "sc-htpNat",
-                              "isStatic": false,
-                              "lastClassName": "c2",
-                              "rules": Array [
-                                "
-        display: inline-block;
-        padding: 8px 12px;
-        color: ",
-                                "#a6c0fe",
-                                ";
-        border: 1px ",
-                                "#eee",
-                                " solid;
-        &:hover {
-          text-decoration: underline;
-        }
-      ",
-                              ],
-                            },
-                            "displayName": "styled.a",
-                            "foldedComponentIds": Array [],
-                            "render": [Function],
-                            "styledComponentId": "sc-htpNat",
-                            "target": "a",
-                            "toString": [Function],
-                            "warnTooManyClasses": [Function],
-                            "withComponent": [Function],
-                          }
-                        }
-                        forwardedRef={null}
-                        href="https://storybook.js.org/"
-                        rel="noopener"
-                        target="_blank"
-                      >
-                        <a
-                          className="c2"
-                          href="https://storybook.js.org/"
-                          rel="noopener"
-                          target="_blank"
-                        >
-                          storybook
-                        </a>
-                      </StyledComponent>
-                    </styled.a>
-                  </li>
-                </StyledComponent>
-              </styled.li>
-              <styled.li
-                key="16"
+                    storybook
+                  </a>
+                </styled.a>
+              </li>
+            </styled.li>
+            <styled.li
+              key="16"
+            >
+              <li
+                className="c1"
               >
-                <StyledComponent
-                  forwardedComponent={
-                    Object {
-                      "$$typeof": Symbol(react.forward_ref),
-                      "attrs": Array [],
-                      "componentStyle": ComponentStyle {
-                        "componentId": "sc-bwzfXH",
-                        "isStatic": false,
-                        "lastClassName": "c1",
-                        "rules": Array [
-                          "
-        display: inline-block;
-        margin: 8px 0 0 8px;
-      ",
-                        ],
-                      },
-                      "displayName": "styled.li",
-                      "foldedComponentIds": Array [],
-                      "render": [Function],
-                      "styledComponentId": "sc-bwzfXH",
-                      "target": "li",
-                      "toString": [Function],
-                      "warnTooManyClasses": [Function],
-                      "withComponent": [Function],
-                    }
-                  }
-                  forwardedRef={null}
+                <styled.a
+                  href="https://webpack.js.org/"
+                  rel="noopener"
+                  target="_blank"
                 >
-                  <li
-                    className="c1"
+                  <a
+                    className="c2"
+                    href="https://webpack.js.org/"
+                    rel="noopener"
+                    target="_blank"
                   >
-                    <styled.a
-                      href="https://webpack.js.org/"
-                      rel="noopener"
-                      target="_blank"
-                    >
-                      <StyledComponent
-                        forwardedComponent={
-                          Object {
-                            "$$typeof": Symbol(react.forward_ref),
-                            "attrs": Array [],
-                            "componentStyle": ComponentStyle {
-                              "componentId": "sc-htpNat",
-                              "isStatic": false,
-                              "lastClassName": "c2",
-                              "rules": Array [
-                                "
-        display: inline-block;
-        padding: 8px 12px;
-        color: ",
-                                "#a6c0fe",
-                                ";
-        border: 1px ",
-                                "#eee",
-                                " solid;
-        &:hover {
-          text-decoration: underline;
-        }
-      ",
-                              ],
-                            },
-                            "displayName": "styled.a",
-                            "foldedComponentIds": Array [],
-                            "render": [Function],
-                            "styledComponentId": "sc-htpNat",
-                            "target": "a",
-                            "toString": [Function],
-                            "warnTooManyClasses": [Function],
-                            "withComponent": [Function],
-                          }
-                        }
-                        forwardedRef={null}
-                        href="https://webpack.js.org/"
-                        rel="noopener"
-                        target="_blank"
-                      >
-                        <a
-                          className="c2"
-                          href="https://webpack.js.org/"
-                          rel="noopener"
-                          target="_blank"
-                        >
-                          webpack
-                        </a>
-                      </StyledComponent>
-                    </styled.a>
-                  </li>
-                </StyledComponent>
-              </styled.li>
-              <styled.li
-                key="17"
+                    webpack
+                  </a>
+                </styled.a>
+              </li>
+            </styled.li>
+            <styled.li
+              key="17"
+            >
+              <li
+                className="c1"
               >
-                <StyledComponent
-                  forwardedComponent={
-                    Object {
-                      "$$typeof": Symbol(react.forward_ref),
-                      "attrs": Array [],
-                      "componentStyle": ComponentStyle {
-                        "componentId": "sc-bwzfXH",
-                        "isStatic": false,
-                        "lastClassName": "c1",
-                        "rules": Array [
-                          "
-        display: inline-block;
-        margin: 8px 0 0 8px;
-      ",
-                        ],
-                      },
-                      "displayName": "styled.li",
-                      "foldedComponentIds": Array [],
-                      "render": [Function],
-                      "styledComponentId": "sc-bwzfXH",
-                      "target": "li",
-                      "toString": [Function],
-                      "warnTooManyClasses": [Function],
-                      "withComponent": [Function],
-                    }
-                  }
-                  forwardedRef={null}
+                <styled.a
+                  href="https://babeljs.io/"
+                  rel="noopener"
+                  target="_blank"
                 >
-                  <li
-                    className="c1"
+                  <a
+                    className="c2"
+                    href="https://babeljs.io/"
+                    rel="noopener"
+                    target="_blank"
                   >
-                    <styled.a
-                      href="https://babeljs.io/"
-                      rel="noopener"
-                      target="_blank"
-                    >
-                      <StyledComponent
-                        forwardedComponent={
-                          Object {
-                            "$$typeof": Symbol(react.forward_ref),
-                            "attrs": Array [],
-                            "componentStyle": ComponentStyle {
-                              "componentId": "sc-htpNat",
-                              "isStatic": false,
-                              "lastClassName": "c2",
-                              "rules": Array [
-                                "
-        display: inline-block;
-        padding: 8px 12px;
-        color: ",
-                                "#a6c0fe",
-                                ";
-        border: 1px ",
-                                "#eee",
-                                " solid;
-        &:hover {
-          text-decoration: underline;
-        }
-      ",
-                              ],
-                            },
-                            "displayName": "styled.a",
-                            "foldedComponentIds": Array [],
-                            "render": [Function],
-                            "styledComponentId": "sc-htpNat",
-                            "target": "a",
-                            "toString": [Function],
-                            "warnTooManyClasses": [Function],
-                            "withComponent": [Function],
-                          }
-                        }
-                        forwardedRef={null}
-                        href="https://babeljs.io/"
-                        rel="noopener"
-                        target="_blank"
-                      >
-                        <a
-                          className="c2"
-                          href="https://babeljs.io/"
-                          rel="noopener"
-                          target="_blank"
-                        >
-                          babel
-                        </a>
-                      </StyledComponent>
-                    </styled.a>
-                  </li>
-                </StyledComponent>
-              </styled.li>
-            </ul>
-          </StyledComponent>
+                    babel
+                  </a>
+                </styled.a>
+              </li>
+            </styled.li>
+          </ul>
         </styled.ul>
       </StackList>
     `);
