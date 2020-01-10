@@ -9,7 +9,6 @@ const MainUI = styled.div`
   padding: ${spaces.main}px;
   width: 100%;
   max-width: ${sizes.width.main + spaces.main * 2}px;
-  min-height: calc(100vh - ${sizes.height.header + sizes.height.footer}px);
 `;
 
 type Props = {

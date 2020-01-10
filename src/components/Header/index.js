@@ -7,17 +7,16 @@ import Logo from 'components/Logo';
 import Menu from 'components/Menu';
 import MenuIcon from 'components/MenuIcon';
 import OctIcon from 'components/OctIcon';
-import { clearfix } from 'styles/helpers';
 
-const HeaderWrapper = styled.div`
-  height: ${sizes.height.header}px;
+const HeaderContainer = styled.div`
+  height: 56px;
 `;
 const HeaderUI = styled.div`
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: ${sizes.height.header}px;
+  height: 56px;
   background-image: linear-gradient(
     120deg,
     ${colors.link} 0%,
@@ -26,20 +25,14 @@ const HeaderUI = styled.div`
 `;
 const HeaderInner = styled.div`
   position: relative;
+  display: flex;
+  justify-content: space-between;
   padding: 12px 16px;
   margin: 0 auto;
   max-width: ${sizes.width.main + spaces.main * 2}px;
   width: 100%;
-  ${clearfix()};
 `;
-const LogoWrapper = styled.div`
-  float: left;
-`;
-const MenuIconWrapper = styled.div`
-  float: right;
-`;
-const OctIconWrapper = styled.div`
-  float: right;
+const StyledOctIcon = styled(OctIcon)`
   margin-right: 12px;
 `;
 
@@ -53,25 +46,21 @@ export default function Header(props: Props) {
   const { isOpenMenu, openMenu, closeMenu } = props;
 
   return (
-    <HeaderWrapper>
+    <HeaderContainer>
       <HeaderUI>
         <HeaderInner>
-          <LogoWrapper>
-            <Logo />
-          </LogoWrapper>
-          <MenuIconWrapper>
+          <Logo />
+          <div>
+            <StyledOctIcon />
             <MenuIcon
               isOpenMenu={isOpenMenu}
               openMenu={openMenu}
               closeMenu={closeMenu}
             />
-          </MenuIconWrapper>
-          <OctIconWrapper>
-            <OctIcon />
-          </OctIconWrapper>
+          </div>
           <Menu isOpenMenu={isOpenMenu} />
         </HeaderInner>
       </HeaderUI>
-    </HeaderWrapper>
+    </HeaderContainer>
   );
 }

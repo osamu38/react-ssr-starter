@@ -4,10 +4,6 @@ export const devices = {
   phone: 480,
 };
 export const sizes = {
-  height: {
-    header: 56,
-    footer: 56,
-  },
   width: {
     main: 768,
   },

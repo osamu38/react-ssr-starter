@@ -2,10 +2,11 @@
 
 import * as React from 'react';
 import styled from 'styled-components';
-import { sizes, colors } from 'styles/variables';
+import { colors } from 'styles/variables';
 
 const FooterUI = styled.div`
-  height: ${sizes.height.footer}px;
+  height: 56px;
+  margin-top: auto;
   padding: 12px 16px;
   color: ${colors.white};
   background-image: linear-gradient(

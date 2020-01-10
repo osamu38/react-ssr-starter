@@ -3,12 +3,12 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import PreloadLink from 'components/PreloadLink';
-import { sizes, colors } from 'styles/variables';
+import { colors } from 'styles/variables';
 import { endpoint } from 'config/url';
 
 const MenuUI = styled.div`
   position: absolute;
-  top: ${sizes.height.header}px;
+  top: 56px;
   right: 0;
   max-width: 320px;
   width: 100%;
