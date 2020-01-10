@@ -9,7 +9,6 @@ import compression from 'compression';
 import helmet from 'helmet';
 import hpp from 'hpp';
 import favicon from 'serve-favicon';
-import jwt from 'jsonwebtoken';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
@@ -20,10 +19,8 @@ import { ChunkExtractor } from '@loadable/server';
 import { ServerStyleSheet } from 'styled-components';
 import routes from 'routes';
 import configureStore from 'utils/configureStore';
-import loginFromServer from 'utils/loginFromServer';
 import getHtmlString from 'utils/getHtmlString';
 import getPreloadResorceElement from 'utils/getPreloadResorceElement';
-import cookie from 'utils/cookie';
 import App from 'components/App';
 import { isDevelopment } from 'config/env';
 import { joinPath } from 'utils/path';
@@ -132,36 +129,9 @@ if (isDevelopment) {
     })
   );
 }
-// dummy login api
-app.post('/api/login', (req: $Request, res: $Response) => {
-  const dummy = {
-    id: 1,
-    email: 'dummy@dummy.com',
-    password: 'dummy',
-  };
-  const secret = 'secret';
-  const { email, password } = req.body;
-  const isVerified = email === dummy.email && password === dummy.password;
-
-  if (isVerified) {
-    delete dummy.password;
-
-    const token = jwt.sign(dummy, secret);
-
-    res.send({ token });
-  } else {
-    res.status(400).send({ error: 'User Not Found' });
-  }
-});
 
 app.get('*', async (req: $Request, res: $Response) => {
-  cookie.connect(req, res);
-
   const store = configureStore();
-
-  // $FlowFixMe
-  loginFromServer(store.dispatch);
-
   const branch = matchRoutes(routes, req.path);
   const loadedComponents = await loadComponents(branch);
   const branchWithLoadedComponents = getBranchWithLoadedComponents(

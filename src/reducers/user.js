@@ -28,28 +28,11 @@ export const initialState = {
   },
   userList: [],
   status: {
-    isLoggedIn: false,
     isFetchedUserList: false,
   },
 };
 export default (state: UserState = initialState, action: UserAction) => {
   switch (action.type) {
-    case 'LOGGED_IN':
-      return {
-        ...state,
-        status: {
-          ...state.status,
-          isLoggedIn: true,
-        },
-      };
-    case 'LOGOUT':
-      return {
-        ...state,
-        status: {
-          ...state.status,
-          isLoggedIn: false,
-        },
-      };
     case 'FETCH_USER':
       return {
         ...state,

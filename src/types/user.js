@@ -29,13 +29,10 @@ export type UserState = {
   user: User,
   userList: User[],
   status: {
-    isLoggedIn: boolean,
     isFetchedUserList: boolean,
   },
 };
 export type UserAction =
-  | { type: 'LOGOUT' }
-  | { type: 'LOGGED_IN' }
   | {
       type: 'FETCH_USER',
       payload: User,

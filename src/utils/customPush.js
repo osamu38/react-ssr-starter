@@ -43,10 +43,9 @@ async function customPush(
   const query = href.includes('?')
     ? parse(href, { arrayFormat: 'bracket' })
     : {};
-  const authRoutes = routes[0].routes;
   const pageName = getPageName(href);
   const targetEndpoint = pageName ? endpoint[pageName] : '';
-  const route = authRoutes.find(item => item.path === targetEndpoint);
+  const route = routes.find(item => item.path === targetEndpoint);
   const params = getParams(targetEndpoint, href);
   const loadedComponent = await loadComponent(route);
   const { loadData } = loadedComponent.default;

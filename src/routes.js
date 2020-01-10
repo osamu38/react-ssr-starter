@@ -2,26 +2,21 @@
 
 import loadable from '@loadable/component';
 import { endpoint } from 'config/url';
-import Auth from 'components/Auth';
 
-const Landing = loadable(() =>
-  import(/* webpackPrefetch: true */ 'pages/Landing')
-);
-const Home = loadable(() => import(/* webpackPrefetch: true */ 'pages/Home'));
+const Home = loadable(() => import(/* webpackPrefetch: true */ 'pages/home'));
 const UserDetail = loadable(() =>
-  import(/* webpackPrefetch: true */ 'pages/UserDetail')
+  import(/* webpackPrefetch: true */ 'pages/userDetail')
 );
-const About = loadable(() => import(/* webpackPrefetch: true */ 'pages/About'));
+const About = loadable(() => import(/* webpackPrefetch: true */ 'pages/about'));
 const RedirectAbout = loadable(() =>
-  import(/* webpackPrefetch: true */ 'pages/RedirectAbout')
+  import(/* webpackPrefetch: true */ 'pages/redirectAbout')
 );
 const NotFound = loadable(() =>
-  import(/* webpackPrefetch: true */ 'pages/NotFound')
+  import(/* webpackPrefetch: true */ 'pages/notFound')
 );
 
 type Route = {
   path: string,
-  isLoggedIn?: boolean,
   component: any,
   exact?: boolean,
 };
@@ -37,38 +32,25 @@ function addExact(routes: Route[]): Route[] {
   );
 }
 
-export default [
+export default addExact([
   {
-    path: '/',
-    component: Auth,
-    routes: addExact([
-      {
-        path: endpoint.landing,
-        isLoggedIn: false,
-        component: Landing,
-      },
-      {
-        path: endpoint.home,
-        isLoggedIn: true,
-        component: Home,
-      },
-      {
-        path: endpoint.userDetail,
-        isLoggedIn: true,
-        component: UserDetail,
-      },
-      {
-        path: endpoint.about,
-        component: About,
-      },
-      {
-        path: endpoint.redirectAbout,
-        component: RedirectAbout,
-      },
-      {
-        path: endpoint.notFound,
-        component: NotFound,
-      },
-    ]),
+    path: endpoint.home,
+    component: Home,
   },
-];
+  {
+    path: endpoint.userDetail,
+    component: UserDetail,
+  },
+  {
+    path: endpoint.about,
+    component: About,
+  },
+  {
+    path: endpoint.redirectAbout,
+    component: RedirectAbout,
+  },
+  {
+    path: endpoint.notFound,
+    component: NotFound,
+  },
+]);

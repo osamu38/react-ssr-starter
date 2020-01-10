@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { bindActionCreators, compose } from 'redux';
 import { connect } from 'react-redux';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Container from 'components/Container';
 import Footer from 'components/Footer';
@@ -50,16 +50,12 @@ class App extends React.PureComponent<PageProps> {
     const {
       location: { pathname },
       state: {
-        user: {
-          status: { isLoggedIn },
-        },
         ui: { isOpenMenu, error },
       },
       actions: {
         uiActions: { openMenu, closeMenu, hideError },
       },
     } = this.props;
-    const auth = routes[0];
     const metaData = meta.get(pathname);
     const linkData = link.get(pathname);
 
@@ -69,14 +65,23 @@ class App extends React.PureComponent<PageProps> {
         <GlobalStyle />
         {error ? <Error hideError={hideError}>{error}</Error> : null}
         <Header
-          isLoggedIn={isLoggedIn}
           isOpenMenu={isOpenMenu}
           openMenu={openMenu}
           closeMenu={closeMenu}
         />
         <Main>
-          {/* eslint-disable-next-line */}
-          <Route render={() => <auth.component {...this.props} />} />
+          <Switch>
+            {routes.map((route, i) => (
+              <Route
+                key={i}
+                exact={!!route.exact}
+                path={route.path}
+                render={renderProps => (
+                  <route.component {...this.props} {...renderProps} />
+                )}
+              />
+            ))}
+          </Switch>
         </Main>
         <Footer />
       </Container>
@@ -87,7 +92,6 @@ function mapStateToProps<S>(state: S): { state: S } {
   return { state };
 }
 function mapDispatchToProps() {
-  // $FlowFixMe
   return (dispatch: Dispatch) => ({
     dispatch,
     actions: {

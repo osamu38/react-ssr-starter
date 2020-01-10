@@ -27,7 +27,6 @@ function withExtendRouter(Component: any) {
 
     Object.assign(location, { query });
 
-    // eslint-disable-next-line
     return <Component {...props} location={location} />;
   };
   return withRouter(HOC);

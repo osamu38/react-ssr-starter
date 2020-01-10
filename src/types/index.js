@@ -3,7 +3,6 @@
 
 import type { Store as ReduxStore } from 'redux';
 import typeof { bindActionCreators } from 'redux';
-// import type { Match } from 'react-router-dom';
 import type { Reducers } from 'reducers';
 import type { UserAction } from 'types/user';
 import type { UiAction } from 'types/ui';

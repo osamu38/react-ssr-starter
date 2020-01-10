@@ -16,7 +16,7 @@ class Link {
   link: Object;
 
   get(pathname: string) {
-    if (pathname !== endpoint.landing) {
+    if (pathname !== endpoint.home) {
       this.merge({
         canonical: origin + pathname,
       });

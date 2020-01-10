@@ -8,7 +8,6 @@ import PreloadLink from 'components/PreloadLink';
 import type { User } from 'types/user';
 
 const UserListUI = styled.ul`
-  margin-bottom: 20px;
   width: 100%;
   border: 1px ${colors.superLightGray} solid;
 `;

@@ -13,15 +13,9 @@ const LogoUI = styled.a`
   line-height: 32px;
 `;
 
-type Props = {
-  isLoggedIn: boolean,
-};
-
-export default function Logo(props: Props) {
-  const { isLoggedIn } = props;
-
+export default function Logo() {
   return (
-    <PreloadLink href={isLoggedIn ? endpoint.home : endpoint.landing}>
+    <PreloadLink href={endpoint.home}>
       <LogoUI>React SSR Starter</LogoUI>
     </PreloadLink>
   );

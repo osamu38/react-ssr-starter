@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
-import Button from 'components/Button';
 import Title from 'components/Title';
 import SubTitle from 'components/SubTitle';
 import UserList from 'components/UserList';
@@ -14,9 +13,6 @@ function HomePage(props: PageProps) {
     state: {
       user: { userList },
     },
-    actions: {
-      userActions: { logout },
-    },
   } = props;
 
   return (
@@ -25,14 +21,6 @@ function HomePage(props: PageProps) {
       <Title>Home Page</Title>
       <SubTitle>User List</SubTitle>
       <UserList userList={userList} />
-      <Button
-        onClick={() => {
-          logout();
-        }}
-        isCenter
-      >
-        Logout
-      </Button>
     </>
   );
 }

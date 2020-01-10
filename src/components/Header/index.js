@@ -44,21 +44,20 @@ const OctIconWrapper = styled.div`
 `;
 
 type Props = {
-  isLoggedIn: boolean,
   isOpenMenu: boolean,
   openMenu: Function,
   closeMenu: Function,
 };
 
 export default function Header(props: Props) {
-  const { isLoggedIn, isOpenMenu, openMenu, closeMenu } = props;
+  const { isOpenMenu, openMenu, closeMenu } = props;
 
   return (
     <HeaderWrapper>
       <HeaderUI>
         <HeaderInner>
           <LogoWrapper>
-            <Logo isLoggedIn={isLoggedIn} />
+            <Logo />
           </LogoWrapper>
           <MenuIconWrapper>
             <MenuIcon

@@ -7,8 +7,7 @@ export const origin = isDevelopment
   ? `http://localhost:${port}`
   : process.env.HEROKU_DOMAIN || `http://localhost:${port}`;
 export const endpoint = {
-  landing: '/',
-  home: '/home',
+  home: '/',
   userDetail: '/users/:id',
   about: '/about',
   redirectAbout: '/redirect-about',
