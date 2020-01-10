@@ -25,6 +25,6 @@ function UserDetailPage(props: PageProps) {
 
 UserDetailPage.loadData = ({ dispatch, params }: Ctx) => {
   return dispatch(fetchUser(params.id));
-}
+};
 
 export default UserDetailPage;

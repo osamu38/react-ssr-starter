@@ -21,9 +21,7 @@ export type ExtendRouterProps = {
 
 function withExtendRouter(Component: any) {
   const HOC = (props: ExtendRouterProps) => {
-    const {
-      location,
-    } = props;
+    const { location } = props;
     const { search } = location;
     const query = parse(search, { arrayFormat: 'bracket' });
 

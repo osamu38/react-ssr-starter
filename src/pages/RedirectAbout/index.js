@@ -10,6 +10,6 @@ function RedirectAboutPage() {
 
 RedirectAboutPage.getRedirectUrl = () => {
   return endpoint.about;
-}
+};
 
 export default RedirectAboutPage;

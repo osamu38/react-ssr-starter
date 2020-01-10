@@ -42,10 +42,7 @@ function PreloadLink(props: PageProps & Props) {
 
 const enhancers = [
   withExtendRouter,
-  connect(
-    mapStateToProps,
-    mapDispatchToProps,
-  ),
+  connect(mapStateToProps, mapDispatchToProps),
 ];
 
 export default compose(...enhancers)(PreloadLink);

@@ -37,4 +37,4 @@ export type Ctx = {
   params: any,
   query: any,
   route: any,
-}
+};

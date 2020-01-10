@@ -12,9 +12,7 @@ import type { PageProps, Ctx } from 'types';
 function HomePage(props: PageProps) {
   const {
     state: {
-      user: {
-        userList,
-      },
+      user: { userList },
     },
     actions: {
       userActions: { logout },
@@ -43,9 +41,7 @@ HomePage.loadData = async (ctx: Ctx) => {
   const {
     dispatch,
     state: {
-      user: {
-        userList,
-      },
+      user: { userList },
     },
   } = ctx;
 
@@ -53,6 +49,6 @@ HomePage.loadData = async (ctx: Ctx) => {
     return dispatch(fetchUsers());
   }
   return Promise.resolve();
-}
+};
 
 export default HomePage;

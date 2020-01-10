@@ -24,10 +24,7 @@ export default function getHtmlString(
         {css}
       </head>
       <body>
-        <div
-          id="root"
-          dangerouslySetInnerHTML={{ __html: content }}
-        />
+        <div id="root" dangerouslySetInnerHTML={{ __html: content }} />
         <script
           dangerouslySetInnerHTML={{
             __html: `window.__INITIAL_STATE__ = ${serialize(initialState)}`,

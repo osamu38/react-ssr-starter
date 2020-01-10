@@ -34,8 +34,15 @@ function getParams(targetEndpoint, href) {
   );
 }
 
-async function customPush(href: string, push: Function, dispatch: Function, state: any) {
-  const query = href.includes('?') ? parse(href, { arrayFormat: 'bracket' }) : {};
+async function customPush(
+  href: string,
+  push: Function,
+  dispatch: Function,
+  state: any
+) {
+  const query = href.includes('?')
+    ? parse(href, { arrayFormat: 'bracket' })
+    : {};
   const authRoutes = routes[0].routes;
   const pageName = getPageName(href);
   const targetEndpoint = pageName ? endpoint[pageName] : '';

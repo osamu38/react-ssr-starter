@@ -4,12 +4,20 @@ import loadable from '@loadable/component';
 import { endpoint } from 'config/url';
 import Auth from 'components/Auth';
 
-const Landing = loadable(() => import(/* webpackPrefetch: true */ 'pages/Landing'));
+const Landing = loadable(() =>
+  import(/* webpackPrefetch: true */ 'pages/Landing')
+);
 const Home = loadable(() => import(/* webpackPrefetch: true */ 'pages/Home'));
-const UserDetail = loadable(() => import(/* webpackPrefetch: true */ 'pages/UserDetail'));
+const UserDetail = loadable(() =>
+  import(/* webpackPrefetch: true */ 'pages/UserDetail')
+);
 const About = loadable(() => import(/* webpackPrefetch: true */ 'pages/About'));
-const RedirectAbout = loadable(() => import(/* webpackPrefetch: true */ 'pages/RedirectAbout'));
-const NotFound = loadable(() => import(/* webpackPrefetch: true */ 'pages/NotFound'));
+const RedirectAbout = loadable(() =>
+  import(/* webpackPrefetch: true */ 'pages/RedirectAbout')
+);
+const NotFound = loadable(() =>
+  import(/* webpackPrefetch: true */ 'pages/NotFound')
+);
 
 type Route = {
   path: string,
@@ -19,14 +27,13 @@ type Route = {
 };
 
 function addExact(routes: Route[]): Route[] {
-  return routes.map(
-    route =>
-      route.path !== endpoint.notFound
-        ? {
-            ...route,
-            exact: true,
-          }
-        : route
+  return routes.map(route =>
+    route.path !== endpoint.notFound
+      ? {
+          ...route,
+          exact: true,
+        }
+      : route
   );
 }
 

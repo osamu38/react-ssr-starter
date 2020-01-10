@@ -61,9 +61,9 @@ function getBranchWithLoadedComponents(branch, loadedComponents) {
     ...branch[index],
     route: {
       ...branch[index].route,
-      ...component && {
-        component: component.default
-      },
+      ...(component && {
+        component: component.default,
+      }),
     },
   }));
 }
@@ -82,7 +82,10 @@ function getRedirectUrls(branch, store, query): string[] {
     .filter(location => location);
 }
 function getExtractor() {
-  const statsFile = joinPath(!isDevelopment ? 'dist' : '', 'public/static/javascripts/loadable-stats.json');
+  const statsFile = joinPath(
+    !isDevelopment ? 'dist' : '',
+    'public/static/javascripts/loadable-stats.json'
+  );
   const extractor = new ChunkExtractor({ statsFile });
 
   return extractor;
@@ -161,12 +164,23 @@ app.get('*', async (req: $Request, res: $Response) => {
 
   const branch = matchRoutes(routes, req.path);
   const loadedComponents = await loadComponents(branch);
-  const branchWithLoadedComponents = getBranchWithLoadedComponents(branch, loadedComponents);
-  const loadBranchData = getLoadBranchData(branchWithLoadedComponents, store, req.query);
+  const branchWithLoadedComponents = getBranchWithLoadedComponents(
+    branch,
+    loadedComponents
+  );
+  const loadBranchData = getLoadBranchData(
+    branchWithLoadedComponents,
+    store,
+    req.query
+  );
 
   Promise.all(loadBranchData)
     .then(async () => {
-      const redirectUrls = getRedirectUrls(branchWithLoadedComponents, store, req.query);
+      const redirectUrls = getRedirectUrls(
+        branchWithLoadedComponents,
+        store,
+        req.query
+      );
 
       if (redirectUrls.length) {
         res.redirect(redirectUrls[0]);
@@ -190,7 +204,10 @@ app.get('*', async (req: $Request, res: $Response) => {
         const styleTags = sheet.getStyleTags();
         const { helmet: head } = helmetContext;
         const scriptElements = extractor.getScriptElements();
-        const preloadResorceElement = getPreloadResorceElement(content, styleTags);
+        const preloadResorceElement = getPreloadResorceElement(
+          content,
+          styleTags
+        );
         const htmlString = getHtmlString(
           css,
           head,

@@ -57,7 +57,7 @@ class App extends React.PureComponent<PageProps> {
       },
       actions: {
         uiActions: { openMenu, closeMenu, hideError },
-      }
+      },
     } = this.props;
     const auth = routes[0];
     const metaData = meta.get(pathname);
@@ -99,10 +99,7 @@ function mapDispatchToProps() {
 
 const enhancers = [
   withExtendRouter,
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  ),
+  connect(mapStateToProps, mapDispatchToProps),
 ];
 
 if (isDevelopment) {
