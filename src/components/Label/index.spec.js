@@ -40,7 +40,6 @@ describe('<Label />', () => {
                 "styledComponentId": "sc-bdVaJa",
                 "target": "span",
                 "toString": [Function],
-                "usesTheme": false,
                 "warnTooManyClasses": [Function],
                 "withComponent": [Function],
               }

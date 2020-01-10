@@ -42,7 +42,6 @@ describe('<SubTitle />', () => {
                 "styledComponentId": "sc-bdVaJa",
                 "target": "div",
                 "toString": [Function],
-                "usesTheme": false,
                 "warnTooManyClasses": [Function],
                 "withComponent": [Function],
               }

@@ -77,7 +77,6 @@ describe('<LoginForm />', () => {
                 "styledComponentId": "sc-bxivhb",
                 "target": "form",
                 "toString": [Function],
-                "usesTheme": false,
                 "warnTooManyClasses": [Function],
                 "withComponent": [Function],
               }
@@ -111,7 +110,6 @@ describe('<LoginForm />', () => {
                       "styledComponentId": "sc-ifAKCX",
                       "target": "div",
                       "toString": [Function],
-                      "usesTheme": false,
                       "warnTooManyClasses": [Function],
                       "withComponent": [Function],
                     }
@@ -143,7 +141,6 @@ describe('<LoginForm />', () => {
                             "styledComponentId": "sc-EHOje",
                             "target": "span",
                             "toString": [Function],
-                            "usesTheme": false,
                             "warnTooManyClasses": [Function],
                             "withComponent": [Function],
                           }
@@ -180,7 +177,6 @@ describe('<LoginForm />', () => {
                                     "styledComponentId": "sc-bwzfXH",
                                     "target": "span",
                                     "toString": [Function],
-                                    "usesTheme": false,
                                     "warnTooManyClasses": [Function],
                                     "withComponent": [Function],
                                   }
@@ -220,7 +216,6 @@ describe('<LoginForm />', () => {
                             "styledComponentId": "sc-bZQynM",
                             "target": "span",
                             "toString": [Function],
-                            "usesTheme": false,
                             "warnTooManyClasses": [Function],
                             "withComponent": [Function],
                           }
@@ -270,7 +265,6 @@ describe('<LoginForm />', () => {
                                     "styledComponentId": "sc-htpNat",
                                     "target": "input",
                                     "toString": [Function],
-                                    "usesTheme": false,
                                     "warnTooManyClasses": [Function],
                                     "withComponent": [Function],
                                   }
@@ -319,7 +313,6 @@ describe('<LoginForm />', () => {
                       "styledComponentId": "sc-ifAKCX",
                       "target": "div",
                       "toString": [Function],
-                      "usesTheme": false,
                       "warnTooManyClasses": [Function],
                       "withComponent": [Function],
                     }
@@ -351,7 +344,6 @@ describe('<LoginForm />', () => {
                             "styledComponentId": "sc-EHOje",
                             "target": "span",
                             "toString": [Function],
-                            "usesTheme": false,
                             "warnTooManyClasses": [Function],
                             "withComponent": [Function],
                           }
@@ -388,7 +380,6 @@ describe('<LoginForm />', () => {
                                     "styledComponentId": "sc-bwzfXH",
                                     "target": "span",
                                     "toString": [Function],
-                                    "usesTheme": false,
                                     "warnTooManyClasses": [Function],
                                     "withComponent": [Function],
                                   }
@@ -428,7 +419,6 @@ describe('<LoginForm />', () => {
                             "styledComponentId": "sc-bZQynM",
                             "target": "span",
                             "toString": [Function],
-                            "usesTheme": false,
                             "warnTooManyClasses": [Function],
                             "withComponent": [Function],
                           }
@@ -478,7 +468,6 @@ describe('<LoginForm />', () => {
                                     "styledComponentId": "sc-htpNat",
                                     "target": "input",
                                     "toString": [Function],
-                                    "usesTheme": false,
                                     "warnTooManyClasses": [Function],
                                     "withComponent": [Function],
                                   }
@@ -548,7 +537,6 @@ describe('<LoginForm />', () => {
                         "styledComponentId": "sc-bdVaJa",
                         "target": "button",
                         "toString": [Function],
-                        "usesTheme": false,
                         "warnTooManyClasses": [Function],
                         "withComponent": [Function],
                       }

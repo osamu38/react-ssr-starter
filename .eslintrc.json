@@ -12,16 +12,13 @@
     "import/no-cycle": 0,
     "react/no-danger": 0,
     "react/jsx-filename-extension": 0,
+    "react/jsx-props-no-spreading": 0,
     "react/no-array-index-key": 0,
     "react/require-default-props": 0,
     "flowtype/define-flow-type": 1,
     "flowtype/use-flow-type": 1
   },
-  "plugins": [
-    "react",
-    "prettier",
-    "flowtype"
-  ],
+  "plugins": ["react", "prettier", "flowtype"],
   "parser": "babel-eslint",
   "env": {
     "es6": true,
@@ -32,9 +29,7 @@
   "settings": {
     "import/resolver": {
       "babel-module": {
-        "extensions": [
-          ".js"
-        ]
+        "extensions": [".js"]
       }
     }
   },

@@ -59,7 +59,6 @@ describe('<Button />', () => {
                 "styledComponentId": "sc-bdVaJa",
                 "target": "button",
                 "toString": [Function],
-                "usesTheme": false,
                 "warnTooManyClasses": [Function],
                 "withComponent": [Function],
               }

@@ -41,7 +41,6 @@ describe('<MenuIcon />', () => {
                 "styledComponentId": "sc-bdVaJa",
                 "target": "span",
                 "toString": [Function],
-                "usesTheme": false,
                 "warnTooManyClasses": [Function],
                 "withComponent": [Function],
               }
@@ -80,7 +79,6 @@ describe('<MenuIcon />', () => {
                       "styledComponentId": "sc-bwzfXH",
                       "target": "img",
                       "toString": [Function],
-                      "usesTheme": false,
                       "warnTooManyClasses": [Function],
                       "withComponent": [Function],
                     }

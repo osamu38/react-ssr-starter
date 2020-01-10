@@ -70,7 +70,6 @@ describe('<UserDetail />', () => {
                 "styledComponentId": "sc-bdVaJa",
                 "target": "div",
                 "toString": [Function],
-                "usesTheme": false,
                 "warnTooManyClasses": [Function],
                 "withComponent": [Function],
               }
@@ -126,7 +125,6 @@ describe('<UserDetail />', () => {
                       "styledComponentId": "sc-bwzfXH",
                       "target": "div",
                       "toString": [Function],
-                      "usesTheme": false,
                       "warnTooManyClasses": [Function],
                       "withComponent": [Function],
                     }
@@ -192,7 +190,6 @@ describe('<UserDetail />', () => {
                       "styledComponentId": "sc-bwzfXH",
                       "target": "div",
                       "toString": [Function],
-                      "usesTheme": false,
                       "warnTooManyClasses": [Function],
                       "withComponent": [Function],
                     }

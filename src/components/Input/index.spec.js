@@ -46,7 +46,6 @@ describe('<Input />', () => {
                 "styledComponentId": "sc-bdVaJa",
                 "target": "input",
                 "toString": [Function],
-                "usesTheme": false,
                 "warnTooManyClasses": [Function],
                 "withComponent": [Function],
               }
