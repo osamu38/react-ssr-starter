@@ -2,6 +2,7 @@ import nodeExternals from 'webpack-node-externals';
 import { env, isDevelopment } from 'config/env';
 import { joinPath } from 'utils/path';
 import getModule from 'tools/webpack/getModule';
+import getResolve from 'tools/webpack/getResolve';
 import getServerPlugins from 'tools/webpack/getServerPlugins';
 
 export default webpackEnv => {
@@ -22,6 +23,7 @@ export default webpackEnv => {
     },
     plugins: getServerPlugins(isAnalyze),
     module: getModule(),
+    resolve: getResolve(),
     node: {
       console: false,
       global: false,

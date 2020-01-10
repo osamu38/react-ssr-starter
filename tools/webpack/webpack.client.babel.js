@@ -2,6 +2,7 @@ import TerserPlugin from 'terser-webpack-plugin';
 import { env, isDevelopment } from 'config/env';
 import { joinPath } from 'utils/path';
 import getModule from 'tools/webpack/getModule';
+import getResolve from 'tools/webpack/getResolve';
 import getClientPlugins from 'tools/webpack/getClientPlugins';
 
 export default webpackEnv => {
@@ -43,13 +44,14 @@ export default webpackEnv => {
             compress: true,
             output: {
               comments: false,
-              beautify: false
-            }
-          }
+              beautify: false,
+            },
+          },
         }),
       ],
     },
     module: getModule(),
+    resolve: getResolve(),
     node: {
       fs: 'empty',
       vm: 'empty',
