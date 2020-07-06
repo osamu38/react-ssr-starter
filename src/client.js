@@ -1,5 +1,3 @@
-/* eslint-disable no-underscore-dangle */
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -10,6 +8,7 @@ import configureStore from 'utils/configureStore';
 import App from 'components/App';
 import { isDevelopment } from 'config/env';
 
+// eslint-disable-next-line no-underscore-dangle
 const initialState = window.__INITIAL_STATE__;
 const store = configureStore(initialState);
 const root = document.getElementById('root');

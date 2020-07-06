@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-expressions */
-
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 import { colors } from 'styles/variables';

@@ -11,7 +11,8 @@ export function fetchUser(id) {
         });
       })
       .catch((err) => {
-        console.error(err); // eslint-disable-line no-console
+        // eslint-disable-next-line no-console
+        console.error(err);
       });
 }
 export function fetchUsers() {
@@ -25,6 +26,7 @@ export function fetchUsers() {
         });
       })
       .catch((err) => {
-        console.error(err); // eslint-disable-line no-console
+        // eslint-disable-next-line no-console
+        console.error(err);
       });
 }

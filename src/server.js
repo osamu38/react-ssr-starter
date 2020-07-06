@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-
 import express from 'express';
 import logger from 'morgan';
 import cookieParser from 'cookie-parser';
@@ -190,7 +188,8 @@ app.get('*', async (req, res) => {
       }
     })
     .catch((err) => {
-      console.error(`==> 😭 Rendering routes error: ${err}`); // eslint-disable-line no-console
+      // eslint-disable-next-line no-console
+      console.error(`==> 😭 Rendering routes error: ${err}`);
     });
 });
 

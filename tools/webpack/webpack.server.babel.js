@@ -5,9 +5,7 @@ import getModule from 'tools/webpack/getModule';
 import getResolve from 'tools/webpack/getResolve';
 import getServerPlugins from 'tools/webpack/getServerPlugins';
 
-export default (webpackEnv) => {
-  const isAnalyze = webpackEnv.analyze;
-
+export default () => {
   return {
     mode: env,
     name: 'server',
@@ -21,7 +19,7 @@ export default (webpackEnv) => {
       filename: 'server.js',
       libraryTarget: 'commonjs2',
     },
-    plugins: getServerPlugins(isAnalyze),
+    plugins: getServerPlugins(),
     module: getModule(),
     resolve: getResolve(),
     node: {
