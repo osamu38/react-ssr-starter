@@ -1,6 +1,4 @@
-/* @flow */
-
-import * as React from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { colors } from 'styles/variables';
 
@@ -69,10 +67,6 @@ const stackData = [
   {
     name: 'prettier',
     link: 'https://prettier.io/',
-  },
-  {
-    name: 'flow',
-    link: 'https://flow.org/',
   },
   {
     name: 'jest',

@@ -1,6 +1,4 @@
-/* @flow */
-
-import * as React from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { sizes, spaces, colors } from 'styles/variables';
 import Logo from 'components/Logo';
@@ -36,13 +34,7 @@ const StyledOctIcon = styled(OctIcon)`
   margin-right: 12px;
 `;
 
-type Props = {
-  isOpenMenu: boolean,
-  openMenu: Function,
-  closeMenu: Function,
-};
-
-export default function Header(props: Props) {
+export default function Header(props) {
   const { isOpenMenu, openMenu, closeMenu } = props;
 
   return (

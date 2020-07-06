@@ -1,5 +1,3 @@
-/* @flow */
-
 import { colors } from 'styles/variables';
 import { endpoint } from 'config/url';
 
@@ -31,9 +29,7 @@ class Meta {
     };
   }
 
-  meta: Object;
-
-  get(pathname: string) {
+  get(pathname) {
     if (pathname === endpoint.about) {
       this.merge({
         description: 'This is about page',
@@ -44,14 +40,14 @@ class Meta {
     return this.parse(this.meta);
   }
 
-  merge(config: Object = {}) {
+  merge(config = {}) {
     this.meta = {
       ...this.meta,
       ...config,
     };
   }
 
-  parse(config: Object) {
+  parse(config) {
     const defaultParsedMeta = [
       { charset: 'utf-8' },
       {
@@ -59,7 +55,7 @@ class Meta {
         content: 'IE=edge,chrome=1',
       },
     ];
-    const parsedMeta = Object.keys(config).map(key => ({
+    const parsedMeta = Object.keys(config).map((key) => ({
       name: key,
       [key.includes('og:') || key === 'fb:app_id'
         ? 'property'

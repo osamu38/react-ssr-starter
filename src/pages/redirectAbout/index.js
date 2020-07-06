@@ -1,6 +1,4 @@
-/* @flow */
-
-import * as React from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { endpoint } from 'config/url';
 

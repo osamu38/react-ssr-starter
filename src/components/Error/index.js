@@ -1,6 +1,4 @@
-/* @flow */
-
-import * as React from 'react';
+import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { colors } from 'styles/variables';
 
@@ -26,12 +24,7 @@ const ErrorUI = styled.div`
   animation: ${flash} 4s ease;
 `;
 
-type Props = {
-  hideError: Function,
-  children?: React.Node,
-};
-
-export default function Error(props: Props) {
+export default function Error(props) {
   const { hideError, children } = props;
 
   return (

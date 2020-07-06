@@ -1,4 +1,3 @@
-/* @flow */
 /* eslint-disable no-console */
 
 import express from 'express';
@@ -25,12 +24,11 @@ import App from 'components/App';
 import { isDevelopment } from 'config/env';
 import { joinPath } from 'utils/path';
 import { port as defaultPort } from 'config/url';
-import type { $Request, $Response } from 'express';
 
 const port = process.env.PORT || defaultPort;
 const app = express();
 
-function getLoadBranchData(branch, store, query): Promise<any>[] {
+function getLoadBranchData(branch, store, query) {
   return branch
     .filter(({ route }) => route.component.loadData)
     .map(({ route, match }) =>
@@ -64,7 +62,7 @@ function getBranchWithLoadedComponents(branch, loadedComponents) {
     },
   }));
 }
-function getRedirectUrls(branch, store, query): string[] {
+function getRedirectUrls(branch, store, query) {
   return branch
     .filter(({ route }) => route.component.getRedirectUrl)
     .map(({ route, match }) =>
@@ -76,7 +74,7 @@ function getRedirectUrls(branch, store, query): string[] {
         route,
       })
     )
-    .filter(location => location);
+    .filter((location) => location);
 }
 function getExtractor() {
   const statsFile = joinPath(
@@ -97,7 +95,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(
   express.static(joinPath(!isDevelopment ? 'dist' : '', 'public'), {
-    setHeaders: res => {
+    setHeaders: (res) => {
       res.set('Service-Worker-Allowed', '/');
     },
   })
@@ -130,7 +128,7 @@ if (isDevelopment) {
   );
 }
 
-app.get('*', async (req: $Request, res: $Response) => {
+app.get('*', async (req, res) => {
   const store = configureStore();
   const branch = matchRoutes(routes, req.path);
   const loadedComponents = await loadComponents(branch);
@@ -191,21 +189,21 @@ app.get('*', async (req: $Request, res: $Response) => {
         res.status(200).send(document);
       }
     })
-    .catch(err => {
+    .catch((err) => {
       console.error(`==> 😭 Rendering routes error: ${err}`); // eslint-disable-line no-console
     });
 });
 
-app.listen(port, err => {
+app.listen(port, (err) => {
   if (err) {
     console.error(err);
   }
   console.info('==> 🌎 Listening on port %s.', port);
 });
 
-process.on('unhandledRejection', err => {
+process.on('unhandledRejection', (err) => {
   console.error(err);
 });
-process.on('uncaughtException', err => {
+process.on('uncaughtException', (err) => {
   console.error(err);
 });

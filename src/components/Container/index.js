@@ -1,6 +1,4 @@
-/* @flow */
-
-import * as React from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const ContainerUI = styled.div`
@@ -9,11 +7,7 @@ const ContainerUI = styled.div`
   min-height: 100vh;
 `;
 
-type Props = {
-  children?: React.Node,
-};
-
-export default function Container(props: Props) {
+export default function Container(props) {
   const { children } = props;
 
   return <ContainerUI>{children}</ContainerUI>;

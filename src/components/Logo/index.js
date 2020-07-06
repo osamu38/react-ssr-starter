@@ -1,6 +1,4 @@
-/* @flow */
-
-import * as React from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PreloadLink from 'components/PreloadLink';
 import { colors } from 'styles/variables';

@@ -1,28 +1,19 @@
-/* @flow */
-
-import * as React from 'react';
+import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import withExtendRouter from 'components/withExtendRouter';
 import customPush from 'utils/customPush';
-import type { PageProps } from 'types';
 
-type Props = {
-  href: string,
-  children: any,
-};
-
-function mapStateToProps<S>(state: S): { state: S } {
+function mapStateToProps(state) {
   return { state };
 }
 function mapDispatchToProps() {
-  // $FlowFixMe
-  return (dispatch: Dispatch) => ({
+  return (dispatch) => ({
     dispatch,
   });
 }
 
-function PreloadLink(props: PageProps & Props) {
+function PreloadLink(props) {
   const {
     href,
     children,
@@ -33,7 +24,7 @@ function PreloadLink(props: PageProps & Props) {
 
   return React.cloneElement(children, {
     href,
-    onClick: async e => {
+    onClick: async (e) => {
       e.preventDefault();
       await customPush(href, push, dispatch, state);
     },

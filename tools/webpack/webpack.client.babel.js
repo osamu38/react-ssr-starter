@@ -5,7 +5,7 @@ import getModule from 'tools/webpack/getModule';
 import getResolve from 'tools/webpack/getResolve';
 import getClientPlugins from 'tools/webpack/getClientPlugins';
 
-export default webpackEnv => {
+export default (webpackEnv) => {
   const isAnalyze = webpackEnv.analyze;
 
   return {

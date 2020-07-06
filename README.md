@@ -16,7 +16,6 @@ All have been introduced React environment.
 - [eslint](https://eslint.org/)
 - [stylelint](https://stylelint.io/)
 - [prettier](https://prettier.io/)
-- [flow](https://flow.org/)
 - [jest](https://facebook.github.io/jest/)
 - [enzyme](http://airbnb.io/enzyme/)
 - [storybook](https://storybook.js.org/)
@@ -70,17 +69,14 @@ Basically page component is implemented using Functional Component.
 `pages/home/index.js`
 
 ```jsx
-/* @flow */
-
-import * as React from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Title from 'components/Title';
 import SubTitle from 'components/SubTitle';
 import UserList from 'components/UserList';
 import { fetchUsers } from 'actions/user';
-import type { PageProps, Ctx } from 'types';
 
-function HomePage(props: PageProps) {
+function HomePage(props) {
   const {
     state: {
       user: { userList },
@@ -97,7 +93,7 @@ function HomePage(props: PageProps) {
   );
 }
 
-HomePage.loadData = async (ctx: Ctx) => {
+HomePage.loadData = async (ctx) => {
   const {
     dispatch,
     state: {

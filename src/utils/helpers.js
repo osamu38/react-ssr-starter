@@ -1,7 +1,6 @@
-/* @flow */
 /* eslint-disable import/prefer-default-export */
 
-export function isJSON(arg: any) {
+export function isJSON(arg) {
   try {
     JSON.parse(arg);
     return true;

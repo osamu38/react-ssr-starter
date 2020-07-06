@@ -1,7 +1,3 @@
-/* @flow */
-
-import type { UserState, UserAction } from 'types/user';
-
 export const initialState = {
   user: {
     address: {
@@ -31,7 +27,7 @@ export const initialState = {
     isFetchedUserList: false,
   },
 };
-export default (state: UserState = initialState, action: UserAction) => {
+export default (state = initialState, action) => {
   switch (action.type) {
     case 'FETCH_USER':
       return {

@@ -1,9 +1,6 @@
-/* @flow */
-
-import * as React from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { colors } from 'styles/variables';
-import type { User } from 'types/user';
 
 const UserDetailUI = styled.div`
   padding: 12px;
@@ -15,11 +12,7 @@ const UserDetailInner = styled.div`
   border: 1px ${colors.superLightGray} solid;
 `;
 
-type Props = {
-  user: User,
-};
-
-export default function UserDetail(props: Props) {
+export default function UserDetail(props) {
   const {
     user: {
       id,

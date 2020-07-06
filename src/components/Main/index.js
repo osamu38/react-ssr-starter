@@ -1,6 +1,4 @@
-/* @flow */
-
-import * as React from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { sizes, spaces } from 'styles/variables';
 
@@ -11,11 +9,7 @@ const MainUI = styled.div`
   max-width: ${sizes.width.main + spaces.main * 2}px;
 `;
 
-type Props = {
-  children?: React.Node,
-};
-
-export default function Main(props: Props) {
+export default function Main(props) {
   const { children } = props;
 
   return <MainUI>{children}</MainUI>;

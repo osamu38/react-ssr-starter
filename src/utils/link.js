@@ -1,5 +1,3 @@
-/* @flow */
-
 import { origin, endpoint } from 'config/url';
 
 class Link {
@@ -13,9 +11,7 @@ class Link {
     };
   }
 
-  link: Object;
-
-  get(pathname: string) {
+  get(pathname) {
     if (pathname !== endpoint.home) {
       this.merge({
         canonical: origin + pathname,
@@ -24,15 +20,15 @@ class Link {
     return this.parse(this.link);
   }
 
-  merge(config: Object = {}) {
+  merge(config = {}) {
     this.link = {
       ...this.link,
       ...config,
     };
   }
 
-  parse(config: Object): { rel: string, href: string }[] {
-    return Object.keys(config).map((key: string) => ({
+  parse(config) {
+    return Object.keys(config).map((key) => ({
       rel: key,
       href: config[key],
     }));

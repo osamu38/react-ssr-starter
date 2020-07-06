@@ -1,26 +1,9 @@
-/* @flow */
-
-import * as React from 'react';
-import type {
-  RouterHistory,
-  Location,
-  Match,
-  StaticRouterContext,
-} from 'react-router-dom';
+import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { parse } from 'query-string';
 
-export type ExtendRouterProps = {
-  history: RouterHistory,
-  location: Location & {
-    query: any,
-  },
-  match: Match,
-  staticContext?: StaticRouterContext,
-};
-
-function withExtendRouter(Component: any) {
-  const HOC = (props: ExtendRouterProps) => {
+function withExtendRouter(Component) {
+  const HOC = (props) => {
     const { location } = props;
     const { search } = location;
     const query = parse(search, { arrayFormat: 'bracket' });

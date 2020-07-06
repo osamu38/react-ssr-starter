@@ -1,13 +1,10 @@
-/* @flow */
-
-import * as React from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Title from 'components/Title';
 import UserDetail from 'components/UserDetail';
 import { fetchUser } from 'actions/user';
-import type { PageProps, Ctx } from 'types';
 
-function UserDetailPage(props: PageProps) {
+function UserDetailPage(props) {
   const {
     state: {
       user: { user },
@@ -23,7 +20,7 @@ function UserDetailPage(props: PageProps) {
   );
 }
 
-UserDetailPage.loadData = ({ dispatch, params }: Ctx) => {
+UserDetailPage.loadData = ({ dispatch, params }) => {
   return dispatch(fetchUser(params.id));
 };
 

@@ -1,5 +1,3 @@
-/* @flow */
-
 import { isDevelopment } from 'config/env';
 
 export const port = 2525;

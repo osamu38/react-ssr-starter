@@ -1,12 +1,6 @@
-/* @flow */
+import React from 'react';
 
-import * as React from 'react';
-
-type Props = {
-  className?: string,
-};
-
-export default function OctIcon(props: Props) {
+export default function OctIcon(props) {
   const { className } = props;
 
   return (

@@ -1,4 +1,3 @@
-/* @flow */
 /* eslint-disable no-unused-expressions */
 
 import { createGlobalStyle } from 'styled-components';

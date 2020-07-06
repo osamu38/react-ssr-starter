@@ -1,6 +1,4 @@
-/* @flow */
-
-import * as React from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const MenuIconWrapper = styled.span`
@@ -11,13 +9,7 @@ const MenuIconUI = styled.img`
   width: 32px;
 `;
 
-type Props = {
-  isOpenMenu: boolean,
-  openMenu: Function,
-  closeMenu: Function,
-};
-
-export default function MenuIcon(props: Props) {
+export default function MenuIcon(props) {
   const { isOpenMenu, openMenu, closeMenu } = props;
 
   return (

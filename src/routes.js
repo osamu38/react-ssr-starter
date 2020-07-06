@@ -1,5 +1,3 @@
-/* @flow */
-
 import loadable from '@loadable/component';
 import { endpoint } from 'config/url';
 
@@ -15,14 +13,8 @@ const NotFound = loadable(() =>
   import(/* webpackPrefetch: true */ 'pages/notFound')
 );
 
-type Route = {
-  path: string,
-  component: any,
-  exact?: boolean,
-};
-
-function addExact(routes: Route[]): Route[] {
-  return routes.map(route =>
+function addExact(routes) {
+  return routes.map((route) =>
     route.path !== endpoint.notFound
       ? {
           ...route,

@@ -1,20 +1,17 @@
-/* @flow */
-
-import * as React from 'react';
+import React from 'react';
 import { renderToString } from 'react-dom/server';
 import serialize from 'serialize-javascript';
 import { minify } from 'html-minifier';
 import { isDevelopment } from 'config/env';
-import type { ReduxState } from 'types';
 
 export default function getHtmlString(
-  css: React.Node,
-  head: Object,
-  content: string,
-  initialState: ReduxState,
-  scriptElements: React.Node,
-  preloadResorceElement: React.Node
-): string {
+  css,
+  head,
+  content,
+  initialState,
+  scriptElements,
+  preloadResorceElement
+) {
   const Html = (
     <html lang="ja">
       <head>

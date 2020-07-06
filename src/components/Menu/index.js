@@ -1,6 +1,4 @@
-/* @flow */
-
-import * as React from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PreloadLink from 'components/PreloadLink';
 import { colors } from 'styles/variables';
@@ -44,11 +42,7 @@ const MenuLinkList = [
   },
 ];
 
-type Props = {
-  isOpenMenu: boolean,
-};
-
-export default function Menu(props: Props) {
+export default function Menu(props) {
   const { isOpenMenu } = props;
 
   return isOpenMenu ? (

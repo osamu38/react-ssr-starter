@@ -16,7 +16,10 @@
     [
       "module-resolver",
       {
-        "root": ["./", "./src"]
+        "root": [
+          "./",
+          "./src"
+        ]
       }
     ],
     "add-module-exports",
@@ -38,7 +41,6 @@
         }
       }
     ],
-    "@babel/preset-react",
-    "@babel/preset-flow"
+    "@babel/preset-react"
   ]
 }

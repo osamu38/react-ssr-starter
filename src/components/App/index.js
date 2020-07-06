@@ -1,6 +1,4 @@
-/* @flow */
-
-import * as React from 'react';
+import React from 'react';
 import { bindActionCreators, compose } from 'redux';
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
@@ -18,10 +16,9 @@ import link from 'utils/link';
 import routes from 'routes';
 import { isDevelopment } from 'config/env';
 import GlobalStyle from 'styles';
-import type { Dispatch, PageProps } from 'types';
 
-class App extends React.PureComponent<PageProps> {
-  componentDidUpdate(prevProps: PageProps) {
+class App extends React.PureComponent {
+  componentDidUpdate(prevProps) {
     const {
       history: { action },
       location: { pathname: prevPathname },
@@ -76,7 +73,7 @@ class App extends React.PureComponent<PageProps> {
                 key={i}
                 exact={!!route.exact}
                 path={route.path}
-                render={renderProps => (
+                render={(renderProps) => (
                   <route.component {...this.props} {...renderProps} />
                 )}
               />
@@ -88,11 +85,11 @@ class App extends React.PureComponent<PageProps> {
     );
   }
 }
-function mapStateToProps<S>(state: S): { state: S } {
+function mapStateToProps(state) {
   return { state };
 }
 function mapDispatchToProps() {
-  return (dispatch: Dispatch) => ({
+  return (dispatch) => ({
     dispatch,
     actions: {
       userActions: bindActionCreators(userActions, dispatch),

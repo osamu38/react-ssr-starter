@@ -1,4 +1,3 @@
-/* @flow */
 /* eslint-disable no-underscore-dangle */
 
 import React from 'react';
@@ -42,15 +41,15 @@ window.addEventListener('load', () => {
           // SW registration failed
         });
     } else {
-      navigator.serviceWorker.getRegistrations().then(registrations => {
-        registrations.forEach(registration => {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        registrations.forEach((registration) => {
           registration.unregister();
         });
       });
-      caches.keys().then(keys => {
+      caches.keys().then((keys) => {
         const promises = [];
 
-        keys.forEach(cacheName => {
+        keys.forEach((cacheName) => {
           if (cacheName) {
             promises.push(caches.delete(cacheName));
           }

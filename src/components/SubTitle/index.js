@@ -1,6 +1,4 @@
-/* @flow */
-
-import * as React from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { colors } from 'styles/variables';
 
@@ -11,11 +9,7 @@ const SubTitleUI = styled.div`
   color: ${colors.darkGray};
 `;
 
-type Props = {
-  children?: React.Node,
-};
-
-export default function SubTitle(props: Props) {
+export default function SubTitle(props) {
   const { children } = props;
 
   return <SubTitleUI>{children}</SubTitleUI>;

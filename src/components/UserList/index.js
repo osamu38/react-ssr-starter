@@ -1,11 +1,8 @@
-/* @flow */
-
-import * as React from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { colors } from 'styles/variables';
 import media from 'styles/media';
 import PreloadLink from 'components/PreloadLink';
-import type { User } from 'types/user';
 
 const UserListUI = styled.ul`
   width: 100%;
@@ -63,11 +60,7 @@ const UserListLink = styled.a`
   }
 `;
 
-type Props = {
-  userList: User[],
-};
-
-export default function UserList(props: Props) {
+export default function UserList(props) {
   const { userList } = props;
 
   return (

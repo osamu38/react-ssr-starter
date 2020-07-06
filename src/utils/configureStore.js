@@ -1,12 +1,9 @@
-/* @flow */
-
 import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import rootReducer from 'reducers';
 import { isDevelopment, isClient } from 'config/env';
-import type { Store, ReduxState } from 'types';
 
-export default function configureStore(initialState?: ReduxState): Store {
+export default function configureStore(initialState) {
   const middlewares = applyMiddleware(
     ...[
       thunkMiddleware,

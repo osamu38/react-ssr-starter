@@ -1,5 +1,3 @@
-/* @flow */
-
 import { parse } from 'query-string';
 import pathToRegexp from 'path-to-regexp';
 import { endpoint } from 'config/url';
@@ -13,7 +11,7 @@ function loadComponent(route) {
   return Promise.resolve({ default: { loadData: null } });
 }
 function getPageName(href) {
-  return Object.keys(endpoint).find(key =>
+  return Object.keys(endpoint).find((key) =>
     pathToRegexp(endpoint[key]).test(href)
   );
 }
@@ -34,18 +32,13 @@ function getParams(targetEndpoint, href) {
   );
 }
 
-async function customPush(
-  href: string,
-  push: Function,
-  dispatch: Function,
-  state: any
-) {
+async function customPush(href, push, dispatch, state) {
   const query = href.includes('?')
     ? parse(href, { arrayFormat: 'bracket' })
     : {};
   const pageName = getPageName(href);
   const targetEndpoint = pageName ? endpoint[pageName] : '';
-  const route = routes.find(item => item.path === targetEndpoint);
+  const route = routes.find((item) => item.path === targetEndpoint);
   const params = getParams(targetEndpoint, href);
   const loadedComponent = await loadComponent(route);
   const { loadData } = loadedComponent.default;

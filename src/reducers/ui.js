@@ -1,12 +1,8 @@
-/* @flow */
-
-import type { UiState, UiAction } from 'types/ui';
-
 export const initialState = {
   isOpenMenu: false,
   error: '',
 };
-export default (state: UiState = initialState, action: UiAction) => {
+export default (state = initialState, action) => {
   switch (action.type) {
     case 'OPEN_MENU':
       return {
