@@ -195,14 +195,18 @@ app.get('*', async (req, res) => {
 
 app.listen(port, (err) => {
   if (err) {
+    // eslint-disable-next-line no-console
     console.error(err);
   }
+  // eslint-disable-next-line no-console
   console.info('==> 🌎 Listening on port %s.', port);
 });
 
 process.on('unhandledRejection', (err) => {
+  // eslint-disable-next-line no-console
   console.error(err);
 });
 process.on('uncaughtException', (err) => {
+  // eslint-disable-next-line no-console
   console.error(err);
 });
