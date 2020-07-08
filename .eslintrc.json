@@ -4,6 +4,7 @@
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:prettier/recommended",
+    "plugin:jest/recommended",
     "prettier/react"
   ],
   "rules": {
@@ -18,13 +19,11 @@
     "react/require-default-props": 0,
     "react/prop-types": 0
   },
-  "plugins": ["react", "jest"],
   "parser": "babel-eslint",
   "env": {
     "browser": true,
     "node": true,
-    "es2020": true,
-    "jest/globals": true
+    "es2020": true
   },
   "settings": {
     "import/resolver": {
