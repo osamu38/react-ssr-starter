@@ -24,7 +24,6 @@
     "lint:css": "stylelint './src/**/*.js'",
     "dev": "nodemon index",
     "start": "NODE_ENV=production node index",
-    "start:inspect": "NODE_ENV=production node --inspect index",
     "storybook": "start-storybook -s ./public -p 2626 -c ./tools/storybook",
     "test": "NODE_ENV=test jest",
     "test:update": "npm test -- -u",
