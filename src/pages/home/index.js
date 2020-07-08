@@ -22,7 +22,7 @@ function HomePage(props) {
   );
 }
 
-HomePage.loadData = async (ctx) => {
+HomePage.loadData = (ctx) => {
   const {
     dispatch,
     state: {
