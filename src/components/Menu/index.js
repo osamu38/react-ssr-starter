@@ -42,7 +42,7 @@ const MenuLinkList = [
   },
 ];
 
-export default function Menu(props) {
+const Menu = (props) => {
   const { isOpenMenu } = props;
 
   return isOpenMenu ? (
@@ -54,4 +54,6 @@ export default function Menu(props) {
       ))}
     </MenuUI>
   ) : null;
-}
+};
+
+export default Menu;

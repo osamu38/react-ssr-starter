@@ -1,5 +1,5 @@
 import path from 'path';
 
-export function joinPath(...arg) {
+export const joinPath = (...arg) => {
   return path.join(process.cwd(), ...arg);
-}
+};

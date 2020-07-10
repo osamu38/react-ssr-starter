@@ -9,7 +9,7 @@ const MenuIconUI = styled.img`
   width: 32px;
 `;
 
-export default function MenuIcon(props) {
+const MenuIcon = (props) => {
   const { isOpenMenu, openMenu, closeMenu } = props;
 
   return (
@@ -25,4 +25,6 @@ export default function MenuIcon(props) {
       <MenuIconUI src="/static/images/svg/menu-icon.svg" alt="menu-icon" />
     </MenuIconWrapper>
   );
-}
+};
+
+export default MenuIcon;

@@ -11,10 +11,12 @@ const LogoUI = styled.a`
   line-height: 32px;
 `;
 
-export default function Logo() {
+const Logo = () => {
   return (
     <PreloadLink href={endpoint.home}>
       <LogoUI>React SSR Starter</LogoUI>
     </PreloadLink>
   );
-}
+};
+
+export default Logo;

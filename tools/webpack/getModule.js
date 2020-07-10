@@ -1,6 +1,6 @@
 import { joinPath } from 'utils/path';
 
-export default function getModule() {
+const getModule = () => {
   return {
     rules: [
       {
@@ -21,4 +21,6 @@ export default function getModule() {
       },
     ],
   };
-}
+};
+
+export default getModule;

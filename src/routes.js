@@ -13,7 +13,7 @@ const NotFound = loadable(() =>
   import(/* webpackPrefetch: true */ 'pages/notFound')
 );
 
-function addExact(routes) {
+const addExact = (routes) => {
   return routes.map((route) =>
     route.path !== endpoint.notFound
       ? {
@@ -22,7 +22,7 @@ function addExact(routes) {
         }
       : route
   );
-}
+};
 
 export default addExact([
   {

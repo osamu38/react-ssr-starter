@@ -9,8 +9,10 @@ const SubTitleUI = styled.div`
   color: ${colors.darkGray};
 `;
 
-export default function SubTitle(props) {
+const SubTitle = (props) => {
   const { children } = props;
 
   return <SubTitleUI>{children}</SubTitleUI>;
-}
+};
+
+export default SubTitle;

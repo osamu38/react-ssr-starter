@@ -1,14 +1,14 @@
-export function openMenu() {
+export const openMenu = () => {
   return (dispatch) => {
     dispatch({ type: 'OPEN_MENU' });
   };
-}
-export function closeMenu() {
+};
+export const closeMenu = () => {
   return (dispatch) => {
     dispatch({ type: 'CLOSE_MENU' });
   };
-}
-export function showError(error) {
+};
+export const showError = (error) => {
   return (dispatch) => {
     dispatch({
       type: 'SHOW_ERROR',
@@ -17,9 +17,9 @@ export function showError(error) {
       },
     });
   };
-}
-export function hideError() {
+};
+export const hideError = () => {
   return (dispatch) => {
     dispatch({ type: 'HIDE_ERROR' });
   };
-}
+};

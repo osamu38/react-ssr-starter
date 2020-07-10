@@ -4,9 +4,9 @@ import GlobalStyle from 'styles';
 
 const req = require.context('../../src/components', true, /\.stories\.js$/);
 
-function loadStories() {
+const loadStories = () => {
   req.keys().forEach((filename) => req(filename));
-}
+};
 
 addDecorator((story) => (
   <>

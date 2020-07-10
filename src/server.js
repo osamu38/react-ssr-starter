@@ -26,7 +26,7 @@ import { port as defaultPort } from 'config/url';
 const port = process.env.PORT || defaultPort;
 const app = express();
 
-function getLoadBranchData(branch, store, query) {
+const getLoadBranchData = (branch, store, query) => {
   return branch
     .filter(({ route }) => route.component.loadData)
     .map(({ route, match }) =>
@@ -38,8 +38,8 @@ function getLoadBranchData(branch, store, query) {
         route,
       })
     );
-}
-function loadComponents(branch) {
+};
+const loadComponents = (branch) => {
   return Promise.all(
     branch.map(({ route }) => {
       if (route.component.load) {
@@ -48,8 +48,8 @@ function loadComponents(branch) {
       return Promise.resolve();
     })
   );
-}
-function getBranchWithLoadedComponents(branch, loadedComponents) {
+};
+const getBranchWithLoadedComponents = (branch, loadedComponents) => {
   return loadedComponents.map((component, index) => ({
     ...branch[index],
     route: {
@@ -59,8 +59,8 @@ function getBranchWithLoadedComponents(branch, loadedComponents) {
       }),
     },
   }));
-}
-function getRedirectUrls(branch, store, query) {
+};
+const getRedirectUrls = (branch, store, query) => {
   return branch
     .filter(({ route }) => route.component.getRedirectUrl)
     .map(({ route, match }) =>
@@ -73,8 +73,8 @@ function getRedirectUrls(branch, store, query) {
       })
     )
     .filter((location) => location);
-}
-function getExtractor() {
+};
+const getExtractor = () => {
   const statsFile = joinPath(
     !isDevelopment ? 'dist' : '',
     'public/static/javascripts/loadable-stats.json'
@@ -82,7 +82,7 @@ function getExtractor() {
   const extractor = new ChunkExtractor({ statsFile });
 
   return extractor;
-}
+};
 
 app.use(helmet());
 app.use(hpp());

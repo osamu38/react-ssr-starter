@@ -4,14 +4,14 @@ import serialize from 'serialize-javascript';
 import { minify } from 'html-minifier';
 import { isDevelopment } from 'config/env';
 
-export default function getHtmlString(
+const getHtmlString = (
   css,
   head,
   content,
   initialState,
   scriptElements,
   preloadResorceElement
-) {
+) => {
   const Html = (
     <html lang="ja">
       <head>
@@ -46,4 +46,6 @@ export default function getHtmlString(
   };
 
   return minify(htmlString, minifyConfig);
-}
+};
+
+export default getHtmlString;

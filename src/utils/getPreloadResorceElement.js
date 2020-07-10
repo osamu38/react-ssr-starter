@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function getPreloadResorceElement(content, styleTags) {
+const getPreloadResorceElement = (content, styleTags) => {
   const resourcesFromImageTag = (
     content.match(/src=".*?"/g) || []
   ).map((item) => item.slice(5, -1));
@@ -16,12 +16,11 @@ export default function getPreloadResorceElement(content, styleTags) {
     ...resourcesFromBackgroundImage,
   ];
 
-  return (
-    totalResources.filter((item, index, array) => array.indexOf(item) === index)
-      .map <
-    React.Node >
-    ((resource) => (
+  return totalResources
+    .filter((item, index, array) => array.indexOf(item) === index)
+    .map((resource) => (
       <link rel="preload" as="image" href={resource} key={resource} />
-    ))
-  );
-}
+    ));
+};
+
+export default getPreloadResorceElement;

@@ -4,7 +4,7 @@ import Title from 'components/Title';
 import UserDetail from 'components/UserDetail';
 import { fetchUser } from 'actions/user';
 
-function UserDetailPage(props) {
+const UserDetailPage = (props) => {
   const {
     state: {
       user: { user },
@@ -18,7 +18,7 @@ function UserDetailPage(props) {
       <UserDetail user={user} />
     </>
   );
-}
+};
 
 UserDetailPage.loadData = ({ dispatch, params }) => {
   return dispatch(fetchUser(params.id));

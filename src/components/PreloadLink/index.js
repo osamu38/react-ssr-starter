@@ -4,16 +4,16 @@ import { connect } from 'react-redux';
 import withExtendRouter from 'components/withExtendRouter';
 import customPush from 'utils/customPush';
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return { state };
-}
-function mapDispatchToProps() {
+};
+const mapDispatchToProps = () => {
   return (dispatch) => ({
     dispatch,
   });
-}
+};
 
-function PreloadLink(props) {
+const PreloadLink = (props) => {
   const {
     href,
     children,
@@ -29,7 +29,7 @@ function PreloadLink(props) {
       await customPush(href, push, dispatch, state);
     },
   });
-}
+};
 
 const enhancers = [
   withExtendRouter,

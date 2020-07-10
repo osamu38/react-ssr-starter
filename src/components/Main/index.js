@@ -9,8 +9,10 @@ const MainUI = styled.div`
   max-width: ${sizes.width.main + spaces.main * 2}px;
 `;
 
-export default function Main(props) {
+const Main = (props) => {
   const { children } = props;
 
   return <MainUI>{children}</MainUI>;
-}
+};
+
+export default Main;

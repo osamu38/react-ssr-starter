@@ -4,18 +4,18 @@ import { endpoint } from 'config/url';
 import routes from 'routes';
 import { isJSON } from 'utils/helpers';
 
-function loadComponent(route) {
+const loadComponent = (route) => {
   if (route && route.component && route.component.load) {
     return route.component.load();
   }
   return Promise.resolve({ default: { loadData: null } });
-}
-function getPageName(href) {
+};
+const getPageName = (href) => {
   return Object.keys(endpoint).find((key) =>
     pathToRegexp(endpoint[key]).test(href)
   );
-}
-function getParams(targetEndpoint, href) {
+};
+const getParams = (targetEndpoint, href) => {
   const re = pathToRegexp(targetEndpoint);
   const endpointInfo = re.exec(href) || [];
   const keys = [];
@@ -30,9 +30,9 @@ function getParams(targetEndpoint, href) {
     }),
     {}
   );
-}
+};
 
-async function customPush(href, push, dispatch, state) {
+const customPush = async (href, push, dispatch, state) => {
   const query = href.includes('?')
     ? parse(href, { arrayFormat: 'bracket' })
     : {};
@@ -47,6 +47,6 @@ async function customPush(href, push, dispatch, state) {
     await loadData({ dispatch, state, params, query, route });
   }
   push(href);
-}
+};
 
 export default customPush;

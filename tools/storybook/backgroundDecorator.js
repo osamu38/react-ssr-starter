@@ -7,6 +7,8 @@ const BackgroundUI = styled.div`
   background-color: ${colors.superDarkGray};
 `;
 
-export default function backgroundDecorater(story) {
+const backgroundDecorater = (story) => {
   return <BackgroundUI>{story()}</BackgroundUI>;
-}
+};
+
+export default backgroundDecorater;

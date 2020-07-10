@@ -12,7 +12,7 @@ const UserDetailInner = styled.div`
   border: 1px ${colors.superLightGray} solid;
 `;
 
-export default function UserDetail(props) {
+const UserDetail = (props) => {
   const {
     user: {
       id,
@@ -55,4 +55,6 @@ export default function UserDetail(props) {
       </UserDetailInner>
     </UserDetailUI>
   );
-}
+};
+
+export default UserDetail;

@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { parse } from 'query-string';
 
-function withExtendRouter(Component) {
+const withExtendRouter = (Component) => {
   const HOC = (props) => {
     const { location } = props;
     const { search } = location;
@@ -13,6 +13,6 @@ function withExtendRouter(Component) {
     return <Component {...props} location={location} />;
   };
   return withRouter(HOC);
-}
+};
 
 export default withExtendRouter;

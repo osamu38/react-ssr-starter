@@ -85,10 +85,10 @@ class App extends React.PureComponent {
     );
   }
 }
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return { state };
-}
-function mapDispatchToProps() {
+};
+const mapDispatchToProps = () => {
   return (dispatch) => ({
     dispatch,
     actions: {
@@ -96,7 +96,7 @@ function mapDispatchToProps() {
       uiActions: bindActionCreators(uiActions, dispatch),
     },
   });
-}
+};
 
 const enhancers = [
   withExtendRouter,

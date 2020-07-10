@@ -24,7 +24,7 @@ const ErrorUI = styled.div`
   animation: ${flash} 4s ease;
 `;
 
-export default function Error(props) {
+const Error = (props) => {
   const { hideError, children } = props;
 
   return (
@@ -36,4 +36,6 @@ export default function Error(props) {
       {children}
     </ErrorUI>
   );
-}
+};
+
+export default Error;

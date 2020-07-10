@@ -5,7 +5,7 @@ import SubTitle from 'components/SubTitle';
 import UserList from 'components/UserList';
 import { fetchUsers } from 'actions/user';
 
-function HomePage(props) {
+const HomePage = (props) => {
   const {
     state: {
       user: { userList },
@@ -20,7 +20,7 @@ function HomePage(props) {
       <UserList userList={userList} />
     </>
   );
-}
+};
 
 HomePage.loadData = (ctx) => {
   const {

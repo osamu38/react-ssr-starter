@@ -16,6 +16,8 @@ const FooterUI = styled.div`
   line-height: 32px;
 `;
 
-export default function Footer() {
+const Footer = () => {
   return <FooterUI>© 2018 osamu38</FooterUI>;
-}
+};
+
+export default Footer;

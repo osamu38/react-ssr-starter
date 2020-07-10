@@ -9,7 +9,7 @@ import LoadablePlugin from '@loadable/webpack-plugin';
 import { env, isDevelopment } from 'config/env';
 import { joinPath } from 'utils/path';
 
-export default function getPlugins(isAnalyze) {
+const getPlugins = (isAnalyze) => {
   return [
     new webpack.EnvironmentPlugin({
       NODE_ENV: `${env}`,
@@ -56,4 +56,6 @@ export default function getPlugins(isAnalyze) {
         ]),
     ...(isAnalyze ? [new BundleAnalyzerPlugin({ analyzerPort: 8888 })] : []),
   ];
-}
+};
+
+export default getPlugins;

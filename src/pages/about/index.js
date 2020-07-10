@@ -4,7 +4,7 @@ import Title from 'components/Title';
 import SubTitle from 'components/SubTitle';
 import StackList from 'components/StackList';
 
-export default function AboutPage() {
+const AboutPage = () => {
   return (
     <>
       <Helmet title="About" />
@@ -13,4 +13,6 @@ export default function AboutPage() {
       <StackList />
     </>
   );
-}
+};
+
+export default AboutPage;

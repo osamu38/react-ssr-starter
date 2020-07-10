@@ -90,7 +90,7 @@ const stackData = [
   },
 ];
 
-export default function StackList() {
+const StackList = () => {
   return (
     <StackListUI>
       {stackData.map((item, i) => (
@@ -102,4 +102,6 @@ export default function StackList() {
       ))}
     </StackListUI>
   );
-}
+};
+
+export default StackList;

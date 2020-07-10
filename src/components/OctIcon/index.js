@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function OctIcon(props) {
+const OctIcon = (props) => {
   const { className } = props;
 
   return (
@@ -13,4 +13,6 @@ export default function OctIcon(props) {
       <img src="/static/images/svg/oct-icon.svg" alt="oct-icon" />
     </a>
   );
-}
+};
+
+export default OctIcon;

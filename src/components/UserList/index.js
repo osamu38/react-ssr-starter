@@ -60,7 +60,7 @@ const UserListLink = styled.a`
   }
 `;
 
-export default function UserList(props) {
+const UserList = (props) => {
   const { userList } = props;
 
   return (
@@ -74,4 +74,6 @@ export default function UserList(props) {
       ))}
     </UserListUI>
   );
-}
+};
+
+export default UserList;

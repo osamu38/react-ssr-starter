@@ -5,7 +5,7 @@ import LoadablePlugin from '@loadable/webpack-plugin';
 import { env } from 'config/env';
 import { joinPath } from 'utils/path';
 
-export default function getPlugins(isAnalyze) {
+const getPlugins = (isAnalyze) => {
   return [
     new webpack.IgnorePlugin(/webpack\.client\.babel/),
     new webpack.EnvironmentPlugin({ NODE_ENV: `${env}` }),
@@ -16,4 +16,6 @@ export default function getPlugins(isAnalyze) {
     new LoadablePlugin(),
     ...(isAnalyze ? [new BundleAnalyzerPlugin({ analyzerPort: 8889 })] : []),
   ];
-}
+};
+
+export default getPlugins;

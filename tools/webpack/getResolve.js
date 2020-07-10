@@ -1,6 +1,6 @@
 import { isDevelopment } from 'config/env';
 
-export default function getResolve() {
+const getResolve = () => {
   return {
     extensions: ['.js', '.json'],
     ...(!isDevelopment
@@ -12,4 +12,6 @@ export default function getResolve() {
         }
       : {}),
   };
-}
+};
+
+export default getResolve;

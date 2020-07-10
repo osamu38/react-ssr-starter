@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export function fetchUser(id) {
+export const fetchUser = (id) => {
   return (dispatch) =>
     axios
       .get(`https://jsonplaceholder.typicode.com/users/${id}`)
@@ -14,8 +14,8 @@ export function fetchUser(id) {
         // eslint-disable-next-line no-console
         console.error(err);
       });
-}
-export function fetchUsers() {
+};
+export const fetchUsers = () => {
   return (dispatch) =>
     axios
       .get('https://jsonplaceholder.typicode.com/users')
@@ -29,4 +29,4 @@ export function fetchUsers() {
         // eslint-disable-next-line no-console
         console.error(err);
       });
-}
+};

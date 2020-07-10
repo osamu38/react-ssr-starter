@@ -34,7 +34,7 @@ const StyledOctIcon = styled(OctIcon)`
   margin-right: 12px;
 `;
 
-export default function Header(props) {
+const Header = (props) => {
   const { isOpenMenu, openMenu, closeMenu } = props;
 
   return (
@@ -55,4 +55,6 @@ export default function Header(props) {
       </HeaderUI>
     </HeaderContainer>
   );
-}
+};
+
+export default Header;

@@ -9,8 +9,10 @@ const TitleUI = styled.h1`
   color: ${colors.accent};
 `;
 
-export default function Title(props) {
+const Title = (props) => {
   const { children } = props;
 
   return <TitleUI>{children}</TitleUI>;
-}
+};
+
+export default Title;

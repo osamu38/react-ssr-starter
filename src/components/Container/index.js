@@ -7,8 +7,10 @@ const ContainerUI = styled.div`
   min-height: 100vh;
 `;
 
-export default function Container(props) {
+const Container = (props) => {
   const { children } = props;
 
   return <ContainerUI>{children}</ContainerUI>;
-}
+};
+
+export default Container;
